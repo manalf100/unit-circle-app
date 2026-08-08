@@ -25,7 +25,7 @@ else:
 st.sidebar.write("---")
 
 # ==========================================
-# MAIN CURRICULUM SELECTION (Trigonometry Focus)
+# MAIN PORTAL MODES SELECTION
 # ==========================================
 section_mode = st.sidebar.radio(
     "Portal Modes:",
@@ -37,14 +37,15 @@ section_mode = st.sidebar.radio(
     ]
 )
 
+st.sidebar.write("---")
+
 # ----------------------------------------------------
 # 1. CURRICULUM & LESSONS MODE
 # ----------------------------------------------------
 if section_mode == "📘 Curriculum & Lessons":
-    st.sidebar.write("---")
     lesson = st.sidebar.selectbox("Select Lesson / Topic:", [
-        "1. Unit Circle & Trig Ratios",
-        "2. Six Trigonometric Functions",
+        "1. Six Trigonometric Functions",
+        "2. Unit Circle & Trig Ratios",
         "3. Related Angles & Rotation",
         "4. Law of Sine & Cosine",
         "5. Angles of Elevation & Depression",
@@ -53,8 +54,13 @@ if section_mode == "📘 Curriculum & Lessons":
 
     st.markdown(f"### 📌 Current Focus: {lesson}")
 
-    if lesson == "1. Unit Circle & Trig Ratios":
-        st.write("### 📘 Interactive Unit Circle Explorer")
+    if lesson == "1. Six Trigonometric Functions":
+        st.markdown("### 📐 The Six Trigonometric Functions (Foundations)")
+        st.write("دراسة وتريف الدوال المثلثية الست (Sine, Cosine, Tangent, Csec, Sec, Cot) في المثلثات القائمة والنسب الأساسية قبل الانتقال لدائرة الوحدة.")
+        st.info("🎯 تمرين الكلاس: استنتاج النسب الست لمثلثات معلومة الأضلاع (STEM Rigor Drill).")
+
+    elif lesson == "2. Unit Circle & Trig Ratios":
+        st.markdown("### 📘 Interactive Unit Circle Explorer")
         angle_deg = st.slider("Select Angle (Degrees):", 0, 360, 45)
         rad = np.radians(angle_deg)
         x, y = np.cos(rad), np.sin(rad)
@@ -80,23 +86,22 @@ if section_mode == "📘 Curriculum & Lessons":
 
         st.write("---")
         st.markdown("#### 🎯 Class Exercises & Drills (STEM Rigor)")
-        st.info("هنا يتم طرح تمارين الكلاس (10 أسئلة تطبيقية مكثفة لضغط وتثبيت المهارة).")
+        st.info("10 أسئلة تطبيقية مكثفة لربط إحداثيات دائرة الوحدة بالقيم المثلثية.")
 
     elif lesson == "🔥 Full Unit Revision Session":
         st.markdown("## ⚡ Full Unit Revision & Drill Session")
-        st.warning("هذه الحصة مخصصة بالكامل لـ (حوالي 50 سؤال متنوع / SAT II & AP Style) لفرك أفكار الطلاب وتثبيت المنهج بالكامل!")
-        st.write("- يتم عرض الأسئلة تباعاً بدون تصنيف مسبق لتدريب الطلاب على نمط الامتحانات الحقيقي.")
+        st.warning("حصة مخصصة بالكامل لـ (حوالي 50 سؤال متنوع / SAT II & AP Style) لفرك أفكار الطلاب وتثبيت المنهج بالكامل!")
 
 # ----------------------------------------------------
 # 2. DIRECT SHARE LINK GENERATOR MODE
 # ----------------------------------------------------
 elif section_mode == "🔗 Direct Share Link Generator":
     st.markdown("### 🔗 Direct Share Link Generator")
-    st.write("أداة سريعة لإنشاء وإرسال روابط مباشرة لأي طالب يسألك عن درس أو تمرين معين خارج الحصة:")
+    st.write("أداة سريعة لإنشاء وإرسال روابط مباشرة لأي طالب يسألك عن درس أو تمرين معين:")
     
     target_item = st.selectbox("Select Item to Share:", [
-        "Lesson 1: Unit Circle Interactive",
-        "Lesson 2: Trig Functions Drills",
+        "Lesson 1: Six Trig Functions",
+        "Lesson 2: Unit Circle Interactive",
         "Full Revision Session Bank"
     ])
     
@@ -112,9 +117,10 @@ elif section_mode == "🏆 Advanced Challenges (Top Students)":
     st.info("هذا القسم مخصص حصرياً للطلبة الفائقين جداً وأصحاب الأسئلة غير التقليدية (Out of the box).")
     
     st.markdown("#### 💡 Challenge Problem #1:")
-    st.write("إذا كانت $\\sec(\\theta) - \\tan(\\theta) = p$، أثبت أن $\\csc(\\theta) = \\frac{1 + p^2}{1 - p^2}$")
+    st.latex(r"\text{If } \sec(\theta) - \tan(\theta) = p, \text{ prove that } \csc(\theta) = \frac{1 + p^2}{1 - p^2}")
+    
     with st.expander("🔍 عرض الحل النموذجي والتوضيح المتقدم"):
-        st.success("الخطوات البرهانية الكاملة مع الشرح التحليلي للمتميزين...")
+        st.success("الخطوات البرهانية الكاملة مع الشرح التحليلي للمتميزين متضمنة العلاقات الهامة بين القواطع والظل.")
 
 # ----------------------------------------------------
 # 4. EXTERNAL / EXTRA PDF BANK MODE
@@ -124,8 +130,7 @@ else:
     st.info("مكتبة أوراق العمل الإضافية وملفات الـ PDF الجاهزة للطباعة أو الاستخدام الفوري في أي وقت خارج الحصص الرسمية.")
     
     st.markdown("""
-    * 📄 **Extra Worksheet 1:** Unit Circle Advanced Problems (PDF) - [Download / Print]
-    * 📄 **Extra Worksheet 2:** Trig Identities High-Rigor Drills (PDF) - [Download / Print]
+    * 📄 **Extra Worksheet 1:** Six Trig Functions Mastery (PDF) - [Download / Print]
+    * 📄 **Extra Worksheet 2:** Unit Circle Advanced Problems (PDF) - [Download / Print]
     * 📄 **Extra Worksheet 3:** Exam Simulation Mock (PDF) - [Download / Print]
     """)
-  
