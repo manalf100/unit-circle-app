@@ -2,18 +2,18 @@ import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-# إعداد الصفحة وتنسيقها مع اسم أستاذنا الغالي
-st.set_page_config(page_title="STEM Math - Tarek Deraz", layout="wide")
+# إعداد الصفحة وتنسيقها
+st.set_page_config(page_title="STEM Math - Tarek Shawky", layout="wide")
 
 st.title("🎯 Lesson 1: Six Trig Functions, Unit Circle & Triangle Relations")
-st.markdown("### 👨‍🏫 إعداد الأستاذ: طارق دراز (Tarek Deraz)")
+st.markdown("### 👨‍🏫 Prepared by: Tarek Shawky")
 st.markdown("---")
 
 # ==========================================
 # Part 1: Right-Angled Triangle & The Six Trig Functions
 # ==========================================
 st.header("📐 1. Right-Angled Triangle & The Six Trigonometric Functions")
-st.markdown("Visualizing the right-angled triangle relations and connecting $\\tan(\\theta)$ directly to the **Slope** (تمثل الميل بدقة لأسئلة الـ STEM):")
+st.markdown(r"Visualizing the right-angled triangle relations and connecting $\tan(\theta)$ directly to the **Slope** (representing the slope accurately for STEM questions):")
 
 col1, col2 = st.columns(2)
 
@@ -21,7 +21,7 @@ with col1:
     st.markdown(r"""
     * **$\sin(C) = \frac{\text{Opp}}{\text{Hyp}} = \frac{AB}{AC}$**
     * **$\cos(C) = \frac{\text{Adj}}{\text{Hyp}} = \frac{BC}{AC}$**
-    * **$\tan(C) = \frac{\text{Opp}}{\text{Adj}} = \frac{AB}{BC}$** *(السلوب / الميل)*
+    * **$\tan(C) = \frac{\text{Opp}}{\text{Adj}} = \frac{AB}{BC}$** *(Slope / Gradient)*
     """)
 
 with col2:
@@ -35,13 +35,29 @@ with col2:
       * $\sin(A) = \cos(C)$
     """)
 
+# إضافة رسمة هندسيّة للمثلث القائم لتظهر بوضوح تام أمام الطلاب
+fig_tri, ax_tri = plt.subplots(figsize=(5, 4))
+ax_tri.plot([0, 4, 0, 0], [0, 0, 3, 0], color='blue', linewidth=2.5)
+ax_tri.text(2, -0.4, 'Adjacent ($BC$)', fontsize=11, ha='center')
+ax_tri.text(-0.4, 1.5, 'Opposite ($AB$)', fontsize=11, va='center', rotation=90)
+ax_tri.text(2.2, 1.6, 'Hypotenuse ($AC$)', fontsize=11, color='red', rotation=37)
+ax_tri.text(0.2, 0.2, 'C', fontsize=12, fontweight='bold')
+ax_tri.text(3.7, 0.2, 'A', fontsize=12, fontweight='bold')
+ax_tri.text(0.2, 2.7, 'B', fontsize=12, fontweight='bold')
+ax_tri.set_xlim(-1, 5)
+ax_tri.set_ylim(-1, 4)
+ax_tri.axis('off')
+ax_tri.set_title("Right-Angled Triangle Visualizer")
+
+st.pyplot(fig_tri)
+
 st.markdown("---")
 
 # ==========================================
 # Part 2: Interactive Unit Circle Visualizer
 # ==========================================
 st.header("🔵 2. Interactive Unit Circle Visualizer")
-st.markdown("Exploring coordinates on the Unit Circle where $x = \cos(\theta)$ and $y = \sin(\theta)$ (Identity: $x^2 + y^2 = 1$):")
+st.markdown(r"Exploring coordinates on the Unit Circle where $x = \cos(\theta)$ and $y = \sin(\theta)$ (Identity: $x^2 + y^2 = 1$):")
 
 # اختيار الزاوية
 angle_deg = st.slider("Select Angle (Degrees):", min_value=0, max_value=360, value=75, step=1)
@@ -54,7 +70,7 @@ ax.axvline(0, color='black', linewidth=1)
 ax.grid(True, linestyle='--', alpha=0.6)
 
 # رسم الدائرة الكاملة
-circle = plt.Circle((0, 0), 1, color='blue', fill=False, linewidth=2, label='Unit Circle ($x^2 + y^2 = 1$)')
+circle = plt.Circle((0, 0), 1, color='blue', fill=False, linewidth=2, label=r'Unit Circle ($x^2 + y^2 = 1$)')
 ax.add_patch(circle)
 
 # إحداثيات النقطة
@@ -75,15 +91,15 @@ ax.set_title(f"Unit Circle: cos = {x_val:.3f}, sin = {y_val:.3f}")
 st.pyplot(fig)
 
 # عرض القيم الرياضية والمتطابقات بدون أخطاء
-st.markdown(f"""
-### 📊 Live Calculated Values for {angle_deg}°:
-* **$x$ (Cosine):** `{x_val:.4f}`
-* **$y$ (Sine):** `{y_val:.4f}`
-* **Fundamental Identity ($x^2 + y^2 = 1$):** `{(x_val**2 + y_val**2):.4f}`
+st.markdown(r"""
+### 📊 Live Calculated Values for %d°:
+* **$x$ ($\cos(\theta)$):** %.4f
+* **$y$ ($\sin(\theta)$):** %.4f
+* **Fundamental Identity ($x^2 + y^2 = 1$):** %.4f
 * **Secant & Cosecant Identities:**
   * $\sec^2(\theta) = 1 + \tan^2(\theta)$
   * $\csc^2(\theta) = 1 + \cot^2(\theta)$
-""")
+""" % (angle_deg, x_val, y_val, (x_val**2 + y_val**2)))
 
 st.markdown("---")
-st.success("تم ضبط وتعديل الكود بالكامل مع الاسم والعزومة، وكل شيء يظهر بتهذيب ودقة تامة يا غالي.")
+st.success("Lesson 1 code has been fully updated with the right triangle plot and clean formatting.")
