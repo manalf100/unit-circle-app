@@ -204,7 +204,7 @@ if section_mode == "Curriculum & Interactive Lessons":
             ("9", r"If a point has polar coordinates $(6, \frac{5\pi}{6})$, what is its Cartesian x-coordinate?", 
              ["A) $-3$", "B) $-3\sqrt{3}$", "C) $3$", "D) $3\sqrt{3}$"], "B) $-3\sqrt{3}$", r"x = 6\cos(150^\circ) = 6(-\frac{\sqrt{3}}{2}) = -3\sqrt{3}."),
             ("10", r"Find the angle in radians equivalent to $-225^\circ$.", 
-             ["A) $-3\pi/4$", "B) $-5\pi/4$", "C) $-7\pi/6$", "D) $-4\pi/3$"], "B) $-5\pi/4$", r"-225 \times \frac{\pi}{180} = -\frac{5\pi}{4}\text{ rad}."]
+             ["A) $-3\pi/4$", "B) $-5\pi/4$", "C) $-7\pi/6$", "D) $-4\pi/3$"], "B) $-5\pi/4$", r"-225 \times \frac{\pi}{180} = -\frac{5\pi}{4}\text{ rad}.")
         ]
 
         for num, q_text, options, correct_ans, sol_text in exercises_l3:
