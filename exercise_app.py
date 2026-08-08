@@ -44,7 +44,6 @@ if section_mode == "Curriculum & Lessons":
         st.write("---")
         st.markdown(r"### 📝 Class Exercises & Drills (STEM Rigor - 10 Questions)")
         
-        # Questions 1 to 10
         exercises = [
             ("1.1 (Easy)", r"In a right triangle where $\text{Opp} = 3$ and $\text{Adj} = 4$, find $\sin(\theta)$ and $\cos(\theta)$.", r"\text{Hyp} = 5, \quad \sin(\theta) = \frac{3}{5}, \quad \cos(\theta) = \frac{4}{5}"),
             ("1.2 (Easy)", r"Given $\sin(\theta) = \frac{5}{13}$ in QI, find $\tan(\theta)$ and $\sec(\theta).$", r"\text{Adj} = 12, \quad \tan(\theta) = \frac{5}{12}, \quad \sec(\theta) = \frac{13}{12}"),
@@ -112,8 +111,8 @@ if section_mode == "Curriculum & Lessons":
         ]
         
         for num, q, sol in uc_exercises:
-            st.markdown(f"**Exercise {num}:** {q}")
-            with st.expander(f"💡 View Solution {num}"):
+            st.markdown(r"**Exercise " + num + r":** " + q)
+            with st.expander(r"💡 View Solution " + num):
                 st.latex(sol)
 
         st.markdown("---")
@@ -124,7 +123,7 @@ if section_mode == "Curriculum & Lessons":
         st.markdown(r"### 📐 Angle Conversion: Degrees, Radians & Polar Form")
         st.write("To convert between degrees and radians:")
         st.latex(r"180^\circ = \pi \text{ radians} \implies \text{Radian} = \text{Degree} \times \frac{\pi}{180^\circ}")
-        st.write("Polar Form of a point $(x,y)$ on the plane is given by $r(\cos(\theta) + i\sin(\theta))$ or $(r, \theta)$ where $r = \sqrt{x^2+y^2}$.")
+        st.write("Polar Form of a point $(x,y)$ on the plane is given by $(r, \theta)$ where $r = \sqrt{x^2+y^2}$ and $\theta = \arctan(y/x)$.")
         
         st.markdown("---")
         st.markdown(r"### 📝 Conversion & Polar Exercises")
@@ -136,8 +135,8 @@ if section_mode == "Curriculum & Lessons":
         ]
         
         for num, q, sol in conv_exercises:
-            st.markdown(f"**Exercise {num}:** {q}")
-            with st.expander(f"💡 View Solution {num}"):
+            st.markdown(r"**Exercise " + num + r":** " + q)
+            with st.expander(r"💡 View Solution " + num):
                 st.latex(sol)
 
 # ==========================================
@@ -174,7 +173,6 @@ else:
     st.header("📁 PDF Worksheet & Material Bank")
     st.write("Download official printable worksheets for offline classroom use.")
     
-    # Real working download buttons with robust byte payloads
     st.download_button(
         label="📥 Download Worksheet 1: Trig Functions Masterclass (PDF)",
         data=b"%PDF-1.4 Worksheet 1 Content for Mr. Tarek Shawky STEM Classes",
