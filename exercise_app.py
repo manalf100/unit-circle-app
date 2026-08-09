@@ -90,7 +90,7 @@ if app_mode == "Lesson 1: Six Trig Functions & Unit Circle":
     ax.set_ylim(-1.3, 1.3)
     ax.set_aspect('equal')
     ax.legend(loc='upper right')
-    ax.set_title(f"Unit Circle: cos = {x_val:.3f}, sin = {y_val:.3f}")
+    ax.set_title(r"Unit Circle: $\cos(\theta) = %.3f, \sin(\theta) = %.3f$" % (x_val, y_val))
 
     st.pyplot(fig)
 
@@ -105,32 +105,87 @@ if app_mode == "Lesson 1: Six Trig Functions & Unit Circle":
     """ % (angle_deg, x_val, y_val, (x_val**2 + y_val**2)))
 
 # ==========================================
-# الصفحة الثانية: التمارين والتدريبات (Exercises & Drills)
+# الصفحة الثانية: التمارين والتدريبات (Exercises & Drills - MCQ)
 # ==========================================
 elif app_mode == "Lesson 1 Exercises & Drills":
-    st.title("📝 Lesson 1: Exercises & Drills (STEM Rigor)")
+    st.title("📝 Lesson 1: Exercises & Drills (STEM Rigor - MCQs)")
     st.markdown("### 👨‍🏫 Prepared by: Tarek Shawky")
     st.markdown("---")
-    st.write("Interactive classroom drills and STEM-focused problem solving.")
     
-    st.markdown("#### Question 1: Connection between Slope and Trigonometry")
-    st.write(r"If a line passes through the origin with an angle of elevation $\theta$, how does its slope relate to $\tan(\theta)$?")
-    ans = st.text_input("Your Answer:")
-    if st.button("Check Answer"):
-        if "tan" in ans.lower() or "slope" in ans.lower():
-            st.success("Correct! The slope of a line is equal to $\tan(\theta)$.")
+    st.markdown(r"#### Question 1: Connection between Slope and Trigonometry")
+    st.markdown(r"If a line passes through the origin with an angle of elevation $\theta$, how does its slope relate to $\tan(\theta)$?")
+    
+    q1_options = [
+        "Select your answer...",
+        "A) Slope is equal to $\sin(\theta)$",
+        "B) Slope is equal to $\tan(\theta)$",
+        "C) Slope is equal to $\cos(\theta)$",
+        "D) Slope is equal to $\cot(\theta)$"
+    ]
+    q1_choice = st.selectbox("Choose the correct option:", q1_options, key="q1")
+    
+    if st.checkbox("Show Hint for Q1", key="hint1"):
+        st.info(r"💡 **Hint:** Think about Rise over Run ($\frac{\text{Opposite}}{\text{Adjacent}}$) in a right-angled triangle formed by the line.")
+        
+    if st.button("Check Q1 Answer"):
+        if q1_choice == "B) Slope is equal to $\tan(\theta)$":
+            st.success("🎉 Correct! The slope of a line represents the ratio of vertical change to horizontal change, which is $\tan(\theta)$.")
+        elif q1_choice == "Select your answer...":
+            st.warning("⚠️ Please select an option first.")
         else:
-            st.warning("Keep thinking! Relate the vertical change over horizontal change to trigonometric ratios.")
+            st.error("❌ Incorrect. Review the definition of slope in terms of opposite and adjacent sides.")
 
 # ==========================================
-# الصفحة الثالثة: الواجب المنزلي (Homework)
+# الصفحة الثالثة: الواجب المنزلي (Homework - MCQ format)
 # ==========================================
 elif app_mode == "Lesson 1 Homework":
-    st.title("📚 Lesson 1: Homework Assignments")
+    st.title("📚 Lesson 1: Homework Assignments (MCQs)")
     st.markdown("### 👨‍🏫 Prepared by: Tarek Shawky")
     st.markdown("---")
-    st.write("Home assignments and problem sets for students:")
-    st.markdown(r"""
-    * **Problem 1:** Prove that $\sec^2(\theta) - \tan^2(\theta) = 1$ using the unit circle coordinates.
-    * **Problem 2:** Find the exact values of all six trigonometric functions if $\sin(\theta) = 0.6$ and $\theta$ is in the first quadrant.
-    """)
+    
+    st.markdown("#### Question 1: Fundamental Identities")
+    st.markdown(r"What is the value of $\sec^2(\theta) - \tan^2(\theta)$ for any valid angle $\theta$?")
+    
+    hw1_options = [
+        "Select your answer...",
+        "A) 0",
+        "B) 1",
+        "C) -1",
+        "D) $\sin^2(\theta)$"
+    ]
+    hw1_choice = st.selectbox("Choose the correct option:", hw1_options, key="hw1")
+    
+    if st.checkbox("Show Hint for Homework Q1", key="hw_hint1"):
+        st.info(r"💡 **Hint:** Divide the fundamental identity $x^2 + y^2 = 1$ by $\cos^2(\theta)$.")
+        
+    if st.button("Check Homework Q1 Answer"):
+        if hw1_choice == "B) 1":
+            st.success("🎉 Correct! $\sec^2(\theta) - \tan^2(\theta) = 1$.")
+        elif hw1_choice == "Select your answer...":
+            st.warning("⚠️ Please select an option first.")
+        else:
+            st.error("❌ Incorrect. Try using the fundamental trigonometric identity.")
+
+    st.markdown("---")
+    st.markdown("#### Question 2: Quadrants & Trig Signs")
+    st.markdown(r"If $\sin(\theta) > 0$ and $\cos(\theta) < 0$, in which quadrant does the terminal side of angle $\theta$ lie?")
+    
+    hw2_options = [
+        "Select your answer...",
+        "A) First Quadrant (Q1)",
+        "B) Second Quadrant (Q2)",
+        "C) Third Quadrant (Q3)",
+        "D) Fourth Quadrant (Q4)"
+    ]
+    hw2_choice = st.selectbox("Choose the correct option:", hw2_options, key="hw2")
+    
+    if st.checkbox("Show Hint for Homework Q2", key="hw_hint2"):
+        st.info(r"💡 **Hint:** Remember that $x = \cos(\theta)$ and $y = \sin(\theta)$ on the unit circle.")
+        
+    if st.button("Check Homework Q2 Answer"):
+        if hw2_choice == "B) Second Quadrant (Q2)":
+            st.success("🎉 Correct! In Q2, $x$ (cosine) is negative and $y$ (sine) is positive.")
+        elif hw2_choice == "Select your answer...":
+            st.warning("⚠️ Please select an option first.")
+        else:
+            st.error("❌ Incorrect. Check the signs of coordinates $(x, y)$ in each quadrant.")
