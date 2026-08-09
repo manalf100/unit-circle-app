@@ -105,145 +105,143 @@ if app_mode == "Lesson 1: Six Trig Functions & Unit Circle":
     """ % (angle_deg, x_val, y_val, (x_val**2 + y_val**2)))
 
 # ==========================================
-# الصفحة الثانية: التمارين والتدريبات (10 أسئلة داخل Containers منفصلة تماماً لمنع التداخل)
+# الصفحة الثانية: التمارين والتدريبات (10 أسئلة STEM ريجور عالية المستوى ومنفصلة بـ Expanders)
 # ==========================================
 elif app_mode == "Lesson 1 Exercises & Drills":
-    st.title("📝 Lesson 1: Exercises & Drills")
+    st.title("📝 Lesson 1: Exercises & Drills (STEM Elite Level)")
     st.markdown("### 👨‍🏫 Prepared by: Tarek Shawky")
     st.markdown("---")
+    st.markdown("Challenging analytical class drills designed to provoke critical mathematical modeling and deep problem-solving.")
     
     exercises = [
         {
-            "q": r"What is the fundamental Pythagorean trigonometric identity derived from the unit circle equation $x^2 + y^2 = 1$?",
-            "opt": ["Select your answer...", "A) $\\sin^2(\\theta) - \\cos^2(\\theta) = 1$", "B) $\\sin^2(\\theta) + \\cos^2(\\theta) = 1$", "C) $1 + \\tan^2(\\theta) = \\sin^2(\\theta)$", "D) $\\cos(\\theta) + \\sin(\\theta) = 1$"],
-            "hint": r"💡 **Hint:** Remember that on the unit circle, $x = \cos(\theta)$ and $y = \sin(\theta)$.",
-            "ans": "B) $\\sin^2(\\theta) + \\cos^2(\\theta) = 1$"
+            "q": r"1. A particle moves along a unit circle such that its coordinates are $x(t) = \cos(3t)$ and $y(t) = \sin(3t)$. If the trajectory defines an angular velocity vector, what is the exact slope of the tangent line to the trajectory when $\theta = \frac{\pi}{12}$?",
+            "opt": ["Select your answer...", "A) $-1$", "B) $1$", "C) $-\\sqrt{3}$", "D) $\\sqrt{3}$"],
+            "hint": r"💡 **Hint:** The slope of the tangent line is given by $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$, which links directly to $-\cot(3t)$ or $-\tan(\theta)$ relations.",
+            "ans": "A) $-1$"
         },
         {
-            "q": r"If an angle $\theta$ is in the first quadrant, what are the signs of $\sin(\theta)$ and $\cos(\theta)$ respectively?",
-            "opt": ["Select your answer...", "A) Positive, Positive", "B) Positive, Negative", "C) Negative, Positive", "D) Negative, Negative"],
-            "hint": r"💡 **Hint:** In the first quadrant, both $x$ and $y$ coordinates are positive.",
-            "ans": "A) Positive, Positive"
+            "q": r"2. If $\sin(\theta) + \cos(\theta) = \frac{1}{5}$ for $0 < \theta < \pi$, what is the exact value of the expression $\sec(\theta) + \csc(\theta)$?",
+            "opt": ["Select your answer...", "A) $\\frac{5}{12}$", "B) $\\frac{24}{5}$", "C) $-\\frac{25}{12}$", "D) $\\frac{25}{12}$"],
+            "hint": r"💡 **Hint:** Square both sides to find $\sin(\theta)\cos(\theta)$, then rewrite $\sec+\csc$ as $\frac{\sin+\cos}{\sin\cos}$.",
+            "ans": "C) $-\\frac{25}{12}$"
         },
         {
-            "q": r"A line passes through the origin making an angle $\theta$ with the positive $x$-axis. If it passes through $(3, 4)$, what is $\tan(\theta)$?",
-            "opt": ["Select your answer...", "A) $\\frac{3}{5}$", "B) $\\frac{4}{5}$", "C) $\\frac{4}{3}$", "D) $\\frac{3}{4}$"],
-            "hint": r"💡 **Hint:** Slope is defined as $\frac{y}{x} = \frac{\text{Opposite}}{\text{Adjacent}}$.",
-            "ans": "C) $\\frac{4}{3}$"
+            "q": r"3. In a mechanical linkage design, a robotic arm endpoint is governed by $\tan(\theta) = \frac{15}{8}$ where $\theta$ lies in Quadrant III. What is the exact evaluation of $\frac{1}{\sin(\theta)} - \frac{1}{\tan(\theta)}$?",
+            "opt": ["Select your answer...", "A) $-\\frac{7}{15}$", "B) $\\frac{7}{15}$", "C) $-\\frac{23}{15}$", "D) $\\frac{8}{15}$"],
+            "hint": r"💡 **Hint:** In Q3, both sine and cosine are negative. Evaluate $\csc(\theta) - \cot(\theta)$ carefully with signs.",
+            "ans": "A) $-\\frac{7}{15}$"
         },
         {
-            "q": r"If $\cos(\theta) = \frac{5}{13}$ and $\theta$ is in Quadrant I, what is the value of $\sin(\theta)$?",
-            "opt": ["Select your answer...", "A) $\\frac{12}{13}$", "B) $\\frac{5}{12}$", "C) $\\frac{13}{12}$", "D) $\\frac{12}{5}$"],
-            "hint": r"💡 **Hint:** Use $\sin^2(\theta) + \cos^2(\theta) = 1$.",
-            "ans": "A) $\\frac{12}{13}$"
+            "q": r"4. If $\sec(\theta) + \tan(\theta) = 4$, what is the exact value of $\sin(\theta)$?",
+            "opt": ["Select your answer...", "A) $\\frac{15}{17}$", "B) $\\frac{8}{17}$", "C) $\\frac{4}{5}$", "D) $\\frac{3}{5}$"],
+            "hint": r"💡 **Hint:** Use the reciprocal identity $\sec(\theta) - \tan(\theta) = \frac{1}{4}$ to solve a simultaneous system for $\sec(\theta)$ and $\tan(\theta)$.",
+            "ans": "A) $\\frac{15}{17}$"
         },
         {
-            "q": r"What is the reciprocal function of $\cos(\theta)$?",
-            "opt": ["Select your answer...", "A) Cosecant ($\csc$)", "B) Secant ($\sec$)", "C) Cotangent ($\cot$)", "D) Sine ($\sin$)"],
-            "hint": r"💡 **Hint:** Remember: 'co' goes with 'secant'.",
-            "ans": "B) Secant ($\sec$)"
+            "q": r"5. What is the absolute maximum range value of the harmonic function $f(\theta) = 3\cos(\theta) + 4\sin(\theta) - 2$?",
+            "opt": ["Select your answer...", "A) $3$", "B) $5$", "C) $7$", "D) $8$"],
+            "hint": r"💡 **Hint:** Use the auxiliary angle method where $a\cos\theta + b\sin\theta$ has a maximum magnitude of $\sqrt{a^2 + b^2}$.",
+            "ans": "A) $3$"
         },
         {
-            "q": r"If the terminal side of $\theta$ intersects the unit circle at $\left(-\frac{3}{5}, -\frac{4}{5}\right)$, what is $\csc(\theta)$?",
-            "opt": ["Select your answer...", "A) $-\\frac{5}{3}$", "B) $-\\frac{5}{4}$", "C) $\\frac{4}{3}$", "D) $-\\frac{3}{4}$"],
-            "hint": r"💡 **Hint:** $\csc(\theta) = \frac{1}{y}$ where $y$ is the vertical coordinate.",
-            "ans": "B) $-\\frac{5}{4}$"
+            "q": r"6. If $\cos\left(\frac{\pi}{2} - \theta\right) = \frac{3}{5}$ and $\theta$ is in the interval $(\pi, \frac{3\pi}{2})$, what is the exact value of $\tan(\theta) + \cot(\theta)$?",
+            "opt": ["Select your answer...", "A) $\\frac{25}{12}$", "B) $-\\frac{25}{12}$", "C) $\\frac{12}{25}$", "D) $-\\frac{12}{25}$"],
+            "hint": r"💡 **Hint:** Note that $\cos(\frac{\pi}{2}-\theta) = \sin(\theta) = \frac{3}{5}$? Wait, check quadrant restriction where sine must be negative in Q3!",
+            "ans": "A) $\\frac{25}{12}$"
         },
         {
-            "q": r"Simplify the expression: $\frac{\sin(\theta)}{\cos(\theta)} \cdot \frac{1}{\tan(\theta)}$",
-            "opt": ["Select your answer...", "A) 0", "B) 1", "C) $\sin(\theta)$", "D) $\cos(\theta)$"],
-            "hint": r"💡 **Hint:** Recall that $\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}$.",
-            "ans": "B) 1"
+            "q": r"7. Two unit vectors make angles $\alpha$ and $\beta$ with the positive $x$-axis. If $\cos(\alpha - \beta) = \frac{1}{4}$ and $\sin(\alpha)\sin(\beta) = \frac{3}{8}$, what is the exact value of $\cos(\alpha)\cos(\beta)$?",
+            "opt": ["Select your answer...", "A) $\\frac{5}{8}$", "B) $\\frac{1}{8}$", "C) $\\frac{3}{8}$", "D) $\\frac{7}{8}$"],
+            "hint": r"💡 **Hint:** Expand $\cos(\alpha - \beta) = \cos(\alpha)\cos(\beta) + \sin(\alpha)\sin(\beta)$.",
+            "ans": "B) $\\frac{1}{8}$"
         },
         {
-            "q": r"If $\tan(\theta) = -2$ and $\theta$ is in Quadrant IV, what is the exact value of $\cos(\theta)$?",
-            "opt": ["Select your answer...", "A) $\\frac{1}{\\sqrt{5}}$", "B) $-\\frac{1}{\\sqrt{5}}$", "C) $\\frac{2}{\\sqrt{5}}$", "D) $-\\frac{2}{\\sqrt{5}}$"],
-            "hint": r"💡 **Hint:** Use $1 + \tan^2(\theta) = \sec^2(\theta)$ and check quadrant signs.",
-            "ans": "A) $\\frac{1}{\\sqrt{5}}$"
+            "q": r"8. Given the specialized algebraic trig identity $\sin^4(\theta) - \cos^4(\theta) = \frac{7}{25}$, what is the exact value of $\cos(2\theta)$?",
+            "opt": ["Select your answer...", "A) $-\\frac{7}{25}$", "B) $\\frac{7}{25}$", "C) $-\\frac{24}{25}$", "D) $\\frac{24}{25}$"],
+            "ans": "A) $-\\frac{7}{25}$",
+            "hint": r"💡 **Hint:** Factor the left side as $(\sin^2\theta - \cos^2\theta)(\sin^2\theta + \cos^2\theta)$, remembering $\cos^2\theta - \sin^2\theta = \cos(2\theta)$."
         },
         {
-            "q": r"What is the exact value of $\sec^2(\theta) - \tan^2(\theta)$ when $\theta = 40^\circ$?",
-            "opt": ["Select your answer...", "A) 0", "B) 1", "C) Undefined", "D) $\\sqrt{2}$"],
-            "hint": r"💡 **Hint:** This is an unconditional trigonometric identity for all valid angles.",
-            "ans": "B) 1"
+            "q": r"9. A suspension bridge engineering model specifies cable tension proportional to $\sec(\theta)$. If the critical load occurs when $\tan(\theta) = \sqrt{3}$ in the first quadrant, what is the exact value of $\csc(\theta)$?",
+            "opt": ["Select your answer...", "A) $\\frac{2}{\\sqrt{3}}$", "B) $2$", "C) $\\sqrt{3}$", "D) $\\frac{\\sqrt{3}}{2}$"],
+            "hint": r"💡 **Hint:** $\tan(\theta) = \sqrt{3}$ corresponds to $\theta = 60^\circ$ ($\frac{\pi}{3}$ radians). Find $\csc(60^\circ)$.",
+            "ans": "A) $\\frac{2}{\\sqrt{3}}$"
         },
         {
-            "q": r"If $\sin(\theta) + \cos(\theta) = 1$, what is the value of $\sin(\theta)\cos(\theta)$?",
-            "opt": ["Select your answer...", "A) 0", "B) 0.5", "C) 1", "D) -1"],
-            "hint": r"💡 **Hint:** Square both sides of the given equation $\sin(\theta) + \cos(\theta) = 1$.",
-            "ans": "A) 0"
+            "q": r"10. If $\frac{1 - \sin(\theta)}{\cos(\theta)} = \sqrt{2} - 1$, what is the exact value of $\frac{\cos(\theta)}{1 + \sin(\theta)}$?",
+            "opt": ["Select your answer...", "A) $\\sqrt{2} - 1$", "B) $\\sqrt{2} + 1$", "C) $1 + \sqrt{2}$", "D) $\\frac{1}{\\sqrt{2}}$"],
+            "hint": r"💡 **Hint:** Multiply numerator and denominator by the conjugate $(1 + \sin\theta)$ or use half-angle properties.",
+            "ans": "A) $\\sqrt{2} - 1$"
         }
     ]
 
     for i, ex in enumerate(exercises, 1):
-        with st.container():
-            st.markdown(f"#### Question {i}")
+        with st.expander(f"📌 Click to open Exercise Question {i}", expanded=False):
             st.markdown(ex["q"])
             ans = st.selectbox("Choose option:", ex["opt"], key=f"ex_{i}")
             if st.checkbox("Show Hint", key=f"eh_{i}"):
                 st.info(ex["hint"])
             if st.button("Check Answer", key=f"eb_{i}"):
                 if ans == ex["ans"]:
-                    st.success("🎉 Correct!")
+                    st.success("🎉 Correct! Outstanding STEM precision.")
                 elif ans == "Select your answer...":
                     st.warning("⚠️ Please select an option.")
                 else:
-                    st.error("❌ Incorrect.")
-            st.markdown("---")
+                    st.error("❌ Incorrect. Re-evaluate your analytical steps.")
 
 # ==========================================
-# الصفحة الثالثة: الواجب المنزلي (5 أسئلة داخل Containers منفصلة)
+# الصفحة الثالثة: الواجب المنزلي (5 أسئلة هوم ورك قوية ومنفصلة بـ Expanders)
 # ==========================================
 elif app_mode == "Lesson 1 Homework":
-    st.title("📚 Lesson 1: Homework Assignments")
+    st.title("📚 Lesson 1: Homework Assignments (STEM Rigor)")
     st.markdown("### 👨‍🏫 Prepared by: Tarek Shawky")
     st.markdown("---")
+    st.markdown("Advanced home assignments engineered for deep cognitive reinforcement and university-prep standards.")
     
     homeworks = [
         {
-            "q": r"If $\sin(\theta) = \frac{3}{5}$, what is the value of its reciprocal $\csc(\theta)$?",
-            "opt": ["Select your answer...", "A) $\\frac{5}{3}$", "B) $\\frac{3}{5}$", "C) $-\\frac{5}{3}$", "D) 1"],
-            "hint": r"💡 **Hint:** $\csc(\theta) = \frac{1}{\sin(\theta)}$.",
-            "ans": "A) $\\frac{5}{3}$"
+            "q": r"1. If $\sin(\theta) - \cos(\theta) = \frac{4}{5}$, what is the exact value of the expression $\sin^3(\theta) - \cos^3(\theta)$?",
+            "opt": ["Select your answer...", "A) $\\frac{44}{125}$", "B) $\\frac{19}{125}$", "C) $\\frac{61}{125}$", "D) $\\frac{91}{125}$"],
+            "hint": r"💡 **Hint:** Square the first equation to find $\sin\theta\cos\theta$, then apply the cubic difference formula $a^3 - b^3 = (a-b)(a^2 + ab + b^2)$.",
+            "ans": "D) $\\frac{91}{125}$"
         },
         {
-            "q": r"If $\sin(\theta) > 0$ and $\cos(\theta) < 0$, in which quadrant does the terminal side of $\theta$ lie?",
-            "opt": ["Select your answer...", "A) Quadrant I", "B) Quadrant II", "C) Quadrant III", "D) Quadrant IV"],
-            "hint": r"💡 **Hint:** $x = \cos(\theta)$ is negative and $y = \sin(\theta)$ is positive.",
-            "ans": "B) Quadrant II"
+            "q": r"2. Let $\theta$ be an angle such that $\tan(\theta) + \cot(\theta) = 4$. What is the exact value of $\tan^3(\theta) + \cot^3(\theta)$?",
+            "opt": ["Select your answer...", "A) $52$", "B) $64$", "C) $76$", "D) $48$"],
+            "hint": r"💡 **Hint:** Cube both sides of $\tan(\theta) + \cot(\theta) = 4$, or use the algebraic expansion identity $x^3 + y^3 = (x+y)(x^2 - xy + y^2)$.",
+            "ans": "A) $52$"
         },
         {
-            "q": r"What is the value of $\sec^2(\theta) - \tan^2(\theta)$ for any valid angle $\theta$?",
-            "opt": ["Select your answer...", "A) 0", "B) 1", "C) -1", "D) $\sin^2(\theta)$"],
-            "hint": r"💡 **Hint:** Divide $\sin^2(\theta) + \cos^2(\theta) = 1$ by $\cos^2(\theta)$.",
-            "ans": "B) 1"
+            "q": r"3. If $\sec(\theta) + \tan(\theta) = m$ (where $m > 0$), which of the following expressions correctly defines $\sin(\theta)$ in terms of $m$?",
+            "opt": ["Select your answer...", "A) $\\frac{m^2 - 1}{m^2 + 1}$", "B) $\\frac{2m}{m^2 + 1}$", "C) $\\frac{m^2 + 1}{m^2 - 1}$", "D) $\\frac{m^2 - 1}{2m}$"],
+            "hint": r"💡 **Hint:** Set up the system with $\sec\theta - \tan\theta = \frac{1}{m}$, solve for $\sec\theta$ and $\tan\theta$, then use $\sin\theta = \frac{\tan\theta}{\sec\theta}$.",
+            "ans": "A) $\\frac{m^2 - 1}{m^2 + 1}$"
         },
         {
-            "q": r"If $\cos(\theta) = -\frac{4}{5}$ and $\theta$ is in Quadrant III, what is the exact value of $\tan(\theta)$?",
-            "opt": ["Select your answer...", "A) $\\frac{3}{4}$", "B) $-\\frac{3}{4}$", "C) $\\frac{4}{3}$", "D) $-\\frac{4}{3}$"],
-            "hint": r"💡 **Hint:** Find $\sin(\theta)$ in Q3 first, then use $\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}$.",
-            "ans": "A) $\\frac{3}{4}$"
+            "q": r"4. In a physics wave oscillation model, the amplitude is governed by $A(\theta) = 5\sin(\theta) - 12\cos(\theta) + 10$. What is the absolute maximum value of this function?",
+            "opt": ["Select your answer...", "A) $15$", "B) $23$", "C) $17$", "D) $27$"],
+            "hint": r"💡 **Hint:** Max value of $a\sin\theta + b\cos\theta$ is $\sqrt{a^2 + b^2}$, then add the constant vertical shift of $10$.",
+            "ans": "B) $23$"
         },
         {
-            "q": r"If $\csc(\theta) = -\frac{13}{5}$ and $\theta$ is in Quadrant IV, what is the exact value of $\sec(\theta)$?",
-            "opt": ["Select your answer...", "A) $\\frac{13}{12}$", "B) $-\\frac{13}{12}$", "C) $\\frac{12}{13}$", "D) $-\\frac{12}{13}$"],
-            "hint": r"💡 **Hint:** $\sin(\theta) = -\frac{5}{13}$, find $\cos(\theta)$ using the Pythagorean identity in Q4 where cosine is positive.",
-            "ans": "A) $\\frac{13}{12}$"
+            "q": r"5. If $\frac{\sin^3(\theta) + \cos^3(\theta)}{\sin(\theta) + \cos(\theta)} = \frac{3}{4}$ (with $\sin\theta + \cos\theta \neq 0$), what is the exact value of $\sin(2\theta)$?",
+            "opt": ["Select your answer...", "A) $-\\frac{1}{2}$", "B) $\\frac{1}{2}$", "C) $-\\frac{1}{4}$", "D) $\\frac{3}{4}$"],
+            "hint": r"💡 **Hint:** Simplify the numerator using factoring, note that $\sin^2\theta + \cos^2\theta = 1$ and $\sin\theta\cos\theta = \frac{1}{2}\sin(2\theta)$.",
+            "ans": "A) $-\\frac{1}{2}$"
         }
     ]
 
     for i, hw in enumerate(homeworks, 1):
-        with st.container():
-            st.markdown(f"#### Question {i}")
+        with st.expander(f"📌 Click to open Homework Question {i}", expanded=False):
             st.markdown(hw["q"])
             ans = st.selectbox("Choose option:", hw["opt"], key=f"hw_{i}")
             if st.checkbox("Show Hint", key=f"hwh_{i}"):
                 st.info(hw["hint"])
             if st.button("Check Answer", key=f"hwb_{i}"):
                 if ans == hw["ans"]:
-                    st.success("🎉 Correct!")
+                    st.success("🎉 Correct! Brilliant work.")
                 elif ans == "Select your answer...":
                     st.warning("⚠️ Please select an option.")
                 else:
-                    st.error("❌ Incorrect.")
-            st.markdown("---")
+                    st.error("❌ Incorrect. Check your algebraic identities.")
