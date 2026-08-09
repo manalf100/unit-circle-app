@@ -105,38 +105,56 @@ if app_mode == "Lesson 1: Six Trig Functions & Unit Circle":
     """ % (angle_deg, x_val, y_val, (x_val**2 + y_val**2)))
 
 # ==========================================
-# الصفحة الثانية: التمارين والتدريبات (Exercises & Drills - MCQ)
+# الصفحة الثانية: التمارين والتدريبات (Exercises & Drills - Multiple Rigorous MCQs)
 # ==========================================
 elif app_mode == "Lesson 1 Exercises & Drills":
-    st.title("📝 Lesson 1: Exercises & Drills (STEM Rigor - MCQs)")
+    st.title("📝 Lesson 1: Exercises & Drills (STEM Rigor)")
     st.markdown("### 👨‍🏫 Prepared by: Tarek Shawky")
     st.markdown("---")
     
-    st.markdown(r"#### Question 1: Connection between Slope and Trigonometry")
-    st.markdown(r"If a line passes through the origin with an angle of elevation $\theta$, how does its slope relate to $\tan(\theta)$?")
+    st.write("Challenging classroom drills designed for STEM students, covering conceptual understanding, analytical skills, and problem-solving standards.")
+    st.markdown("---")
+
+    # Question 1 (Medium - Slope & Trig)
+    st.markdown("#### Question 1 (Medium): Slope and Trigonometric Connection")
+    st.markdown(r"A line passes through the origin in the Cartesian plane making an angle $\theta$ with the positive $x$-axis. If the line passes through the point $(3, 4)$, what is the exact value of $\sin(\theta)$?")
     
-    q1_options = [
-        "Select your answer...",
-        "A) Slope is equal to $\sin(\theta)$",
-        "B) Slope is equal to $\tan(\theta)$",
-        "C) Slope is equal to $\cos(\theta)$",
-        "D) Slope is equal to $\cot(\theta)$"
-    ]
-    q1_choice = st.selectbox("Choose the correct option:", q1_options, key="q1")
+    q1_options = ["Select your answer...", "A) $\\frac{3}{5}$", "B) $\\frac{4}{5}$", "C) $\\frac{3}{4}$", "D) $\\frac{4}{3}$"]
+    q1_choice = st.selectbox("Choose option for Q1:", q1_options, key="ex_q1")
     
-    if st.checkbox("Show Hint for Q1", key="hint1"):
-        st.info(r"💡 **Hint:** Think about Rise over Run ($\frac{\text{Opposite}}{\text{Adjacent}}$) in a right-angled triangle formed by the line.")
+    if st.checkbox("Show Hint for Q1", key="ex_h1"):
+        st.info(r"💡 **Hint:** Use the coordinates $(x, y) = (3, 4)$ to find the hypotenuse (radius vector) $r = \sqrt{3^2 + 4^2}$, then recall $\sin(\theta) = \frac{y}{r}$.")
         
-    if st.button("Check Q1 Answer"):
-        if q1_choice == "B) Slope is equal to $\tan(\theta)$":
-            st.success("🎉 Correct! The slope of a line represents the ratio of vertical change to horizontal change, which is $\tan(\theta)$.")
+    if st.button("Check Q1 Answer", key="ex_b1"):
+        if q1_choice == "B) $\\frac{4}{5}$":
+            st.success("🎉 Correct! $r = 5$, so $\sin(\theta) = \frac{4}{5}$.")
         elif q1_choice == "Select your answer...":
-            st.warning("⚠️ Please select an option first.")
+            st.warning("⚠️ Please select an option.")
         else:
-            st.error("❌ Incorrect. Review the definition of slope in terms of opposite and adjacent sides.")
+            st.error("❌ Incorrect. Re-calculate the hypotenuse of the right triangle.")
+
+    st.markdown("---")
+
+    # Question 2 (Hard / STEM Rigor - Unit Circle & Identities)
+    st.markdown("#### Question 2 (STEM Rigor / Hard): Advanced Unit Circle Application")
+    st.markdown(r"If $\theta$ is an angle in standard position and its terminal side intersects the unit circle at $\left(-\frac{5}{13}, y\right)$ where $\theta$ is in Quadrant III, what is the value of $\csc(\theta)$?")
+    
+    q2_options = ["Select your answer...", "A) $-\\frac{13}{12}$", "B) $\\frac{13}{5}$", "C) $-\\frac{12}{5}$", "D) $\\frac{12}{13}$"]
+    q2_choice = st.selectbox("Choose option for Q2:", q2_options, key="ex_q2")
+    
+    if st.checkbox("Show Hint for Q2", key="ex_h2"):
+        st.info(r"💡 **Hint:** Use $x^2 + y^2 = 1$ to find $y$, keep in mind Q3 has a negative sine value, and $\csc(\theta) = \frac{1}{y}$.")
+        
+    if st.button("Check Q2 Answer", key="ex_b2"):
+        if q2_choice == "A) $-\\frac{13}{12}$":
+            st.success("🎉 Correct! $y = -\frac{12}{13}$ in Q3, making $\csc(\theta) = -\frac{13}{12}$.")
+        elif q2_choice == "Select your answer...":
+            st.warning("⚠️ Please select an option.")
+        else:
+            st.error("❌ Incorrect. Double-check the sign of $y$ in the third quadrant.")
 
 # ==========================================
-# الصفحة الثالثة: الواجب المنزلي (Homework - MCQ format)
+# الصفحة الثالثة: الواجب المنزلي (Homework - MCQs)
 # ==========================================
 elif app_mode == "Lesson 1 Homework":
     st.title("📚 Lesson 1: Homework Assignments (MCQs)")
@@ -146,46 +164,34 @@ elif app_mode == "Lesson 1 Homework":
     st.markdown("#### Question 1: Fundamental Identities")
     st.markdown(r"What is the value of $\sec^2(\theta) - \tan^2(\theta)$ for any valid angle $\theta$?")
     
-    hw1_options = [
-        "Select your answer...",
-        "A) 0",
-        "B) 1",
-        "C) -1",
-        "D) $\sin^2(\theta)$"
-    ]
-    hw1_choice = st.selectbox("Choose the correct option:", hw1_options, key="hw1")
+    hw1_options = ["Select your answer...", "A) 0", "B) 1", "C) -1", "D) $\sin^2(\theta)$"]
+    hw1_choice = st.selectbox("Choose option for HW Q1:", hw1_options, key="hw1")
     
-    if st.checkbox("Show Hint for Homework Q1", key="hw_hint1"):
+    if st.checkbox("Show Hint for HW Q1", key="hw_h1"):
         st.info(r"💡 **Hint:** Divide the fundamental identity $x^2 + y^2 = 1$ by $\cos^2(\theta)$.")
         
-    if st.button("Check Homework Q1 Answer"):
+    if st.button("Check HW Q1 Answer", key="hw_b1"):
         if hw1_choice == "B) 1":
             st.success("🎉 Correct! $\sec^2(\theta) - \tan^2(\theta) = 1$.")
         elif hw1_choice == "Select your answer...":
-            st.warning("⚠️ Please select an option first.")
+            st.warning("⚠️ Please select an option.")
         else:
-            st.error("❌ Incorrect. Try using the fundamental trigonometric identity.")
+            st.error("❌ Incorrect. Review reciprocal definitions and Pythagorean identities.")
 
     st.markdown("---")
     st.markdown("#### Question 2: Quadrants & Trig Signs")
     st.markdown(r"If $\sin(\theta) > 0$ and $\cos(\theta) < 0$, in which quadrant does the terminal side of angle $\theta$ lie?")
     
-    hw2_options = [
-        "Select your answer...",
-        "A) First Quadrant (Q1)",
-        "B) Second Quadrant (Q2)",
-        "C) Third Quadrant (Q3)",
-        "D) Fourth Quadrant (Q4)"
-    ]
-    hw2_choice = st.selectbox("Choose the correct option:", hw2_options, key="hw2")
+    hw2_options = ["Select your answer...", "A) First Quadrant (Q1)", "B) Second Quadrant (Q2)", "C) Third Quadrant (Q3)", "D) Fourth Quadrant (Q4)"]
+    hw2_choice = st.selectbox("Choose option for HW Q2:", hw2_options, key="hw2")
     
-    if st.checkbox("Show Hint for Homework Q2", key="hw_hint2"):
+    if st.checkbox("Show Hint for HW Q2", key="hw_h2"):
         st.info(r"💡 **Hint:** Remember that $x = \cos(\theta)$ and $y = \sin(\theta)$ on the unit circle.")
         
-    if st.button("Check Homework Q2 Answer"):
+    if st.button("Check HW Q2 Answer", key="hw_b2"):
         if hw2_choice == "B) Second Quadrant (Q2)":
-            st.success("🎉 Correct! In Q2, $x$ (cosine) is negative and $y$ (sine) is positive.")
+            st.success("🎉 Correct! In Q2, $x$ is negative and $y$ is positive.")
         elif hw2_choice == "Select your answer...":
-            st.warning("⚠️ Please select an option first.")
+            st.warning("⚠️ Please select an option.")
         else:
             st.error("❌ Incorrect. Check the signs of coordinates $(x, y)$ in each quadrant.")
