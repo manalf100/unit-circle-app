@@ -4,29 +4,30 @@ import streamlit as st
 
 # Page Configuration
 st.set_page_config(
-    page_title="Math Grade 11: Implicit Differentiation", layout="wide"
+    page_title="Math Grade 12: Implicit Differentiation", layout="wide"
 )
 
 # Title & Instructor Credit
-st.title("Math Grade 11 STEM Mathematics")
+st.title("Math Grade 12 STEM Mathematics")
 st.subheader(
     "Topic: Implicit Differentiation - Core Concepts, Examples & Visualization"
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("**Prepared by:** مستر طارق")
+st.sidebar.markdown("**Prepared by:** Mr. Tarek Shawky")
 st.sidebar.markdown("---")
 
 st.write(
-    "Welcome, students! Review the step-by-step examples first, then explore"
-    " the interactive unit circle and tangent line module below."
+    "Welcome, students! Review the step-by-step examples first, explore the"
+    " interactive unit circle module, and then test your skills with the"
+    " advanced exam-level exercises below."
 )
 st.markdown("---")
 
 # ==========================================
 # PART 1: Step-by-Step Examples
 # ==========================================
-st.header("1. Step-by-Step Examples")
+st.header("1. Step-by-Step Core Examples")
 
 # Example 1
 st.markdown("### Example 1: Basic Power & Chain Rule")
@@ -108,11 +109,9 @@ st.markdown("---")
 # ==========================================
 st.header("2. Interactive Module: Tangent Line to a Circle")
 
-# Sidebar controls for the interactive part
 st.sidebar.header("Control Panel")
 x_val = st.sidebar.slider("Select x value", -4.99, 4.99, 1.00, 0.01)
 
-# Circle Equation: x^2 + y^2 = 25
 y_val = np.sqrt(max(0.0, 25 - x_val**2))
 
 col1, col2 = st.columns(2)
@@ -161,3 +160,103 @@ with col2:
   ax.legend(loc="upper right", fontsize=8)
 
   st.pyplot(fig)
+
+st.markdown("---")
+
+# ==========================================
+# PART 3: 10 STEM Exam-Level Exercises
+# ==========================================
+st.header("3. Advanced STEM Exam-Level Exercises")
+st.write(
+    "Test your mastery with these 10 rigorous problems. Try solving them on"
+    " your own before revealing the solution!"
+)
+
+# Exercise 1
+st.markdown("### Exercise 1")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } \tan(xy) = x")
+with st.expander("Reveal Solution - Exercise 1"):
+  st.latex(
+      r"\sec^2(xy) \cdot (y + x\frac{dy}{dx}) = 1 \implies \frac{dy}{dx} ="
+      r" \frac{1 - y \sec^2(xy)}{x \sec^2(xy)}"
+  )
+
+# Exercise 2
+st.markdown("### Exercise 2")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } x^y = y^x")
+with st.expander("Reveal Solution - Exercise 2"):
+  st.latex(
+      r"y \ln x = x \ln y \implies \frac{dy}{dx} = \frac{y(y - x \ln y)}{x(x"
+      r" \ln x - y)}"
+  )
+
+# Exercise 3
+st.markdown("### Exercise 3")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } \ln(xy) + 5x = 30")
+with st.expander("Reveal Solution - Exercise 3"):
+  st.latex(r"\frac{1}{x} + \frac{1}{y}\frac{dy}{dx} + 5 = 0 \implies \frac{dy}{dx} = -y\left(5 + \frac{1}{x}\right)")
+
+# Exercise 4
+st.markdown("### Exercise 4")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } e^{x+y} = \sin(xy)")
+with st.expander("Reveal Solution - Exercise 4"):
+  st.latex(
+      r"e^{x+y}(1 + \frac{dy}{dx}) = \cos(xy)(y + x\frac{dy}{dx}) \implies"
+      r" \frac{dy}{dx} = \frac{y\cos(xy) - e^{x+y}}{e^{x+y} - x\cos(xy)}"
+  )
+
+# Exercise 5
+st.markdown("### Exercise 5")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } x^2 y^3 - 5xy = 2")
+with st.expander("Reveal Solution - Exercise 5"):
+  st.latex(
+      r"2xy^3 + 3x^2y^2\frac{dy}{dx} - 5y - 5x\frac{dy}{dx} = 0 \implies"
+      r" \frac{dy}{dx} = \frac{5y - 2xy^3}{3x^2y^2 - 5x}"
+  )
+
+# Exercise 6
+st.markdown("### Exercise 6")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } \sin^2(x) + \cos^2(y) = 1")
+with st.expander("Reveal Solution - Exercise 6"):
+  st.latex(
+      r"2\sin(x)\cos(x) - 2\cos(y)\sin(y)\frac{dy}{dx} = 0 \implies \frac{dy}{dx}"
+      r" = \frac{\sin(2x)}{\sin(2y)}"
+  )
+
+# Exercise 7
+st.markdown("### Exercise 7")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } \sqrt{x} + \sqrt{y} = \sqrt{a}")
+with st.expander("Reveal Solution - Exercise 7"):
+  st.latex(
+      r"\frac{1}{2\sqrt{x}} + \frac{1}{2\sqrt{y}}\frac{dy}{dx} = 0 \implies"
+      r" \frac{dy}{dx} = -\sqrt{\frac{y}{x}}"
+  )
+
+# Exercise 8
+st.markdown("### Exercise 8")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } x^3 + y^3 = 3axy")
+with st.expander("Reveal Solution - Exercise 8"):
+  st.latex(
+      r"3x^2 + 3y^2\frac{dy}{dx} = 3a(y + x\frac{dy}{dx}) \implies \frac{dy}{dx}"
+      r" = \frac{ay - x^2}{y^2 - ax}"
+  )
+
+# Exercise 9
+st.markdown("### Exercise 9")
+st.latex(
+    r"\text{Find the slope at } (1,1) \text{ for } 2x^2 + xy - y^2 = 2"
+)
+with st.expander("Reveal Solution - Exercise 9"):
+  st.latex(
+      r"4x + y + x\frac{dy}{dx} - 2y\frac{dy}{dx} = 0 \implies \frac{dy}{dx} ="
+      r" \frac{4x+y}{2y-x} \text{ at } (1,1) \implies 5"
+  )
+
+# Exercise 10
+st.markdown("### Exercise 10")
+st.latex(r"\text{Find } \frac{dy}{dx} \text{ if } \arcsin(xy) = x^2")
+with st.expander("Reveal Solution - Exercise 10"):
+  st.latex(
+      r"\frac{1}{\sqrt{1 - x^2y^2}}(y + x\frac{dy}{dx}) = 2x \implies"
+      r" \frac{dy}{dx} = \frac{2x\sqrt{1-x^2y^2} - y}{x}"
+  )
