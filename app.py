@@ -9,22 +9,83 @@ st.set_page_config(
 
 # Title & Instructor Credit
 st.title("Math Grade 11 STEM Mathematics")
-st.subheader("Topic: Implicit Differentiation - Core Concepts & Visualization")
+st.subheader("Topic: Implicit Differentiation & Unit Circle Visualization")
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Prepared by:** Mr. Tarek Shawky")
 st.sidebar.markdown("---")
 
 st.write(
-    "Welcome, students! Review the step-by-step examples first, then explore"
-    " the interactive unit circle and tangent line module below."
+    "Welcome, students! Explore the interactive unit circle and tangent line,"
+    " followed by step-by-step examples below."
 )
 st.markdown("---")
 
 # ==========================================
-# PART 1: Step-by-Step Examples (First)
+# PART 1: Interactive Unit Circle & Tangent
 # ==========================================
-st.header("1. Step-by-Step Examples")
+st.header("Interactive Module: Tangent Line to a Circle")
+
+# Sidebar controls for the interactive part
+st.sidebar.header("Control Panel")
+x_val = st.sidebar.slider("Select x value", -4.99, 4.99, 1.00, 0.01)
+
+# Circle Equation: x^2 + y^2 = 25
+y_val = np.sqrt(max(0.0, 25 - x_val**2))
+
+col1, col2 = st.columns(2)
+
+with col1:
+  st.subheader("Mathematical Data")
+  st.latex(r"x^2 + y^2 = 25")
+  st.write(f"**Selected Point (x, y):** ({x_val:.2f}, {y_val:.2f})")
+
+  if y_val != 0:
+    dydx = -x_val / y_val
+    st.write(f"**Derivative (dy/dx):** {dydx:.2f}")
+    st.write(
+        f"**Tangent Line Equation:** y - {y_val:.2f} ="
+        f" {dydx:.2f}(x - {x_val:.2f})"
+    )
+  else:
+    dydx = None
+    st.write("**Derivative (dy/dx):** Undefined (Vertical Tangent)")
+
+with col2:
+  st.subheader("Geometric Visualization")
+  fig, ax = plt.subplots(figsize=(5, 5))
+
+  theta = np.linspace(0, 2 * np.pi, 200)
+  ax.plot(
+      5 * np.cos(theta),
+      5 * np.sin(theta),
+      color="blue",
+      linewidth=2,
+      label="x^2 + y^2 = 25",
+  )
+  ax.plot(x_val, y_val, "ro", markersize=8, label="Point P")
+
+  if dydx is not None:
+    x_tangent = np.linspace(max(-7.0, x_val - 3), min(7.0, x_val + 3), 100)
+    y_tangent = dydx * (x_tangent - x_val) + y_val
+    ax.plot(x_tangent, y_tangent, "g--", linewidth=2, label="Tangent Line")
+
+  ax.set_aspect("equal")
+  ax.grid(True, linestyle=":", alpha=0.7)
+  ax.axhline(0, color="black", linewidth=1)
+  ax.axvline(0, color="black", linewidth=1)
+  ax.set_xlim(-7, 7)
+  ax.set_ylim(-7, 7)
+  ax.legend(loc="upper right", fontsize=8)
+
+  st.pyplot(fig)
+
+st.markdown("---")
+
+# ==========================================
+# PART 2: Step-by-Step Examples
+# ==========================================
+st.header("Step-by-Step Examples")
 
 # Example 1
 st.markdown("### Example 1: Basic Power & Chain Rule")
@@ -94,68 +155,4 @@ with st.expander("Show Step-by-Step Solution"):
   st.write("**Step 1:** Differentiate term by term using product rule for $-xy$.")
   st.latex(r"2x - (y + x \frac{dy}{dx}) + 2y \frac{dy}{dx} = 0")
   st.write("**Step 2:** Isolate the derivative.")
-  st.latex(
-      r"(2y - x) \frac{dy}{dx} = y - 2x \implies \frac{dy}{dx} ="
-      r" \frac{y - 2x}{2y - x}"
-  )
-
-st.markdown("---")
-
-# ==========================================
-# PART 2: Interactive Unit Circle & Tangent (Second)
-# ==========================================
-st.header("2. Interactive Module: Tangent Line to a Circle")
-
-# Sidebar controls for the interactive part
-st.sidebar.header("Control Panel")
-x_val = st.sidebar.slider("Select x value", -4.99, 4.99, 1.00, 0.01)
-
-# Circle Equation: x^2 + y^2 = 25
-y_val = np.sqrt(max(0.0, 25 - x_val**2))
-
-col1, col2 = st.columns(2)
-
-with col1:
-  st.subheader("Mathematical Data")
-  st.latex(r"x^2 + y^2 = 25")
-  st.write(f"**Selected Point (x, y):** ({x_val:.2f}, {y_val:.2f})")
-
-  if y_val != 0:
-    dydx = -x_val / y_val
-    st.write(f"**Derivative (dy/dx):** {dydx:.2f}")
-    st.write(
-        f"**Tangent Line Equation:** y - {y_val:.2f} ="
-        f" {dydx:.2f}(x - {x_val:.2f})"
-    )
-  else:
-    dydx = None
-    st.write("**Derivative (dy/dx):** Undefined (Vertical Tangent)")
-
-with col2:
-  st.subheader("Geometric Visualization")
-  fig, ax = plt.subplots(figsize=(5, 5))
-
-  theta = np.linspace(0, 2 * np.pi, 200)
-  ax.plot(
-      5 * np.cos(theta),
-      5 * np.sin(theta),
-      color="blue",
-      linewidth=2,
-      label="x^2 + y^2 = 25",
-  )
-  ax.plot(x_val, y_val, "ro", markersize=8, label="Point P")
-
-  if dydx is not None:
-    x_tangent = np.linspace(max(-7.0, x_val - 3), min(7.0, x_val + 3), 100)
-    y_tangent = dydx * (x_tangent - x_val) + y_val
-    ax.plot(x_tangent, y_tangent, "g--", linewidth=2, label="Tangent Line")
-
-  ax.set_aspect("equal")
-  ax.grid(True, linestyle=":", alpha=0.7)
-  ax.axhline(0, color="black", linewidth=1)
-  ax.axvline(0, color="black", linewidth=1)
-  ax.set_xlim(-7, 7)
-  ax.set_ylim(-7, 7)
-  ax.legend(loc="upper right", fontsize=8)
-
-  st.pyplot(fig)
+  st.latex(r"(2y - x) \frac{dy}{dx} = y - 2x \implies \frac{dy}{dx} = \frac{y - 2x}{2y - x}")
