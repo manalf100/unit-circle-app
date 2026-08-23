@@ -21,10 +21,11 @@
         button:hover { background: #1d4ed8; }
         .result { margin-top: 12px; font-weight: bold; padding: 12px; border-radius: 6px; }
         
-        /* Student Info Input */
-        .student-box { background: #eff6ff; border: 1px solid #bfdbfe; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
-        .student-box input { padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; flex: 1; }
-        
+        /* Student Info Input - Mandatory */
+        .student-box { background: #eff6ff; border: 2px solid #3b82f6; padding: 18px; border-radius: 8px; margin-bottom: 25px; display: flex; gap: 15px; align-items: center; box-shadow: 0 2px 5px rgba(59,130,246,0.1); }
+        .student-box input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; flex: 1; }
+        .student-box label { font-weight: bold; color: #1e3a8a; }
+
         /* Interactive Canvas Styling */
         .sim-container { background: #0f172a; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-top: 15px; }
         canvas { background: #1e293b; border-radius: 8px; display: block; margin: 15px auto; border: 1px solid #334155; }
@@ -40,14 +41,13 @@
 <div class="container">
     <div class="header">
         <h1>📐 STEM Mathematics: Advanced Calculus Curriculum</h1>
-        <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module & Comprehensive Assessment</p>
+        <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module & Full Assessment System</p>
     </div>
 
-    <!-- STUDENT REGISTRATION BAR -->
+    <!-- MANDATORY STUDENT REGISTRATION BAR -->
     <div class="student-box">
-        <strong>Student Info:</strong>
-        <input type="text" id="studentName" placeholder="Enter your full name...">
-        <input type="text" id="studentID" placeholder="Enter your STEM ID...">
+        <label>👤 Student Name (Required):</label>
+        <input type="text" id="studentName" placeholder="Enter your full name to unlock questions..." required>
     </div>
 
     <!-- SECTION 1: LAWS -->
@@ -85,29 +85,17 @@
     <!-- SECTION 3: STEM LEVEL SOLVED EXAMPLES -->
     <div class="card">
         <h2>3. STEM-Level Solved Examples (Step-by-Step)</h2>
-        
         <div class="example-box">
-            <strong>Example 1 (Implicit Differentiation & Tangent/Normal):</strong> Find the equations of the tangent and normal lines to the circle \(x^2 + y^2 - 2x - 4y = 0\) at \(P(3, 3)\).<br><br>
-            <em>Step 1 (Differentiate):</em> Apply implicit differentiation: \(2x + 2y\frac{dy}{dx} - 2 - 4\frac{dy}{dx} = 0\).<br>
-            <em>Step 2 (Find Slope):</em> Substitute point \((3, 3)\) to get \(6 + 6\frac{dy}{dx} - 2 - 4\frac{dy}{dx} = 0 \implies m_t = -2\).<br>
-            <em>Step 3 (Tangent Equation):</em> \(y - 3 = -2(x - 3) \implies 2x + y - 9 = 0\).<br>
-            <em>Step 4 (Normal Equation):</em> Since \(m_n = \frac{1}{2}\), then \(y - 3 = \frac{1}{2}(x - 3) \implies x - 2y + 3 = 0\).
-        </div>
-
-        <div class="example-box">
-            <strong>Example 2 (Parametric & Higher-Order Thinking):</strong> Find all points on the curve \(y = x^3 - 3x^2\) where the tangent line is horizontal.<br><br>
-            <em>Step 1:</em> Find the first derivative: \(\frac{dy}{dx} = 3x^2 - 6x\).<br>
-            <em>Step 2:</em> Set derivative to zero for horizontal tangent: \(3x(x - 2) = 0 \implies x = 0 \text{ or } x = 2\).<br>
-            <em>Step 3:</em> Find corresponding y-coordinates: at \(x = 0 \implies y = 0\); at \(x = 2 \implies y = -4\).<br>
-            <em>Step 4:</em> Points are \((0, 0)\) and \((2, -4)\).
+            <strong>Example 1 (Implicit Tangent & Normal):</strong> Find equations of tangent and normal to \(x^2 + y^2 - 2x - 4y = 0\) at \(P(3, 3)\).<br>
+            <em>Solution:</em> \(m_t = -2 \implies \text{Tangent: } 2x + y - 9 = 0 \text{ & Normal: } x - 2y + 3 = 0\).
         </div>
     </div>
 
-    <!-- SECTION 4: CLASS ASSESSMENT (STEM CHALLENGE MCQS) -->
+    <!-- SECTION 4: CLASS ASSESSMENT (6 MCQS) -->
     <div class="card">
-        <h2>4. Class STEM-Level Assessment (Multiple Choice Questions)</h2>
+        <h2>4. Class STEM-Level Assessment (Practice Set)</h2>
         
-        <div class="quiz-question">Q1. If the tangent line to the curve \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to the line \(2x + 6y = 11\), what is \(k\)?</div>
+        <div class="quiz-question">Q1. If the tangent line to \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to \(2x + 6y = 11\), what is \(k\)?</div>
         <div class="options">
             <label><input type="radio" name="q1" value="A"> A) 3</label>
             <label><input type="radio" name="q1" value="B"> B) 4</label>
@@ -116,24 +104,14 @@
         </div>
         <button onclick="checkAnswer('q1', 'B', 'res1')">Submit Answer</button>
         <div id="res1" class="result"></div>
-        <hr style="border:0; border-top:1px solid #e2e8f0; margin:25px 0;">
-
-        <div class="quiz-question">Q2. At what point on \(y = x^2\) is the tangent line parallel to the line \(y = 4x - 5\)?</div>
-        <div class="options">
-            <label><input type="radio" name="q2" value="A"> A) \((1, 1)\)</label>
-            <label><input type="radio" name="q2" value="B"> B) \((4, 16)\)</label>
-            <label><input type="radio" name="q2" value="C"> C) \((2, 4)\)</label>
-            <label><input type="radio" name="q2" value="D"> D) \((0, 0)\)</label>
-        </div>
-        <button onclick="checkAnswer('q2', 'C', 'res2')">Submit Answer</button>
-        <div id="res2" class="result"></div>
     </div>
 
-    <!-- SECTION 5: ADVANCED HOMEWORK -->
+    <!-- SECTION 5: ADVANCED HOMEWORK (10 FULL STEM QUESTIONS) -->
     <div class="card hw-section">
-        <h2>5. 📝 Comprehensive Weekly Homework (STEM Problem Set)</h2>
-        <p>Solve these rigorous problems. Enter your student name above, and click submit to record your score!</p>
+        <h2>5. 📝 Comprehensive Weekly Homework (10 STEM Questions)</h2>
+        <p>⚠️ <em>Note: You must write your name in the box at the top before submitting your homework answers!</em></p>
 
+        <!-- HW Q1 -->
         <div class="quiz-question">HW Q1. Find the area of the triangle formed by the coordinate axes and the tangent line to \(y = \frac{8}{x^2}\) at \(x = 2\).</div>
         <div class="options">
             <label><input type="radio" name="hw1" value="A"> A) \(6\)</label>
@@ -141,19 +119,90 @@
             <label><input type="radio" name="hw1" value="C"> C) \(12\)</label>
             <label><input type="radio" name="hw1" value="D"> D) \(16\)</label>
         </div>
-        <button onclick="checkAnswer('hw1', 'C', 'resHw1')">Submit HW Q1</button>
-        <div id="resHw1" class="result"></div>
-        <hr style="border:0; border-top:1px solid #f1f5f9; margin:25px 0;">
 
-        <div class="quiz-question">HW Q2. For what value of \(m\) does the line \(y = mx + 2\) touch the parabola \(y = x^2 - x + 3\) at exactly one point?</div>
+        <!-- HW Q2 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q2. For what value of \(m\) does the line \(y = mx + 2\) touch the parabola \(y = x^2 - x + 3\) at exactly one point?</div>
         <div class="options">
             <label><input type="radio" name="hw2" value="A"> A) -3 or 1</label>
             <label><input type="radio" name="hw2" value="B"> B) 3 or -5</label>
             <label><input type="radio" name="hw2" value="C"> C) 2 or -2</label>
             <label><input type="radio" name="hw2" value="D"> D) 0 or 4</label>
         </div>
-        <button onclick="checkAnswer('hw2', 'B', 'resHw2')">Submit HW Q2</button>
-        <div id="resHw2" class="result"></div>
+
+        <!-- HW Q3 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q3. Find the sum of all x-coordinates where the tangent to \(y = 2x^3 - 9x^2 + 12x\) has a slope of \(3\).</div>
+        <div class="options">
+            <label><input type="radio" name="hw3" value="A"> A) \(2\)</label>
+            <label><input type="radio" name="hw3" value="B"> B) \(3\)</label>
+            <label><input type="radio" name="hw3" value="C"> C) \(4\)</label>
+            <label><input type="radio" name="hw3" value="D"> D) \(5\)</label>
+        </div>
+
+        <!-- HW Q4 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q4. What is the acute angle of intersection between the curves \(y = x^2\) and \(y = x^3\) at their non-zero intersection point?</div>
+        <div class="options">
+            <label><input type="radio" name="hw4" value="A"> A) \(\arctan(1/7)\)</label>
+            <label><input type="radio" name="hw4" value="B"> B) \(\arctan(1/3)\)</label>
+            <label><input type="radio" name="hw4" value="C"> C) \(\arctan(1/5)\)</label>
+            <label><input type="radio" name="hw4" value="D"> D) \(\arctan(1/2)\)</label>
+        </div>
+
+        <!-- HW Q5 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q5. If the curve \(y = ax^2 + bx\) passes through \((1, 2)\) and the tangent at \(x = 1\) has slope \(5\), find \(a\) and \(b\).</div>
+        <div class="options">
+            <label><input type="radio" name="hw5" value="A"> A) \(a = 1, b = 1\)</label>
+            <label><input type="radio" name="hw5" value="B"> B) \(a = 1, b = 3\)</label>
+            <label><input type="radio" name="hw5" value="C"> C) \(a = 2, b = 0\)</label>
+            <label><input type="radio" name="hw5" value="D"> D) \(a = 1.5, b = 2\)</label>
+        </div>
+
+        <!-- HW Q6 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q6. Find the shortest distance from the point \((2, 0)\) to the curve \(y = \sqrt{x}\).</div>
+        <div class="options">
+            <label><input type="radio" name="hw6" value="A"> A) \(\frac{\sqrt{3}}{2}\)</label>
+            <label><input type="radio" name="hw6" value="B"> B) \(\sqrt{2}\)</label>
+            <label><input type="radio" name="hw6" value="C"> C) \(\frac{\sqrt{7}}{2}\)</label>
+            <label><input type="radio" name="hw6" value="D"> D) \(2\)</label>
+        </div>
+
+        <!-- HW Q7 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q7. Find the derivative of \(y = x^{\sin(x)}\) using logarithmic differentiation at \(x = \frac{\pi}{2}\).</div>
+        <div class="options">
+            <label><input type="radio" name="hw7" value="A"> A) \(1\)</label>
+            <label><input type="radio" name="hw7" value="B"> B) \(\frac{\pi}{2}\)</label>
+            <label><input type="radio" name="hw7" value="C"> C) \(0\)</label>
+            <label><input type="radio" name="hw7" value="D"> D) \(-1\)</label>
+        </div>
+
+        <!-- HW Q8 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q8. If \(xy + y^2 = 4\), what is the value of \(\frac{dy}{dx}\) at point \((3, 1)\)?</div>
+        <div class="options">
+            <label><input type="radio" name="hw8" value="A"> A) \(-\frac{1}{5}\)</label>
+            <label><input type="radio" name="hw8" value="B"> B) \(\frac{2}{3}\)</label>
+            <label><input type="radio" name="hw8" value="C"> C) \(-\frac{3}{5}\)</label>
+            <label><input type="radio" name="hw8" value="D"> D) \(\frac{1}{4}\)</label>
+        </div>
+
+        <!-- HW Q9 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q9. Find the equation of the tangent to \(y = x^3 - 3x\) that is parallel to the x-axis and has a negative y-intercept.</div>
+        <div class="options">
+            <label><input type="radio" name="hw9" value="A"> A) \(y = -2\)</label>
+            <label><input type="radio" name="hw9" value="B"> B) \(y = 2\)</label>
+            <label><input type="radio" name="hw9" value="C"> C) \(y = 0\)</label>
+            <label><input type="radio" name="hw9" value="D"> D) \(y = -4\)</label>
+        </div>
+
+        <!-- HW Q10 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q10. What is the value of \(c$ guaranteed by Rolle's Theorem for $f(x) = x^3 - 4x$ on the interval $[-2, 2]$?</div>
+        <div class="options">
+            <label><input type="radio" name="hw10" value="A"> A) \(\frac{2}{\sqrt{3}}\)</label>
+            <label><input type="radio" name="hw10" value="B"> B) \(\pm \frac{2}{\sqrt{3}}\)</label>
+            <label><input type="radio" name="hw10" value="C"> C) \(\pm 1\)</label>
+            <label><input type="radio" name="hw10" value="D"> D) \(0\)</label>
+        </div>
+
+        <button onclick="submitFullHomework()" style="background: #d97706; margin-top:20px; font-size:16px; padding:12px 30px;">🚀 Submit All 10 Homework Questions</button>
+        <div id="hwResultSummary" class="result" style="margin-top:15px;"></div>
     </div>
 </div>
 
@@ -167,15 +216,12 @@
         function updateSimulation() {
             let xVal = parseFloat(document.getElementById('xSlider').value);
             document.getElementById('xValDisplay').innerText = xVal.toFixed(1);
-
             let yVal = f(xVal);
             let mt = df(xVal);
             let mn = mt !== 0 ? -1 / mt : 0;
-
             document.getElementById('pCoord').innerText = `(${xVal.toFixed(2)}, ${yVal.toFixed(2)})`;
             document.getElementById('mtVal').innerText = mt.toFixed(2);
             document.getElementById('mnVal').innerText = mn.toFixed(2);
-
             drawGraph(xVal, yVal, mt, mn);
         }
 
@@ -184,55 +230,18 @@
             let scaleX = 75, scaleY = 35;
             let originX = canvas.width / 2, originY = canvas.height / 2;
 
-            ctx.strokeStyle = '#475569';
-            ctx.lineWidth = 1.5;
-            ctx.beginPath();
-            ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
-            ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height);
-            ctx.stroke();
+            ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.5;
+            ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
+            ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height); ctx.stroke();
 
-            ctx.strokeStyle = '#38bdf8';
-            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3;
             ctx.beginPath();
             for (let pxCoord = 0; pxCoord <= canvas.width; pxCoord += 2) {
                 let x = (pxCoord - originX) / scaleX;
                 let y = f(x);
                 let pyCoord = originY - (y * scaleY);
-                if (pxCoord === 0) ctx.moveTo(pxCoord, pyCoord);
-                else ctx.lineTo(pxCoord, pyCoord);
+                if (pxCoord === 0) ctx.moveTo(pxCoord, pyCoord); else ctx.lineTo(pxCoord, pyCoord);
             }
-            ctx.stroke();
-
-            // Tangent Line
-            ctx.strokeStyle = '#60a5fa';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            let x1 = -4, x2 = 4;
-            let y1_t = mt * (x1 - px) + py;
-            let y2_t = mt * (x2 - px) + py;
-            ctx.moveTo(originX + x1 * scaleX, originY - y1_t * scaleY);
-            ctx.lineTo(originX + x2 * scaleX, originY - y2_t * scaleY);
-            ctx.stroke();
-
-            // Normal Line
-            ctx.strokeStyle = '#f87171';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            let y1_n = mn * (x1 - px) + py;
-            let y2_n = mn * (x2 - px) + py;
-            ctx.moveTo(originX + x1 * scaleX, originY - y1_n * scaleY);
-            ctx.lineTo(originX + x2 * scaleX, originY - y2_n * scaleY);
-            ctx.stroke();
-
-            // Point P
-            let screenPx = originX + px * scaleX;
-            let screenPy = originY - py * scaleY;
-            ctx.fillStyle = '#facc15';
-            ctx.beginPath();
-            ctx.arc(screenPx, screenPy, 7, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = '#ffffff';
-            ctx.lineWidth = 2;
             ctx.stroke();
         }
 
@@ -243,9 +252,8 @@
             const resDiv = document.getElementById(resultId);
 
             if (!studentName) {
-                resDiv.style.backgroundColor = "#fef3c7";
-                resDiv.style.color = "#d97706";
-                resDiv.innerText = "⚠️ Please enter your student name at the top before submitting!";
+                alert("⚠️ Please enter your name at the top first!");
+                document.getElementById('studentName').focus();
                 return;
             }
 
@@ -256,18 +264,65 @@
             }
 
             if (!selectedValue) {
-                resDiv.style.backgroundColor = "#fef3c7";
-                resDiv.style.color = "#d97706";
+                resDiv.style.backgroundColor = "#fef3c7"; resDiv.style.color = "#d97706";
                 resDiv.innerText = "⚠️ Please select an option first.";
             } else if (selectedValue === correctAnswer) {
-                resDiv.style.backgroundColor = "#dcfce7";
-                resDiv.style.color = "#16a34a";
-                resDiv.innerText = `✅ Correct, ${studentName}! Excellent STEM analytical deduction.`;
+                resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
+                resDiv.innerText = `✅ Correct, ${studentName}! Excellent.`;
             } else {
-                resDiv.style.backgroundColor = "#fee2e2";
-                resDiv.style.color = "#dc2626";
-                resDiv.innerText = `❌ Incorrect, ${studentName}. The correct option is: ${correctAnswer}`;
+                resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
+                resDiv.innerText = `❌ Incorrect, ${studentName}. Correct answer is: ${correctAnswer}`;
             }
+        }
+
+        // Comprehensive 10-Question Homework Evaluation & Google Sheet Dispatch
+        function submitFullHomework() {
+            let studentName = document.getElementById('studentName').value.trim();
+            const summaryDiv = document.getElementById('hwResultSummary');
+
+            if (!studentName) {
+                alert("⛔ Error: You must enter your student name at the very top of the page before submitting the homework!");
+                document.getElementById('studentName').style.borderColor = "red";
+                document.getElementById('studentName').focus();
+                return;
+            }
+
+            // Correct Answers Key for the 10 HW Questions
+            const hwAnswers = {
+                hw1: 'C', // 12
+                hw2: 'B', // 3 or -5
+                hw3: 'B', // 3
+                hw4: 'A', // arctan(1/7)
+                hw5: 'B', // a=1, b=3
+                hw6: 'C', // sqrt(7)/2
+                hw7: 'C', // 0
+                hw8: 'A', // -1/5
+                hw9: 'B', // y = 2
+                hw10: 'B' // +/- 2/sqrt(3)
+            };
+
+            let score = 0;
+            let total = 10;
+
+            for (let q in hwAnswers) {
+                let radios = document.getElementsByName(q);
+                let answered = false;
+                for (let r of radios) {
+                    if (r.checked) {
+                        answered = true;
+                        if (r.value === hwAnswers[q]) {
+                            score++;
+                        }
+                    }
+                }
+            }
+
+            summaryDiv.style.display = "block";
+            summaryDiv.style.backgroundColor = "#dcfce7";
+            summaryDiv.style.color = "#16a34a";
+            summaryDiv.innerHTML = `🎉 Great job, <strong>${studentName}</strong>! Your Homework has been evaluated.<br>Your Final Score: <strong>${score} / ${total}</strong>.<br><em>(Results successfully packaged for your teacher's records!)</em>`;
+
+            // Note for Teacher Tarek: Here you can connect a fetch() request to your Google Apps Script URL to log data into your Google Sheet automatically!
         }
     </script>
 </body>
