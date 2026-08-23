@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>STEM Grade 12 Calculus - Mr. Tarek Shawky</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f1f5f9; color: #1e293b; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 20px; border-radius: 8px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header h1 { margin: 0 0 5px 0; font-size: 24px; }
+        .header p { margin: 0; font-size: 16px; opacity: 0.9; }
+        .card { background: white; padding: 25px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); border-left: 5px solid #3b82f6; }
+        h2 { color: #1e3a8a; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 20px; }
+        .example-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; border-radius: 6px; margin-bottom: 12px; }
+        .quiz-question { font-weight: bold; margin-bottom: 10px; color: #0f172a; }
+        .options label { display: block; margin: 8px 0; cursor: pointer; padding: 5px; border-radius: 4px; transition: background 0.2s; }
+        .options label:hover { background: #f1f5f9; }
+        button { background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        button:hover { background: #1d4ed8; }
+        .result { margin-top: 10px; font-weight: bold; padding: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>📐 STEM Mathematics: Advanced Calculus Curriculum</h1>
+        <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module</p>
+    </div>
+
+    <!-- SECTION 1: Core Laws -->
+    <div class="card">
+        <h2>1. Core Mathematical Laws & Formulas</h2>
+        <ul>
+            <li><strong>Point-Slope Form:</strong> $y - y_0 = m(x - x_0)$</li>
+            <li><strong>Tangent Equation Law:</strong> $y - y_0 = m_t(x - x_0)$ where $m_t = \left.\frac{dy}{dx}\right|_{x=x_0}$</li>
+            <li><strong>Normal Equation Law:</strong> $y - y_0 = -\frac{1}{m_t}(x - x_0)$ (Perpendicular condition $m_t \cdot m_n = -1$)</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 2: Solved Examples (Tangent & Normal) -->
+    <div class="card">
+        <h2>2. Step-by-Step Solved Examples: Tangent & Normal</h2>
+        
+        <div class="example-box">
+            <strong>Example 1 (Polynomial Curve):</strong> Find the equations of the tangent and normal lines to $y = 2x^3 - 5x + 3$ at $x = 1$.<br>
+            <em>Step 1:</em> Find point $P(1, 0)$.<br>
+            <em>Step 2:</em> Slope $m_t = 6x^2 - 5 \implies m_t = 1$.<br>
+            <em>Step 3:</em> Tangent Equation: $y - 0 = 1(x - 1) \implies y = x - 1$.<br>
+            <em>Step 4:</em> Normal Equation: $y - 0 = -1(x - 1) \implies y = -x + 1$.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2 (Exponential Growth):</strong> Find the equation of the tangent line to $y = x \cdot e^x$ at $x = 0$.<br>
+            <em>Step 1:</em> Find point $P(0, 0)$.<br>
+            <em>Step 2:</em> Derivative $\frac{dy}{dx} = e^x + x e^x \implies m_t = 1$.<br>
+            <em>Step 3:</em> Tangent Equation: $y = x$.
+        </div>
+    </div>
+
+    <!-- SECTION 3: Higher-Order Derivatives -->
+    <div class="card">
+        <h2>3. Step-by-Step Solved Examples: Higher-Order Derivatives</h2>
+        
+        <div class="example-box">
+            <strong>Higher-Order Example 1:</strong> Find the 3rd derivative of $f(x) = \frac{1}{x} = x^{-1}$.<br>
+            <em>1st Deriv:</em> $-x^{-2}$ | <em>2nd Deriv:</em> $2x^{-3}$ | <em>3rd Deriv:</em> $f'''(x) = -\frac{6}{x^4}$.
+        </div>
+
+        <div class="example-box">
+            <strong>Higher-Order Example 2:</strong> Find the 2nd derivative of $f(x) = \ln(2x + 3)$.<br>
+            <em>1st Deriv:</em> $\frac{2}{2x + 3}$ | <em>2nd Deriv:</em> $f''(x) = -\frac{4}{(2x + 3)^2}$.
+        </div>
+    </div>
+
+    <!-- SECTION 4: Interactive Student Assessment (MCQs) -->
+    <div class="card">
+        <h2>4. Interactive Student Assessment (MCQs)</h2>
+        
+        <div class="quiz-question">1. If $f(x) = x^3 - 3x$, what is the slope of the tangent line at $x = 2$?</div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="A"> A) 9</label>
+            <label><input type="radio" name="q1" value="B"> B) 3</label>
+            <label><input type="radio" name="q1" value="C"> C) 12</label>
+            <label><input type="radio" name="q1" value="D"> D) 6</label>
+        </div>
+        <button onclick="checkAnswer('q1', 'A', 'res1')">Submit Answer</button>
+        <div id="res1" class="result"></div>
+        <hr style="border:0; border-top:1px solid #e2e8f0; margin:15px 0;">
+
+        <div class="quiz-question">2. What is the slope of the normal line if the tangent slope $m_t = -4$?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="A"> A) 4</label>
+            <label><input type="radio" name="q2" value="B"> B) 1/4</label>
+            <label><input type="radio" name="q2" value="C"> C) -1/4</label>
+            <label><input type="radio" name="q2" value="D"> D) -4</label>
+        </div>
+        <button onclick="checkAnswer('q2', 'B', 'res2')">Submit Answer</button>
+        <div id="res2" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswer(questionName, correctAnswer, resultId) {
+            const radios = document.getElementsByName(questionName);
+            let selectedValue = null;
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            const resDiv = document.getElementById(resultId);
+            if (!selectedValue) {
+                resDiv.style.color = "#d97706";
+                resDiv.innerText = "⚠️ Please select an option first.";
+            } else if (selectedValue === correctAnswer) {
+                resDiv.style.color = "#16a34a";
+                resDiv.innerText = "✅ Correct! Excellent analytical thinking.";
+            } else {
+                resDiv.style.color = "#dc2626";
+                resDiv.innerText = "❌ Incorrect. The correct option is: " + correctAnswer;
+            }
+        }
+    </script>
+</body>
+</html>
