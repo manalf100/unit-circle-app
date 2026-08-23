@@ -2,12 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>STEM Grade 12 Calculus - Mr. Tarek Shawky</title>
+    <title>STEM Grade 12 Advanced Calculus - Mr. Tarek Shawky</title>
     <!-- MathJax for Math Equations -->
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f1f5f9; color: #1e293b; line-height: 1.7; }
-        .container { max-width: 950px; margin: 0 auto; }
+        .container { max-width: 1000px; margin: 0 auto; }
         .header { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .header h1 { margin: 0 0 8px 0; font-size: 26px; }
         .header p { margin: 0; font-size: 16px; opacity: 0.9; }
@@ -20,6 +20,10 @@
         button { background: #2563eb; color: white; border: none; padding: 11px 24px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 12px; font-size: 15px; transition: background 0.2s; }
         button:hover { background: #1d4ed8; }
         .result { margin-top: 12px; font-weight: bold; padding: 12px; border-radius: 6px; }
+        
+        /* Student Info Input */
+        .student-box { background: #eff6ff; border: 1px solid #bfdbfe; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
+        .student-box input { padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; flex: 1; }
         
         /* Interactive Canvas Styling */
         .sim-container { background: #0f172a; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-top: 15px; }
@@ -36,23 +40,31 @@
 <div class="container">
     <div class="header">
         <h1>📐 STEM Mathematics: Advanced Calculus Curriculum</h1>
-        <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module, Visual Lab & Homework</p>
+        <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module & Comprehensive Assessment</p>
+    </div>
+
+    <!-- STUDENT REGISTRATION BAR -->
+    <div class="student-box">
+        <strong>Student Info:</strong>
+        <input type="text" id="studentName" placeholder="Enter your full name...">
+        <input type="text" id="studentID" placeholder="Enter your STEM ID...">
     </div>
 
     <!-- SECTION 1: LAWS -->
     <div class="card">
-        <h2>1. Core Mathematical Laws & Formulas</h2>
+        <h2>1. Core Mathematical Laws & Advanced Formulas</h2>
         <ul>
             <li><strong>Point-Slope Form:</strong> \(y - y_0 = m(x - x_0)\)</li>
-            <li><strong>Tangent Equation Law:</strong> \(y - y_0 = m_t(x - x_0) \quad \text{where} \quad m_t = \left.\frac{dy}{dx}\right|_{x=x_0}\)</li>
-            <li><strong>Normal Equation Law:</strong> \(y - y_0 = -\frac{1}{m_t}(x - x_0) \quad (\text{Condition: } m_t \cdot m_n = -1)\)</li>
+            <li><strong>Tangent Slope Law:</strong> \(m_t = \left.\frac{dy}{dx}\right|_{x=x_0}\)</li>
+            <li><strong>Normal Slope Law:</strong> \(m_n = -\frac{1}{m_t} \quad (m_t \cdot m_n = -1)\)</li>
+            <li><strong>Implicit Differentiation:</strong> \(\frac{d}{dx}[F(x, y)] = 0\)</li>
         </ul>
     </div>
 
-    <!-- SECTION 2: LIVE VISUAL LAB (SLIDER & CURVE) -->
+    <!-- SECTION 2: LIVE VISUAL LAB -->
     <div class="card">
-        <h2>2. Live Visual Lab: Move Point on Curve \(f(x) = 0.25x^3 - 2x\)</h2>
-        <p>Drag the slider below to move the point along the curve. Observe how the <strong>Tangent line (Blue)</strong> and <strong>Normal line (Red)</strong> change dynamically with the slope!</p>
+        <h2>2. Live Visual Lab: Interactive Curve Exploration \(f(x) = 0.25x^3 - 2x\)</h2>
+        <p>Drag the slider to move the point along the curve and analyze how the <strong>Tangent line (Blue)</strong> and <strong>Normal line (Red)</strong> adapt instantaneously!</p>
         
         <div class="sim-container">
             <div class="slider-box">
@@ -70,84 +82,87 @@
         </div>
     </div>
 
-    <!-- SECTION 3: CLASSROOM SOLVED EXAMPLES -->
+    <!-- SECTION 3: STEM LEVEL SOLVED EXAMPLES -->
     <div class="card">
-        <h2>3. Step-by-Step Solved Examples</h2>
+        <h2>3. STEM-Level Solved Examples (Step-by-Step)</h2>
+        
         <div class="example-box">
-            <strong>Example (Polynomial Curve):</strong> Find equations of tangent and normal lines to \(y = 2x^3 - 5x + 3\) at \(x = 1\).<br><br>
-            <em>Step 1: Point</em> \(P(1, 0)\).<br>
-            <em>Step 2: Slope</em> \(m_t = 6x^2 - 5 \implies m_t = 1\).<br>
-            <em>Step 3: Tangent</em> \(y - 0 = 1(x - 1) \implies y = x - 1\).<br>
-            <em>Step 4: Normal</em> \(y - 0 = -1(x - 1) \implies y = -x + 1\).
+            <strong>Example 1 (Implicit Differentiation & Tangent/Normal):</strong> Find the equations of the tangent and normal lines to the circle \(x^2 + y^2 - 2x - 4y = 0\) at \(P(3, 3)\).<br><br>
+            <em>Step 1 (Differentiate):</em> Apply implicit differentiation: \(2x + 2y\frac{dy}{dx} - 2 - 4\frac{dy}{dx} = 0\).<br>
+            <em>Step 2 (Find Slope):</em> Substitute point \((3, 3)\) to get \(6 + 6\frac{dy}{dx} - 2 - 4\frac{dy}{dx} = 0 \implies m_t = -2\).<br>
+            <em>Step 3 (Tangent Equation):</em> \(y - 3 = -2(x - 3) \implies 2x + y - 9 = 0\).<br>
+            <em>Step 4 (Normal Equation):</em> Since \(m_n = \frac{1}{2}\), then \(y - 3 = \frac{1}{2}(x - 3) \implies x - 2y + 3 = 0\).
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2 (Parametric & Higher-Order Thinking):</strong> Find all points on the curve \(y = x^3 - 3x^2\) where the tangent line is horizontal.<br><br>
+            <em>Step 1:</em> Find the first derivative: \(\frac{dy}{dx} = 3x^2 - 6x\).<br>
+            <em>Step 2:</em> Set derivative to zero for horizontal tangent: \(3x(x - 2) = 0 \implies x = 0 \text{ or } x = 2\).<br>
+            <em>Step 3:</em> Find corresponding y-coordinates: at \(x = 0 \implies y = 0\); at \(x = 2 \implies y = -4\).<br>
+            <em>Step 4:</em> Points are \((0, 0)\) and \((2, -4)\).
         </div>
     </div>
 
-    <!-- SECTION 4: CLASS ASSESSMENT (MCQs) -->
+    <!-- SECTION 4: CLASS ASSESSMENT (STEM CHALLENGE MCQS) -->
     <div class="card">
-        <h2>4. Class Interactive Assessment (MCQs)</h2>
+        <h2>4. Class STEM-Level Assessment (Multiple Choice Questions)</h2>
         
-        <div class="quiz-question">1. If \(f(x) = x^3 - 3x\), what is the slope of the tangent line at \(x = 2\)?</div>
+        <div class="quiz-question">Q1. If the tangent line to the curve \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to the line \(2x + 6y = 11\), what is \(k\)?</div>
         <div class="options">
-            <label><input type="radio" name="q1" value="A"> A) 9</label>
-            <label><input type="radio" name="q1" value="B"> B) 3</label>
-            <label><input type="radio" name="q1" value="C"> C) 12</label>
+            <label><input type="radio" name="q1" value="A"> A) 3</label>
+            <label><input type="radio" name="q1" value="B"> B) 4</label>
+            <label><input type="radio" name="q1" value="C"> C) 5</label>
             <label><input type="radio" name="q1" value="D"> D) 6</label>
         </div>
-        <button onclick="checkAnswer('q1', 'A', 'res1')">Submit Answer</button>
+        <button onclick="checkAnswer('q1', 'B', 'res1')">Submit Answer</button>
         <div id="res1" class="result"></div>
         <hr style="border:0; border-top:1px solid #e2e8f0; margin:25px 0;">
 
-        <div class="quiz-question">2. What is the slope of the normal line if the tangent slope is \(m_t = -4\)?</div>
+        <div class="quiz-question">Q2. At what point on \(y = x^2\) is the tangent line parallel to the line \(y = 4x - 5\)?</div>
         <div class="options">
-            <label><input type="radio" name="q2" value="A"> A) 4</label>
-            <label><input type="radio" name="q2" value="B"> B) 1/4</label>
-            <label><input type="radio" name="q2" value="C"> C) -1/4</label>
-            <label><input type="radio" name="q2" value="D"> D) -4</label>
+            <label><input type="radio" name="q2" value="A"> A) \((1, 1)\)</label>
+            <label><input type="radio" name="q2" value="B"> B) \((4, 16)\)</label>
+            <label><input type="radio" name="q2" value="C"> C) \((2, 4)\)</label>
+            <label><input type="radio" name="q2" value="D"> D) \((0, 0)\)</label>
         </div>
-        <button onclick="checkAnswer('q2', 'B', 'res2')">Submit Answer</button>
+        <button onclick="checkAnswer('q2', 'C', 'res2')">Submit Answer</button>
         <div id="res2" class="result"></div>
     </div>
 
-    <!-- SECTION 5: HOMEWORK SECTION -->
+    <!-- SECTION 5: ADVANCED HOMEWORK -->
     <div class="card hw-section">
-        <h2>5. 📝 Weekly Homework & Independent Practice</h2>
-        <p>Assign this homework for students to solidify their understanding of Tangent & Normal lines:</p>
+        <h2>5. 📝 Comprehensive Weekly Homework (STEM Problem Set)</h2>
+        <p>Solve these rigorous problems. Enter your student name above, and click submit to record your score!</p>
 
-        <div class="quiz-question">HW Q1. Find the equation of the tangent line to the curve \(y = x^2 - 4x + 1\) at the point where \(x = 3\).</div>
+        <div class="quiz-question">HW Q1. Find the area of the triangle formed by the coordinate axes and the tangent line to \(y = \frac{8}{x^2}\) at \(x = 2\).</div>
         <div class="options">
-            <label><input type="radio" name="hw1" value="A"> A) \(y = 2x - 10\)</label>
-            <label><input type="radio" name="hw1" value="B"> B) \(y = 2x - 8\)</label>
-            <label><input type="radio" name="hw1" value="C"> C) \(y = -2x + 4\)</label>
-            <label><input type="radio" name="hw1" value="D"> D) \(y = x - 3\)</label>
+            <label><input type="radio" name="hw1" value="A"> A) \(6\)</label>
+            <label><input type="radio" name="hw1" value="B"> B) \(9\)</label>
+            <label><input type="radio" name="hw1" value="C"> C) \(12\)</label>
+            <label><input type="radio" name="hw1" value="D"> D) \(16\)</label>
         </div>
-        <button onclick="checkAnswer('hw1', 'B', 'resHw1')">Submit Homework Answer</button>
+        <button onclick="checkAnswer('hw1', 'C', 'resHw1')">Submit HW Q1</button>
         <div id="resHw1" class="result"></div>
         <hr style="border:0; border-top:1px solid #f1f5f9; margin:25px 0;">
 
-        <div class="quiz-question">HW Q2. At what point on the curve \(y = x^2\) is the tangent line parallel to the line \(y = 4x - 5\)?</div>
+        <div class="quiz-question">HW Q2. For what value of \(m\) does the line \(y = mx + 2\) touch the parabola \(y = x^2 - x + 3\) at exactly one point?</div>
         <div class="options">
-            <label><input type="radio" name="hw2" value="A"> A) \((1, 1)\)</label>
-            <label><input type="radio" name="hw2" value="B"> B) \((4, 16)\)</label>
-            <label><input type="radio" name="hw2" value="C"> C) \((2, 4)\)</label>
-            <label><input type="radio" name="hw2" value="D"> D) \((0, 0)\)</label>
+            <label><input type="radio" name="hw2" value="A"> A) -3 or 1</label>
+            <label><input type="radio" name="hw2" value="B"> B) 3 or -5</label>
+            <label><input type="radio" name="hw2" value="C"> C) 2 or -2</label>
+            <label><input type="radio" name="hw2" value="D"> D) 0 or 4</label>
         </div>
-        <button onclick="checkAnswer('hw2', 'C', 'resHw2')">Submit Homework Answer</button>
+        <button onclick="checkAnswer('hw2', 'B', 'resHw2')">Submit HW Q2</button>
         <div id="resHw2" class="result"></div>
     </div>
 </div>
 
     <script>
-        // Simulation Canvas Code
         const canvas = document.getElementById('calcCanvas');
         const ctx = canvas.getContext('2d');
 
-        function f(x) {
-            return 0.25 * Math.pow(x, 3) - 2 * x;
-        }
-
-        function df(x) {
-            return 0.75 * Math.pow(x, 2) - 2;
-        }
+        function f(x) { return 0.25 * Math.pow(x, 3) - 2 * x; }
+        function df(x) { return 0.75 * Math.pow(x, 2) - 2; }
 
         function updateSimulation() {
             let xVal = parseFloat(document.getElementById('xSlider').value);
@@ -166,14 +181,9 @@
 
         function drawGraph(px, py, mt, mn) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let scaleX = 75, scaleY = 35;
+            let originX = canvas.width / 2, originY = canvas.height / 2;
 
-            // Grid settings
-            let scaleX = 75;
-            let scaleY = 35;
-            let originX = canvas.width / 2;
-            let originY = canvas.height / 2;
-
-            // Draw Axes
             ctx.strokeStyle = '#475569';
             ctx.lineWidth = 1.5;
             ctx.beginPath();
@@ -181,7 +191,6 @@
             ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height);
             ctx.stroke();
 
-            // Draw Curve: y = 0.25*x^3 - 2*x
             ctx.strokeStyle = '#38bdf8';
             ctx.lineWidth = 3;
             ctx.beginPath();
@@ -194,8 +203,8 @@
             }
             ctx.stroke();
 
-            // Draw Tangent Line: y - y0 = mt * (x - x0)
-            ctx.strokeStyle = '#60a5fa'; // Blue Tangent
+            // Tangent Line
+            ctx.strokeStyle = '#60a5fa';
             ctx.lineWidth = 2;
             ctx.beginPath();
             let x1 = -4, x2 = 4;
@@ -205,8 +214,8 @@
             ctx.lineTo(originX + x2 * scaleX, originY - y2_t * scaleY);
             ctx.stroke();
 
-            // Draw Normal Line: y - y0 = mn * (x - x0)
-            ctx.strokeStyle = '#f87171'; // Red Normal
+            // Normal Line
+            ctx.strokeStyle = '#f87171';
             ctx.lineWidth = 2;
             ctx.beginPath();
             let y1_n = mn * (x1 - px) + py;
@@ -215,7 +224,7 @@
             ctx.lineTo(originX + x2 * scaleX, originY - y2_n * scaleY);
             ctx.stroke();
 
-            // Draw Point P
+            // Point P
             let screenPx = originX + px * scaleX;
             let screenPy = originY - py * scaleY;
             ctx.fillStyle = '#facc15';
@@ -227,22 +236,25 @@
             ctx.stroke();
         }
 
-        // Initialize simulation on load
-        window.onload = function() {
-            updateSimulation();
-        };
+        window.onload = function() { updateSimulation(); };
 
-        // Quiz and Homework Answer Checker
         function checkAnswer(questionName, correctAnswer, resultId) {
+            let studentName = document.getElementById('studentName').value.trim();
+            const resDiv = document.getElementById(resultId);
+
+            if (!studentName) {
+                resDiv.style.backgroundColor = "#fef3c7";
+                resDiv.style.color = "#d97706";
+                resDiv.innerText = "⚠️ Please enter your student name at the top before submitting!";
+                return;
+            }
+
             const radios = document.getElementsByName(questionName);
             let selectedValue = null;
             for (const radio of radios) {
-                if (radio.checked) {
-                    selectedValue = radio.value;
-                    break;
-                }
+                if (radio.checked) { selectedValue = radio.value; break; }
             }
-            const resDiv = document.getElementById(resultId);
+
             if (!selectedValue) {
                 resDiv.style.backgroundColor = "#fef3c7";
                 resDiv.style.color = "#d97706";
@@ -250,11 +262,11 @@
             } else if (selectedValue === correctAnswer) {
                 resDiv.style.backgroundColor = "#dcfce7";
                 resDiv.style.color = "#16a34a";
-                resDiv.innerText = "✅ Correct! Excellent STEM analytical thinking.";
+                resDiv.innerText = `✅ Correct, ${studentName}! Excellent STEM analytical deduction.`;
             } else {
                 resDiv.style.backgroundColor = "#fee2e2";
                 resDiv.style.color = "#dc2626";
-                resDiv.innerText = "❌ Incorrect. The correct option is: " + correctAnswer;
+                resDiv.innerText = `❌ Incorrect, ${studentName}. The correct option is: ${correctAnswer}`;
             }
         }
     </script>
