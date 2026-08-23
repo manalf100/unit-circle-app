@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f1f5f9; color: #1e293b; line-height: 1.7; }
-        .container { max-width: 1000px; margin: 0 auto; }
+        .container { max-width: 1005px; margin: 0 auto; }
         .header { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .header h1 { margin: 0 0 8px 0; font-size: 26px; }
         .header p { margin: 0; font-size: 16px; opacity: 0.9; }
@@ -47,7 +47,7 @@
     <!-- MANDATORY STUDENT REGISTRATION BAR -->
     <div class="student-box">
         <label>👤 Student Name (Required):</label>
-        <input type="text" id="studentName" placeholder="Enter your full name to unlock questions..." required>
+        <input type="text" id="studentName" placeholder="Enter your full name to unlock questions and submit..." required>
     </div>
 
     <!-- SECTION 1: LAWS -->
@@ -55,16 +55,16 @@
         <h2>1. Core Mathematical Laws & Advanced Formulas</h2>
         <ul>
             <li><strong>Point-Slope Form:</strong> \(y - y_0 = m(x - x_0)\)</li>
-            <li><strong>Tangent Slope Law:</strong> \(m_t = \left.\frac{dy}{dx}\right|_{x=x_0}\)</li>
-            <li><strong>Normal Slope Law:</strong> \(m_n = -\frac{1}{m_t} \quad (m_t \cdot m_n = -1)\)</li>
+            <li><strong>Tangent Slope Law:</strong> \(m_t = \left.\frac{dy}{dx}\right|_{x=x_0}\) (Blue Line)</li>
+            <li><strong>Normal Slope Law:</strong> \(m_n = -\frac{1}{m_t} \quad (m_t \cdot m_n = -1)\) (Red Line)</li>
             <li><strong>Implicit Differentiation:</strong> \(\frac{d}{dx}[F(x, y)] = 0\)</li>
         </ul>
     </div>
 
-    <!-- SECTION 2: LIVE VISUAL LAB -->
+    <!-- SECTION 2: LIVE VISUAL LAB (Tangent & Normal) -->
     <div class="card">
-        <h2>2. Live Visual Lab: Interactive Curve Exploration \(f(x) = 0.25x^3 - 2x\)</h2>
-        <p>Drag the slider to move the point along the curve and analyze how the <strong>Tangent line (Blue)</strong> and <strong>Normal line (Red)</strong> adapt instantaneously!</p>
+        <h2>2. Live Visual Lab: Tangent (Blue) & Normal (Red) Exploration \(f(x) = 0.25x^3 - 2x\)</h2>
+        <p>Drag the slider to move the point. Notice how both the <strong>Tangent line (Blue)</strong> and the <strong>Normal line (Red)</strong> update instantly with slopes \(m_t\) and \(m_n\)!</p>
         
         <div class="sim-container">
             <div class="slider-box">
@@ -76,8 +76,8 @@
             
             <div class="sim-info">
                 <div>Point \(P\): <span id="pCoord">(2.00, -2.00)</span></div>
-                <div>Tangent Slope (\(m_t\)): <span id="mtVal">1.00</span></div>
-                <div>Normal Slope (\(m_n\)): <span id="mnVal">-1.00</span></div>
+                <div>Tangent (\(m_t\)): <span id="mtVal">1.00</span></div>
+                <div>Normal (\(m_n\)): <span id="mnVal">-1.00</span></div>
             </div>
         </div>
     </div>
@@ -95,35 +95,125 @@
         </div>
     </div>
 
-    <!-- SECTION 4: CLASS ASSESSMENT (2 MCQS) -->
+    <!-- SECTION 4: CLASS STEM-LEVEL ASSESSMENT (10 QUESTIONS) -->
     <div class="card">
-        <h2>4. Class STEM-Level Assessment</h2>
+        <h2>4. Class STEM-Level Assessment (10 Full Class Questions)</h2>
         
-        <div class="quiz-question">Q1. If the tangent line to \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to \(2x + 6y = 11\), what is \(k\)?</div>
+        <!-- Class Q1 -->
+        <div class="quiz-question">Class Q1. If the tangent line to \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to \(2x + 6y = 11\), what is \(k\)?</div>
         <div class="options">
-            <label><input type="radio" name="q1" value="A"> A) 3</label>
-            <label><input type="radio" name="q1" value="B"> B) 4</label>
-            <label><input type="radio" name="q1" value="C"> C) 5</label>
-            <label><input type="radio" name="q1" value="D"> D) 6</label>
+            <label><input type="radio" name="cq1" value="A"> A) 3</label>
+            <label><input type="radio" name="cq1" value="B"> B) 4</label>
+            <label><input type="radio" name="cq1" value="C"> C) 5</label>
+            <label><input type="radio" name="cq1" value="D"> D) 6</label>
         </div>
-        <button onclick="checkAnswer('q1', 'B', 'res1')">Submit Q1 Answer</button>
-        <div id="res1" class="result"></div>
+        <button onclick="checkClassAnswer('cq1', 'B', 'cres1')">Submit Class Q1</button>
+        <div id="cres1" class="result"></div>
 
-        <div class="quiz-question" style="margin-top:25px;">Q2. What is the slope of the normal line to \(y = 4x^3 - 2x + 1\) at \(x = 1\)?</div>
+        <!-- Class Q2 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q2. What is the slope of the normal line to \(y = 4x^3 - 2x + 1\) at \(x = 1\)?</div>
         <div class="options">
-            <label><input type="radio" name="q2" value="A"> A) \(-\frac{1}{10}\)</label>
-            <label><input type="radio" name="q2" value="B"> B) \(10\)</label>
-            <label><input type="radio" name="q2" value="C"> C) \(-\frac{1}{12}\)</label>
-            <label><input type="radio" name="q2" value="D"> D) \(\frac{1}{10}\)</label>
+            <label><input type="radio" name="cq2" value="A"> A) \(-\frac{1}{10}\)</label>
+            <label><input type="radio" name="cq2" value="B"> B) \(10\)</label>
+            <label><input type="radio" name="cq2" value="C"> C) \(-\frac{1}{12}\)</label>
+            <label><input type="radio" name="cq2" value="D"> D) \(\frac{1}{10}\)</label>
         </div>
-        <button onclick="checkAnswer('q2', 'A', 'res2')">Submit Q2 Answer</button>
-        <div id="res2" class="result"></div>
+        <button onclick="checkClassAnswer('cq2', 'A', 'cres2')">Submit Class Q2</button>
+        <div id="cres2" class="result"></div>
+
+        <!-- Class Q3 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q3. Find the equation of the tangent line to \(y = x^2 - 3x + 2\) at \(x = 3\).</div>
+        <div class="options">
+            <label><input type="radio" name="cq3" value="A"> A) \(3x - y - 6 = 0\)</label>
+            <label><input type="radio" name="cq3" value="B"> B) \(3x - y - 7 = 0\)</label>
+            <label><input type="radio" name="cq3" value="C"> C) \(x - 3y + 2 = 0\)</label>
+            <label><input type="radio" name="cq3" value="D"> D) \(2x - y - 3 = 0\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq3', 'B', 'cres3')">Submit Class Q3</button>
+        <div id="cres3" class="result"></div>
+
+        <!-- Class Q4 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q4. At what point on the curve \(y = x^2\) is the tangent line parallel to the line \(y = 4x - 1\)?</div>
+        <div class="options">
+            <label><input type="radio" name="cq4" value="A"> A) \((1, 1)\)</label>
+            <label><input type="radio" name="cq4" value="B"> B) \((2, 4)\)</label>
+            <label><input type="radio" name="cq4" value="C"> C) \((-2, 4)\)</label>
+            <label><input type="radio" name="cq4" value="D"> D) \((0, 0)\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq4', 'B', 'cres4')">Submit Class Q4</button>
+        <div id="cres4" class="result"></div>
+
+        <!-- Class Q5 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q5. Find the slope of the normal line to \(y = x^3 - 2x\) at \(x = 2\).</div>
+        <div class="options">
+            <label><input type="radio" name="cq5" value="A"> A) \(-\frac{1}{10}\)</label>
+            <label><input type="radio" name="cq5" value="B"> B) \(10\)</label>
+            <label><input type="radio" name="cq5" value="C"> C) \(-\frac{1}{6}\)</label>
+            <label><input type="radio" name="cq5" value="D"> D) \(6\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq5', 'A', 'cres5')">Submit Class Q5</button>
+        <div id="cres5" class="result"></div>
+
+        <!-- Class Q6 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q6. What is the y-intercept of the tangent line to \(y = 3x^2 - 4x + 1\) at \(x = 1\)?</div>
+        <div class="options">
+            <label><input type="radio" name="cq6" value="A"> A) \(-2\)</label>
+            <label><input type="radio" name="cq6" value="B"> B) \(0\)</label>
+            <label><input type="radio" name="cq6" value="C"> C) \(2\)</label>
+            <label><input type="radio" name="cq6" value="D"> D) \(-1\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq6', 'A', 'cres6')">Submit Class Q6</button>
+        <div id="cres6" class="result"></div>
+
+        <!-- Class Q7 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q7. Find \(dy/dx\) implicitly for \(x^2 + y^2 = 25\) at point \((3, 4)\).</div>
+        <div class="options">
+            <label><input type="radio" name="cq7" value="A"> A) \(-3/4\)</label>
+            <label><input type="radio" name="cq7" value="B"> B) \(4/3\)</label>
+            <label><input type="radio" name="cq7" value="C"> C) \(-4/3\)</label>
+            <label><input type="radio" name="cq7" value="D"> D) \(3/4\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq7', 'A', 'cres7')">Submit Class Q7</button>
+        <div id="cres7" class="result"></div>
+
+        <!-- Class Q8 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q8. For which value of \(x\) is the tangent to \(y = \frac{1}{x}\) perpendicular to the line \(y = x\)?</div>
+        <div class="options">
+            <label><input type="radio" name="cq8" value="A"> A) \(\pm 1\)</label>
+            <label><input type="radio" name="cq8" value="B"> B) \(\pm 2\)</label>
+            <label><input type="radio" name="cq8" value="C"> C) \(0\)</label>
+            <label><input type="radio" name="cq8" value="D"> D) \(\pm 0.5\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq8', 'A', 'cres8')">Submit Class Q8</button>
+        <div id="cres8" class="result"></div>
+
+        <!-- Class Q9 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q9. Find the angle of inclination of the tangent line to \(y = x \sqrt{3}\) at any point.</div>
+        <div class="options">
+            <label><input type="radio" name="cq9" value="A"> A) \(30^\circ\)</label>
+            <label><input type="radio" name="cq9" value="B"> B) \(45^\circ\)</label>
+            <label><input type="radio" name="cq9" value="C"> C) \(60^\circ\)</label>
+            <label><input type="radio" name="cq9" value="D"> D) \(90^\circ\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq9', 'C', 'cres9')">Submit Class Q9</button>
+        <div id="cres9" class="result"></div>
+
+        <!-- Class Q10 -->
+        <div class="quiz-question" style="margin-top:25px;">Class Q10. Find the equation of the normal line to \(y = x^2\) at \(x = 1\) (where tangent slope is 2).</div>
+        <div class="options">
+            <label><input type="radio" name="cq10" value="A"> A) \(x + 2y - 3 = 0\)</label>
+            <label><input type="radio" name="cq10" value="B"> B) \(2x + y - 3 = 0\)</label>
+            <label><input type="radio" name="cq10" value="C"> C) \(x - 2y + 1 = 0\)</label>
+            <label><input type="radio" name="cq10" value="D"> D) \(2x - y - 1 = 0\)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq10', 'A', 'cres10')">Submit Class Q10</button>
+        <div id="cres10" class="result"></div>
     </div>
 
     <!-- SECTION 5: ADVANCED HOMEWORK (10 FULL STEM QUESTIONS) -->
     <div class="card hw-section">
         <h2>5. 📝 Comprehensive Weekly Homework (10 STEM Questions)</h2>
-        <p>⚠️ <em>Note: You must write your name in the box at the top before submitting your homework answers!</em></p>
+        <p>⚠️ <em>Note: Make sure your name is typed in the top box before clicking submit!</em></p>
 
         <!-- HW Q1 -->
         <div class="quiz-question">HW Q1. Find the area of the triangle formed by the coordinate axes and the tangent line to \(y = \frac{8}{x^2}\) at \(x = 2\).</div>
@@ -233,9 +323,11 @@
             let yVal = f(xVal);
             let mt = df(xVal);
             let mn = mt !== 0 ? -1 / mt : 0;
+            
             document.getElementById('pCoord').innerText = `(${xVal.toFixed(2)}, ${yVal.toFixed(2)})`;
             document.getElementById('mtVal').innerText = mt.toFixed(2);
             document.getElementById('mnVal').innerText = mn.toFixed(2);
+            
             drawGraph(xVal, yVal, mt, mn);
         }
 
@@ -244,10 +336,14 @@
             let scaleX = 75, scaleY = 35;
             let originX = canvas.width / 2, originY = canvas.height / 2;
 
+            // 1. Draw Axes
             ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.5;
-            ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
-            ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height); ctx.stroke();
+            ctx.beginPath(); 
+            ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
+            ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height); 
+            ctx.stroke();
 
+            // 2. Draw Function Curve
             ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3;
             ctx.beginPath();
             for (let pxCoord = 0; pxCoord <= canvas.width; pxCoord += 2) {
@@ -257,18 +353,53 @@
                 if (pxCoord === 0) ctx.moveTo(pxCoord, pyCoord); else ctx.lineTo(pxCoord, pyCoord);
             }
             ctx.stroke();
+
+            let canvasPx = originX + (px * scaleX);
+            let canvasPy = originY - (py * scaleY);
+
+            // 3. Draw Tangent Line (Blue)
+            ctx.strokeStyle = '#60a5fa'; ctx.lineWidth = 2;
+            ctx.beginPath();
+            let x1 = -4, y1 = py + mt * (x1 - px);
+            let x2 = 4, y2 = py + mt * (x2 - px);
+            ctx.moveTo(originX + (x1 * scaleX), originY - (y1 * scaleY));
+            ctx.lineTo(originX + (x2 * scaleX), originY - (y2 * scaleY));
+            ctx.stroke();
+
+            // 4. Draw Normal Line (Red)
+            if (mt !== 0) {
+                ctx.strokeStyle = '#f43f5e'; ctx.lineWidth = 2;
+                ctx.beginPath();
+                let nx1 = -4, ny1 = py + mn * (nx1 - px);
+                let nx2 = 4, ny2 = py + mn * (nx2 - px);
+                ctx.moveTo(originX + (nx1 * scaleX), originY - (ny1 * scaleY));
+                ctx.lineTo(originX + (nx2 * scaleX), originY - (ny2 * scaleY));
+                ctx.stroke();
+            }
+
+            // 5. Draw Point P
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(canvasPx, canvasPy, 6, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.strokeStyle = '#0f172a';
+            ctx.lineWidth = 2;
+            ctx.stroke();
         }
 
         window.onload = function() { updateSimulation(); };
 
-        function checkAnswer(questionName, correctAnswer, resultId) {
+        function checkClassAnswer(questionName, correctAnswer, resultId) {
             let studentName = document.getElementById('studentName').value.trim();
             const resDiv = document.getElementById(resultId);
 
             if (!studentName) {
-                alert("⚠️ Please enter your name at the top first!");
+                alert("⚠️ Please enter your student name at the top first!");
+                document.getElementById('studentName').style.borderColor = "red";
                 document.getElementById('studentName').focus();
                 return;
+            } else {
+                document.getElementById('studentName').style.borderColor = "#3b82f6";
             }
 
             const radios = document.getElementsByName(questionName);
@@ -282,7 +413,7 @@
                 resDiv.innerText = "⚠️ Please select an option first.";
             } else if (selectedValue === correctAnswer) {
                 resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
-                resDiv.innerText = `✅ Correct, ${studentName}! Excellent.`;
+                resDiv.innerText = `✅ Correct, ${studentName}! Excellent work.`;
             } else {
                 resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
                 resDiv.innerText = `❌ Incorrect, ${studentName}. Correct answer is: ${correctAnswer}`;
@@ -322,6 +453,7 @@
             summaryDiv.style.color = "#16a34a";
             summaryDiv.innerHTML = `🎉 Great job, <strong>${studentName}</strong>! Your Homework has been evaluated.<br>Your Final Score: <strong>${score} / ${total}</strong>.`;
 
+            // ضع رابط Google Apps Script الخاص بك هنا لاحقاً لربطه بالشيت
             const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; 
 
             if(scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
