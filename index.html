@@ -84,16 +84,20 @@
 
     <!-- SECTION 3: STEM LEVEL SOLVED EXAMPLES -->
     <div class="card">
-        <h2>3. STEM-Level Solved Examples (Step-by-Step)</h2>
+        <h2>3. STEM-Level Solved Examples</h2>
         <div class="example-box">
-            <strong>Example 1 (Implicit Tangent & Normal):</strong> Find equations of tangent and normal to \(x^2 + y^2 - 2x - 4y = 0\) at \(P(3, 3)\).<br>
+            <strong>Example 1:</strong> Find equations of tangent and normal to \(x^2 + y^2 - 2x - 4y = 0\) at \(P(3, 3)\).<br>
             <em>Solution:</em> \(m_t = -2 \implies \text{Tangent: } 2x + y - 9 = 0 \text{ & Normal: } x - 2y + 3 = 0\).
+        </div>
+        <div class="example-box">
+            <strong>Example 2:</strong> Find points on \(y = x^3 - 3x\) where the tangent line is parallel to the x-axis.<br>
+            <em>Solution:</em> \(\frac{dy}{dx} = 3x^2 - 3 = 0 \implies x = \pm 1\), yielding points \((1, -2)\) and \((-1, 2)\).
         </div>
     </div>
 
-    <!-- SECTION 4: CLASS ASSESSMENT (6 MCQS) -->
+    <!-- SECTION 4: CLASS ASSESSMENT (2 MCQS) -->
     <div class="card">
-        <h2>4. Class STEM-Level Assessment (Practice Set)</h2>
+        <h2>4. Class STEM-Level Assessment</h2>
         
         <div class="quiz-question">Q1. If the tangent line to \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to \(2x + 6y = 11\), what is \(k\)?</div>
         <div class="options">
@@ -102,8 +106,18 @@
             <label><input type="radio" name="q1" value="C"> C) 5</label>
             <label><input type="radio" name="q1" value="D"> D) 6</label>
         </div>
-        <button onclick="checkAnswer('q1', 'B', 'res1')">Submit Answer</button>
+        <button onclick="checkAnswer('q1', 'B', 'res1')">Submit Q1 Answer</button>
         <div id="res1" class="result"></div>
+
+        <div class="quiz-question" style="margin-top:25px;">Q2. What is the slope of the normal line to \(y = 4x^3 - 2x + 1\) at \(x = 1\)?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="A"> A) \(-\frac{1}{10}\)</label>
+            <label><input type="radio" name="q2" value="B"> B) \(10\)</label>
+            <label><input type="radio" name="q2" value="C"> C) \(-\frac{1}{12}\)</label>
+            <label><input type="radio" name="q2" value="D"> D) \(\frac{1}{10}\)</label>
+        </div>
+        <button onclick="checkAnswer('q2', 'A', 'res2')">Submit Q2 Answer</button>
+        <div id="res2" class="result"></div>
     </div>
 
     <!-- SECTION 5: ADVANCED HOMEWORK (10 FULL STEM QUESTIONS) -->
@@ -193,7 +207,7 @@
         </div>
 
         <!-- HW Q10 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q10. What is the value of \(c$ guaranteed by Rolle's Theorem for $f(x) = x^3 - 4x$ on the interval $[-2, 2]$?</div>
+        <div class="quiz-question" style="margin-top:20px;">HW Q10. What is the value of \(c\) guaranteed by Rolle's Theorem for \(f(x) = x^3 - 4x\) on the interval \([-2, 2]\)?</div>
         <div class="options">
             <label><input type="radio" name="hw10" value="A"> A) \(\frac{2}{\sqrt{3}}\)</label>
             <label><input type="radio" name="hw10" value="B"> B) \(\pm \frac{2}{\sqrt{3}}\)</label>
@@ -275,7 +289,6 @@
             }
         }
 
-        // Comprehensive 10-Question Homework Evaluation & Google Sheet Dispatch
         function submitFullHomework() {
             let studentName = document.getElementById('studentName').value.trim();
             const summaryDiv = document.getElementById('hwResultSummary');
@@ -287,18 +300,9 @@
                 return;
             }
 
-            // Correct Answers Key for the 10 HW Questions
             const hwAnswers = {
-                hw1: 'C', // 12
-                hw2: 'B', // 3 or -5
-                hw3: 'B', // 3
-                hw4: 'A', // arctan(1/7)
-                hw5: 'B', // a=1, b=3
-                hw6: 'C', // sqrt(7)/2
-                hw7: 'C', // 0
-                hw8: 'A', // -1/5
-                hw9: 'B', // y = 2
-                hw10: 'B' // +/- 2/sqrt(3)
+                hw1: 'C', hw2: 'B', hw3: 'B', hw4: 'A', hw5: 'B',
+                hw6: 'C', hw7: 'C', hw8: 'A', hw9: 'B', hw10: 'B'
             };
 
             let score = 0;
@@ -306,13 +310,9 @@
 
             for (let q in hwAnswers) {
                 let radios = document.getElementsByName(q);
-                let answered = false;
                 for (let r of radios) {
-                    if (r.checked) {
-                        answered = true;
-                        if (r.value === hwAnswers[q]) {
-                            score++;
-                        }
+                    if (r.checked && r.value === hwAnswers[q]) {
+                        score++;
                     }
                 }
             }
@@ -320,9 +320,22 @@
             summaryDiv.style.display = "block";
             summaryDiv.style.backgroundColor = "#dcfce7";
             summaryDiv.style.color = "#16a34a";
-            summaryDiv.innerHTML = `🎉 Great job, <strong>${studentName}</strong>! Your Homework has been evaluated.<br>Your Final Score: <strong>${score} / ${total}</strong>.<br><em>(Results successfully packaged for your teacher's records!)</em>`;
+            summaryDiv.innerHTML = `🎉 Great job, <strong>${studentName}</strong>! Your Homework has been evaluated.<br>Your Final Score: <strong>${score} / ${total}</strong>.`;
 
-            // Note for Teacher Tarek: Here you can connect a fetch() request to your Google Apps Script URL to log data into your Google Sheet automatically!
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; 
+
+            if(scriptURL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ studentName: studentName, score: score + "/" + total })
+                }).then(() => {
+                    summaryDiv.innerHTML += `<br><strong>✅ Successfully recorded in your teacher's sheet!</strong>`;
+                }).catch(error => {
+                    console.error('Error!', error.message);
+                });
+            }
         }
     </script>
 </body>
