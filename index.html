@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>STEM Grade 12 Calculus - Mr. Tarek Shawky</title>
-    <!-- MathJax for Professional Mathematical Formatting -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Clean MathJax integration without any external redirects -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f8fafc; color: #1e293b; line-height: 1.7; }
         .container { max-width: 900px; margin: 0 auto; }
@@ -35,9 +34,9 @@
     <div class="card">
         <h2>1. Core Mathematical Laws & Formulas</h2>
         <ul>
-            <li><strong>Point-Slope Form:</strong> $$y - y_0 = m(x - x_0)$$</li>
-            <li><strong>Tangent Equation Law:</strong> $$y - y_0 = m_t(x - x_0) \quad \text{where} \quad m_t = \left.\frac{dy}{dx}\right|_{x=x_0}$$</li>
-            <li><strong>Normal Equation Law:</strong> $$y - y_0 = -\frac{1}{m_t}(x - x_0) \quad (\text{Condition: } m_t \cdot m_n = -1)$$</li>
+            <li><strong>Point-Slope Form:</strong> \(y - y_0 = m(x - x_0)\)</li>
+            <li><strong>Tangent Equation Law:</strong> \(y - y_0 = m_t(x - x_0) \quad \text{where} \quad m_t = \left.\frac{dy}{dx}\right|_{x=x_0}\)</li>
+            <li><strong>Normal Equation Law:</strong> \(y - y_0 = -\frac{1}{m_t}(x - x_0) \quad (\text{Condition: } m_t \cdot m_n = -1)\)</li>
         </ul>
     </div>
 
@@ -46,18 +45,18 @@
         <h2>2. Step-by-Step Solved Examples: Tangent & Normal</h2>
         
         <div class="example-box">
-            <strong>Example 1 (Polynomial Curve):</strong> Find the equations of the tangent and normal lines to $$y = 2x^3 - 5x + 3$$ at $$x = 1$$.<br><br>
-            <em>Step 1:</em> Find point $$P(1, 0)$$.<br>
-            <em>Step 2:</em> Slope $$m_t = 6x^2 - 5 \implies m_t = 1$$.<br>
-            <em>Step 3:</em> Tangent Equation: $$y - 0 = 1(x - 1) \implies y = x - 1$$.<br>
-            <em>Step 4:</em> Normal Equation: $$y - 0 = -1(x - 1) \implies y = -x + 1$$.
+            <strong>Example 1 (Polynomial Curve):</strong> Find the equations of the tangent and normal lines to \(y = 2x^3 - 5x + 3\) at \(x = 1\).<br><br>
+            <em>Step 1:</em> Find point \(P(1, 0)\).<br>
+            <em>Step 2:</em> Slope \(m_t = 6x^2 - 5 \implies m_t = 1\).<br>
+            <em>Step 3:</em> Tangent Equation: \(y - 0 = 1(x - 1) \implies y = x - 1\).<br>
+            <em>Step 4:</em> Normal Equation: \(y - 0 = -1(x - 1) \implies y = -x + 1\).
         </div>
 
         <div class="example-box">
-            <strong>Example 2 (Exponential Growth):</strong> Find the equation of the tangent line to $$y = x \cdot e^x$$ at $$x = 0$$.<br><br>
-            <em>Step 1:</em> Find point $$P(0, 0)$$.<br>
-            <em>Step 2:</em> Derivative $$\frac{dy}{dx} = e^x + x e^x \implies m_t = 1$$.<br>
-            <em>Step 3:</em> Tangent Equation: $$y = x$$.
+            <strong>Example 2 (Exponential Growth):</strong> Find the equation of the tangent line to \(y = x \cdot e^x\) at \(x = 0\).<br><br>
+            <em>Step 1:</em> Find point \(P(0, 0)\).<br>
+            <em>Step 2:</em> Derivative \(\frac{dy}{dx} = e^x + x e^x \implies m_t = 1\).<br>
+            <em>Step 3:</em> Tangent Equation: \(y = x\).
         </div>
     </div>
 
@@ -66,13 +65,13 @@
         <h2>3. Step-by-Step Solved Examples: Higher-Order Derivatives</h2>
         
         <div class="example-box">
-            <strong>Higher-Order Example 1:</strong> Find the 3rd derivative of $$f(x) = \frac{1}{x} = x^{-1}$$.<br><br>
-            <em>1st Deriv:</em> $$-x^{-2}$$ | <em>2nd Deriv:</em> $$2x^{-3}$$ | <em>3rd Deriv:</em> $$f'''(x) = -\frac{6}{x^4}$$.
+            <strong>Higher-Order Example 1:</strong> Find the 3rd derivative of \(f(x) = \frac{1}{x} = x^{-1}\).<br><br>
+            <em>1st Deriv:</em> \(-x^{-2}\) | <em>2nd Deriv:</em> \(2x^{-3}\) | <em>3rd Deriv:</em> \(f'''(x) = -\frac{6}{x^4}\).
         </div>
 
         <div class="example-box">
-            <strong>Higher-Order Example 2:</strong> Find the 2nd derivative of $$f(x) = \ln(2x + 3)$$.<br><br>
-            <em>1st Deriv:</em> $$\frac{2}{2x + 3}$$ | <em>2nd Deriv:</em> $$f''(x) = -\frac{4}{(2x + 3)^2}$$.
+            <strong>Higher-Order Example 2:</strong> Find the 2nd derivative of \(f(x) = \ln(2x + 3)\).<br><br>
+            <em>1st Deriv:</em> \(\frac{2}{2x + 3}\) | <em>2nd Deriv:</em> \(f''(x) = -\frac{4}{(2x + 3)^2}\).
         </div>
     </div>
 
@@ -80,7 +79,7 @@
     <div class="card">
         <h2>4. Interactive Student Assessment (MCQs)</h2>
         
-        <div class="quiz-question">1. If $$f(x) = x^3 - 3x$$, what is the slope of the tangent line at $$x = 2$$?</div>
+        <div class="quiz-question">1. If \(f(x) = x^3 - 3x\), what is the slope of the tangent line at \(x = 2\)?</div>
         <div class="options">
             <label><input type="radio" name="q1" value="A"> A) 9</label>
             <label><input type="radio" name="q1" value="B"> B) 3</label>
@@ -91,7 +90,7 @@
         <div id="res1" class="result"></div>
         <hr style="border:0; border-top:1px solid #e2e8f0; margin:20px 0;">
 
-        <div class="quiz-question">2. What is the slope of the normal line if the tangent slope $$m_t = -4$$?</div>
+        <div class="quiz-question">2. What is the slope of the normal line if the tangent slope \(m_t = -4\)?</div>
         <div class="options">
             <label><input type="radio" name="q2" value="A"> A) 4</label>
             <label><input type="radio" name="q2" value="B"> B) 1/4</label>
