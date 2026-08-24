@@ -16,6 +16,10 @@
         .controls { margin-top: 15px; font-size: 1.1em; font-weight: bold; color: #1e293b; }
         input[type=range] { width: 60%; cursor: pointer; accent-color: #16a34a; }
         .info-panel { display: flex; justify-content: space-around; background: #e2e8f0; padding: 10px; border-radius: 6px; margin-top: 15px; font-weight: bold; color: #334155; }
+        .section-box { background: #fff; border: 1px solid #e2e8f0; border-left: 5px solid #16a34a; padding: 20px; margin-bottom: 20px; border-radius: 6px; }
+        .section-box h2 { color: #16a34a; margin-top: 0; font-size: 1.4em; }
+        .question { margin-bottom: 15px; font-weight: 600; }
+        .options label { display: block; margin: 5px 0; cursor: pointer; font-weight: normal; }
         .back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #2563eb; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
     </style>
@@ -45,6 +49,36 @@
             <span id="normInfo">Normal (\(m_n\)): -2.00</span>
         </div>
     </div>
+
+    <!-- Examples Section -->
+    <div class="section-box">
+        <h2>📚 Core Examples (AP-Level)</h2>
+        <p><strong>Example 1:</strong> Find the second derivative of \(y = x^4 - 5x^3 + 2x - 7\).</p>
+        <p><strong>Example 2:</strong> Given \(y = e^{2x} \sin(x)\), find \(y''\).</p>
+        <p><strong>Example 3:</strong> Find the equation of the tangent line to the curve \(y = x^3 - 3x + 1\) at \(x = 2\).</p>
+        <p><strong>Example 4:</strong> Find the equation of the normal line to the curve \(y = \sqrt{x^2 + 5}\) at \(x = 2\).</p>
+        <p><strong>Example 5:</strong> If \(f(x) = \ln(3x)\), find the third derivative \(f'''(x)\).</p>
+    </div>
+
+    <!-- Class Work Section -->
+    <div class="section-box">
+        <h2>📝 Class Work Exercises</h2>
+        <div class="question">1. Find \(\frac{d^2 y}{dx^2}\) if \(y = \cos(3x)\).</div>
+        <div class="question">2. Find the slope of the normal line to \(y = x^3 - 2x\) at \(x = 1\).</div>
+        <div class="question">3. If \(f(x) = x e^x\), find \(f''(1)\).</div>
+        <div class="question">4. Find the point on the curve \(y = x^2\) where the tangent line is parallel to the line \(4x - y = 1\).</div>
+        <div class="question">5. Find the second derivative of \(y = \ln(\sin x)\).</div>
+    </div>
+
+    <!-- Homework Section -->
+    <div class="section-box">
+        <h2>🏠 Homework Assignment</h2>
+        <div class="question">1. Find \(\frac{d^3 y}{dx^3}\) for \(y = 2x^5 - 4x^3 + 7\).</div>
+        <div class="question">2. Find the equation of the tangent line to \(y = \frac{8}{4+x^2}\) at \(x = 2\).</div>
+        <div class="question">3. If \(x^2 + y^2 = 25\), find \(\frac{d^2 y}{dx^2}\) at point \((3, 4)\).</div>
+        <div class="question">4. Find the value of \(k\) for which \(y = e^{kx}\) satisfies \(y'' - 3y' - 4y = 0\).</div>
+        <div class="question">5. Find the derivative of order 100 of \(y = \sin(x)\).</div>
+    </div>
 </div>
 
 <script>
@@ -69,7 +103,7 @@
         
         let cx = canvas.width / 2;
         let cy = canvas.height / 2;
-        let scale = 50; // pixels per unit
+        let scale = 50;
 
         // Draw Grid
         ctx.strokeStyle = '#e2e8f0';
@@ -95,7 +129,7 @@
         ctx.moveTo(cx, 0); ctx.lineTo(cx, canvas.height);
         ctx.stroke();
 
-        // Draw Curve f(x) = 0.5x^3 - 2x
+        // Draw Curve
         ctx.strokeStyle = '#16a34a';
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -108,11 +142,10 @@
         }
         ctx.stroke();
 
-        // Get Current Slider Value
         let xVal = parseFloat(slider.value);
         let yVal = f(xVal);
         let m_t = df(xVal);
-        let m_n = m_t !== 0 ? -1 / m_t : 999999; // Perpendicular slope
+        let m_n = m_t !== 0 ? -1 / m_t : 999999;
 
         valX.innerText = xVal.toFixed(2);
         pointInfo.innerText = `Point P: (${xVal.toFixed(2)}, ${yVal.toFixed(2)})`;
