@@ -2,9 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>STEM Grade 12 Advanced Calculus - Mr. Tarek Shawky</title>
-    <!-- MathJax for Math Equations -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>STEM Grade 12 Higher Derivatives - Mr. Tarek Shawky</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f1f5f9; color: #1e293b; line-height: 1.7; }
         .container { max-width: 1000px; margin: 0 auto; }
@@ -40,31 +38,31 @@
 
 <div class="container">
     <div class="header">
-        <h1>📐 STEM Mathematics: Advanced Calculus Curriculum</h1>
+        <h1>📐 STEM Mathematics: Higher Derivatives, Tangents & Normals</h1>
         <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module & Full Assessment System</p>
     </div>
 
     <!-- MANDATORY STUDENT REGISTRATION BAR -->
     <div class="student-box">
         <label>👤 Student Name (Required):</label>
-        <input type="text" id="studentName" placeholder="Enter your full name to unlock questions..." required>
+        <input type="text" id="studentName" placeholder="Enter your full name to unlock questions and record grades..." required>
     </div>
 
     <!-- SECTION 1: LAWS -->
     <div class="card">
-        <h2>1. Core Mathematical Laws & Advanced Formulas</h2>
+        <h2>1. Core Laws: Higher Derivatives, Tangent & Normal Perpendicularity</h2>
         <ul>
-            <li><strong>Point-Slope Form:</strong> \(y - y_0 = m(x - x_0)\)</li>
-            <li><strong>Tangent Slope Law:</strong> \(m_t = \left.\frac{dy}{dx}\right|_{x=x_0}\)</li>
-            <li><strong>Normal Slope Law:</strong> \(m_n = -\frac{1}{m_t} \quad (m_t \cdot m_n = -1)\)</li>
-            <li><strong>Implicit Differentiation:</strong> \(\frac{d}{dx}[F(x, y)] = 0\)</li>
+            <li><strong>First Derivative (Slope of Tangent):</strong> m_t = dy/dx = f'(x)</li>
+            <li><strong>Second Derivative (Rate of Change of Slope):</strong> m_2 = d²y/dx² = f''(x)</li>
+            <li><strong>Perpendicularity Condition:</strong> m_t * m_n = -1  =>  m_n = -1 / m_t</li>
+            <li><strong>Equations:</strong> Tangent: y - y_0 = m_t(x - x_0) | Normal: y - y_0 = m_n(x - x_0)</li>
         </ul>
     </div>
 
-    <!-- SECTION 2: LIVE VISUAL LAB -->
+    <!-- SECTION 2: LIVE INTERACTIVE LAB -->
     <div class="card">
-        <h2>2. Live Visual Lab: Interactive Curve Exploration \(f(x) = 0.25x^3 - 2x\)</h2>
-        <p>Drag the slider to move the point along the curve and analyze how the <strong>Tangent line (Blue)</strong> and <strong>Normal line (Red)</strong> adapt instantaneously!</p>
+        <h2>2. Live Interactive Lab: Curve, Tangent & Perpendicular Normal</h2>
+        <p>Explore the curve f(x) = 0.25x³ - 2x, its tangent line (blue), and its perpendicular normal line (red) dynamically as you slide across points.</p>
         
         <div class="sim-container">
             <div class="slider-box">
@@ -75,130 +73,251 @@
             <canvas id="calcCanvas" width="600" height="350"></canvas>
             
             <div class="sim-info">
-                <div>Point \(P\): <span id="pCoord">(2.00, -2.00)</span></div>
-                <div>Tangent Slope (\(m_t\)): <span id="mtVal">1.00</span></div>
-                <div>Normal Slope (\(m_n\)): <span id="mnVal">-1.00</span></div>
+                <div>Point P: <span id="pCoord">(2.00, -2.00)</span></div>
+                <div>Tangent (m_t): <span id="mtVal">1.00</span></div>
+                <div>Normal (m_n): <span id="mnVal">-1.00</span></div>
             </div>
         </div>
     </div>
 
-    <!-- SECTION 3: STEM LEVEL SOLVED EXAMPLES -->
+    <!-- SECTION 3: 5 SOLVED EXAMPLES -->
     <div class="card">
-        <h2>3. STEM-Level Solved Examples (Step-by-Step)</h2>
-        <div class="example-box">
-            <strong>Example 1 (Implicit Tangent & Normal):</strong> Find equations of tangent and normal to \(x^2 + y^2 - 2x - 4y = 0\) at \(P(3, 3)\).<br>
-            <em>Solution:</em> \(m_t = -2 \implies \text{Tangent: } 2x + y - 9 = 0 \text{ & Normal: } x - 2y + 3 = 0\).
-        </div>
-    </div>
-
-    <!-- SECTION 4: CLASS ASSESSMENT (6 MCQS) -->
-    <div class="card">
-        <h2>4. Class STEM-Level Assessment (Practice Set)</h2>
+        <h2>3. Five STEM-Level Solved Examples</h2>
         
-        <div class="quiz-question">Q1. If the tangent line to \(y = kx^3 - 4x\) at \(x = 1\) is perpendicular to \(2x + 6y = 11\), what is \(k\)?</div>
-        <div class="options">
-            <label><input type="radio" name="q1" value="A"> A) 3</label>
-            <label><input type="radio" name="q1" value="B"> B) 4</label>
-            <label><input type="radio" name="q1" value="C"> C) 5</label>
-            <label><input type="radio" name="q1" value="D"> D) 6</label>
+        <div class="example-box">
+            <strong>Example 1 (Second Derivative):</strong> If y = x^4 - 5x^3 + 2, find d²y/dx².<br>
+            <em>Solution:</em> dy/dx = 4x^3 - 15x^2  =>  d²y/dx² = 12x^2 - 30x.
         </div>
-        <button onclick="checkAnswer('q1', 'B', 'res1')">Submit Answer</button>
-        <div id="res1" class="result"></div>
+
+        <div class="example-box">
+            <strong>Example 2 (Higher Derivative Value):</strong> If f(x) = sin(2x), find f''(&pi;/4).<br>
+            <em>Solution:</em> f'(x) = 2cos(2x)  =>  f''(x) = -4sin(2x). At x = &pi;/4, f''(&pi;/4) = -4sin(&pi;/2) = -4.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 3 (Tangent & Perpendicular Normal Slopes):</strong> Find the slope of the normal line to y = x^3 - 3x at x = 2.<br>
+            <em>Solution:</em> m_t = 3(2)^2 - 3 = 9. Since normal is perpendicular, m_n = -1/9.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 4 (Implicit Higher Derivative):</strong> Given x^2 + y^2 = 25, find dy/dx at (3, 4).<br>
+            <em>Solution:</em> 2x + 2y(dy/dx) = 0  =>  dy/dx = -x/y = -3/4.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5 (Third Derivative):</strong> Find d^3/dx^3 (e^(2x)).<br>
+            <em>Solution:</em> First derivative = 2e^(2x), second = 4e^(2x), third = 8e^(2x).
+        </div>
     </div>
 
-    <!-- SECTION 5: ADVANCED HOMEWORK (10 FULL STEM QUESTIONS) -->
+    <!-- SECTION 4: 10 CLASS EXERCISES (MCQ) -->
+    <div class="card">
+        <h2>4. Ten Class Exercises (MCQs)</h2>
+
+        <!-- Q1 -->
+        <div class="quiz-question">Q1. If y = 3x^5 - 2x^3 + 7, what is d²y/dx²?</div>
+        <div class="options">
+            <label><input type="radio" name="cq1" value="A"> A) 15x^4 - 6x^2</label>
+            <label><input type="radio" name="cq1" value="B"> B) 60x^3 - 12x</label>
+            <label><input type="radio" name="cq1" value="C"> C) 60x^3 - 6x^2</label>
+            <label><input type="radio" name="cq1" value="D"> D) 12x^2 - 12x</label>
+        </div>
+        <button onclick="checkClassAnswer('cq1', 'B', 'cres1')">Submit Q1</button>
+        <div id="cres1" class="result"></div>
+
+        <!-- Q2 -->
+        <div class="quiz-question" style="margin-top:20px;">Q2. If f(x) = cos(x), what is f^(4)(x) (the 4th derivative)?</div>
+        <div class="options">
+            <label><input type="radio" name="cq2" value="A"> A) sin(x)</label>
+            <label><input type="radio" name="cq2" value="B"> B) -sin(x)</label>
+            <label><input type="radio" name="cq2" value="C"> C) cos(x)</label>
+            <label><input type="radio" name="cq2" value="D"> D) -cos(x)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq2', 'C', 'cres2')">Submit Q2</button>
+        <div id="cres2" class="result"></div>
+
+        <!-- Q3 -->
+        <div class="quiz-question" style="margin-top:20px;">Q3. Find the slope of the normal line to y = x^2 - 4x + 1 at x = 3.</div>
+        <div class="options">
+            <label><input type="radio" name="cq3" value="A"> A) 2</label>
+            <label><input type="radio" name="cq3" value="B"> B) -2</label>
+            <label><input type="radio" name="cq3" value="C"> C) -1/2</label>
+            <label><input type="radio" name="cq3" value="D"> D) 1/2</label>
+        </div>
+        <button onclick="checkClassAnswer('cq3', 'C', 'cres3')">Submit Q3</button>
+        <div id="cres3" class="result"></div>
+
+        <!-- Q4 -->
+        <div class="quiz-question" style="margin-top:20px;">Q4. If y = e^(3x), what is d^3y/dx^3?</div>
+        <div class="options">
+            <label><input type="radio" name="cq4" value="A"> A) 3e^(3x)</label>
+            <label><input type="radio" name="cq4" value="B"> B) 9e^(3x)</label>
+            <label><input type="radio" name="cq4" value="C"> C) 27e^(3x)</label>
+            <label><input type="radio" name="cq4" value="D"> D) 81e^(3x)</label>
+        </div>
+        <button onclick="checkClassAnswer('cq4', 'C', 'cres4')">Submit Q4</button>
+        <div id="cres4" class="result"></div>
+
+        <!-- Q5 -->
+        <div class="quiz-question" style="margin-top:20px;">Q5. If xy = 6, find d²y/dx² at x = 2.</div>
+        <div class="options">
+            <label><input type="radio" name="cq5" value="A"> A) 3/2</label>
+            <label><input type="radio" name="cq5" value="B"> B) -3/2</label>
+            <label><input type="radio" name="cq5" value="C"> C) 3</label>
+            <label><input type="radio" name="cq5" value="D"> D) -3</label>
+        </div>
+        <button onclick="checkClassAnswer('cq5', 'A', 'cres5')">Submit Q5</button>
+        <div id="cres5" class="result"></div>
+
+        <!-- Q6 -->
+        <div class="quiz-question" style="margin-top:20px;">Q6. What is the value of c where the tangent to f(x) = x^3 is perpendicular to x + 3y = 5?</div>
+        <div class="options">
+            <label><input type="radio" name="cq6" value="A"> A) &plusmn;1</label>
+            <label><input type="radio" name="cq6" value="B"> B) &plusmn;2</label>
+            <label><input type="radio" name="cq6" value="C"> C) &plusmn;3</label>
+            <label><input type="radio" name="cq6" value="D"> D) &plusmn;1/3</label>
+        </div>
+        <button onclick="checkClassAnswer('cq6', 'A', 'cres6')">Submit Q6</button>
+        <div id="cres6" class="result"></div>
+
+        <!-- Q7 -->
+        <div class="quiz-question" style="margin-top:20px;">Q7. If f(x) = ln(x), what is f''(x)?</div>
+        <div class="options">
+            <label><input type="radio" name="cq7" value="A"> A) 1/x</label>
+            <label><input type="radio" name="cq7" value="B"> B) -1/x</label>
+            <label><input type="radio" name="cq7" value="C"> C) 1/x^2</label>
+            <label><input type="radio" name="cq7" value="D"> D) -1/x^2</label>
+        </div>
+        <button onclick="checkClassAnswer('cq7', 'D', 'cres7')">Submit Q7</button>
+        <div id="cres7" class="result"></div>
+
+        <!-- Q8 -->
+        <div class="quiz-question" style="margin-top:20px;">Q8. Find the equation of the normal line to y = x^2 at point (1, 1).</div>
+        <div class="options">
+            <label><input type="radio" name="cq8" value="A"> A) x + 2y - 3 = 0</label>
+            <label><input type="radio" name="cq8" value="B"> B) 2x + y - 3 = 0</label>
+            <label><input type="radio" name="cq8" value="C"> C) x - 2y + 1 = 0</label>
+            <label><input type="radio" name="cq8" value="D"> D) 2x - y - 1 = 0</label>
+        </div>
+        <button onclick="checkClassAnswer('cq8', 'A', 'cres8')">Submit Q8</button>
+        <div id="cres8" class="result"></div>
+
+        <!-- Q9 -->
+        <div class="quiz-question" style="margin-top:20px;">Q9. If y = x e^x, what is d²y/dx²?</div>
+        <div class="options">
+            <label><input type="radio" name="cq9" value="A"> A) (x + 1)e^x</label>
+            <label><input type="radio" name="cq9" value="B"> B) (x + 2)e^x</label>
+            <label><input type="radio" name="cq9" value="C"> C) xe^x</label>
+            <label><input type="radio" name="cq9" value="D"> D) (x + 3)e^x</label>
+        </div>
+        <button onclick="checkClassAnswer('cq9', 'B', 'cres9')">Submit Q9</button>
+        <div id="cres9" class="result"></div>
+
+        <!-- Q10 -->
+        <div class="quiz-question" style="margin-top:20px;">Q10. If f(x) = x^n, for what positive integer n is f^(n)(x) = n!?</div>
+        <div class="options">
+            <label><input type="radio" name="cq10" value="A"> A) Any integer</label>
+            <label><input type="radio" name="cq10" value="B"> B) Only n = 1</label>
+            <label><input type="radio" name="cq10" value="C"> C) Always true for the given n</label>
+            <label><input type="radio" name="cq10" value="D"> D) Only when n is even</label>
+        </div>
+        <button onclick="checkClassAnswer('cq10', 'C', 'cres10')">Submit Q10</button>
+        <div id="cres10" class="result"></div>
+    </div>
+
+    <!-- SECTION 5: 10 HOMEWORK EXERCISES -->
     <div class="card hw-section">
-        <h2>5. 📝 Comprehensive Weekly Homework (10 STEM Questions)</h2>
-        <p>⚠️ <em>Note: You must write your name in the box at the top before submitting your homework answers!</em></p>
+        <h2>5. 📝 Ten Comprehensive Homework Exercises</h2>
+        <p>⚠️ <em>Reminder: The student must enter their full name at the top to record their grade successfully!</em></p>
 
-        <!-- HW Q1 -->
-        <div class="quiz-question">HW Q1. Find the area of the triangle formed by the coordinate axes and the tangent line to \(y = \frac{8}{x^2}\) at \(x = 2\).</div>
+        <!-- HW1 -->
+        <div class="quiz-question">HW Q1. If y = 2x^4 - 5x^2 + 9, find d^3y/dx^3.</div>
         <div class="options">
-            <label><input type="radio" name="hw1" value="A"> A) \(6\)</label>
-            <label><input type="radio" name="hw1" value="B"> B) \(9\)</label>
-            <label><input type="radio" name="hw1" value="C"> C) \(12\)</label>
-            <label><input type="radio" name="hw1" value="D"> D) \(16\)</label>
+            <label><input type="radio" name="hw1" value="A"> A) 48x - 30</label>
+            <label><input type="radio" name="hw1" value="B"> B) 48x</label>
+            <label><input type="radio" name="hw1" value="C"> C) 24x - 10</label>
+            <label><input type="radio" name="hw1" value="D"> D) 96x^3 - 30x</label>
         </div>
 
-        <!-- HW Q2 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q2. For what value of \(m\) does the line \(y = mx + 2\) touch the parabola \(y = x^2 - x + 3\) at exactly one point?</div>
+        <!-- HW2 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q2. Find the slope of the normal line to y = 4/x at x = 2.</div>
         <div class="options">
-            <label><input type="radio" name="hw2" value="A"> A) -3 or 1</label>
-            <label><input type="radio" name="hw2" value="B"> B) 3 or -5</label>
-            <label><input type="radio" name="hw2" value="C"> C) 2 or -2</label>
-            <label><input type="radio" name="hw2" value="D"> D) 0 or 4</label>
+            <label><input type="radio" name="hw2" value="A"> A) -1</label>
+            <label><input type="radio" name="hw2" value="B"> B) 1</label>
+            <label><input type="radio" name="hw2" value="C"> C) 4</label>
+            <label><input type="radio" name="hw2" value="D"> D) -4</label>
         </div>
 
-        <!-- HW Q3 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q3. Find the sum of all x-coordinates where the tangent to \(y = 2x^3 - 9x^2 + 12x\) has a slope of \(3\).</div>
+        <!-- HW3 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q3. If f(x) = sin(x), what is f^(3)(x)?</div>
         <div class="options">
-            <label><input type="radio" name="hw3" value="A"> A) \(2\)</label>
-            <label><input type="radio" name="hw3" value="B"> B) \(3\)</label>
-            <label><input type="radio" name="hw3" value="C"> C) \(4\)</label>
-            <label><input type="radio" name="hw3" value="D"> D) \(5\)</label>
+            <label><input type="radio" name="hw3" value="A"> A) cos(x)</label>
+            <label><input type="radio" name="hw3" value="B"> B) -cos(x)</label>
+            <label><input type="radio" name="hw3" value="C"> C) sin(x)</label>
+            <label><input type="radio" name="hw3" value="D"> D) -sin(x)</label>
         </div>
 
-        <!-- HW Q4 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q4. What is the acute angle of intersection between the curves \(y = x^2\) and \(y = x^3\) at their non-zero intersection point?</div>
+        <!-- HW4 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q4. If x^2 + y^2 = 10, find the second derivative d²y/dx² at point (1, 3).</div>
         <div class="options">
-            <label><input type="radio" name="hw4" value="A"> A) \(\arctan(1/7)\)</label>
-            <label><input type="radio" name="hw4" value="B"> B) \(\arctan(1/3)\)</label>
-            <label><input type="radio" name="hw4" value="C"> C) \(\arctan(1/5)\)</label>
-            <label><input type="radio" name="hw4" value="D"> D) \(\arctan(1/2)\)</label>
+            <label><input type="radio" name="hw4" value="A"> A) -10/27</label>
+            <label><input type="radio" name="hw4" value="B"> B) -1/3</label>
+            <label><input type="radio" name="hw4" value="C"> C) 10/9</label>
+            <label><input type="radio" name="hw4" value="D"> D) -3</label>
         </div>
 
-        <!-- HW Q5 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q5. If the curve \(y = ax^2 + bx\) passes through \((1, 2)\) and the tangent at \(x = 1\) has slope \(5\), find \(a\) and \(b\).</div>
+        <!-- HW5 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q5. For which value of x is the second derivative of f(x) = x^3 - 6x^2 + 9x equal to zero?</div>
         <div class="options">
-            <label><input type="radio" name="hw5" value="A"> A) \(a = 1, b = 1\)</label>
-            <label><input type="radio" name="hw5" value="B"> B) \(a = 1, b = 3\)</label>
-            <label><input type="radio" name="hw5" value="C"> C) \(a = 2, b = 0\)</label>
-            <label><input type="radio" name="hw5" value="D"> D) \(a = 1.5, b = 2\)</label>
+            <label><input type="radio" name="hw5" value="A"> A) 1</label>
+            <label><input type="radio" name="hw5" value="B"> B) 2</label>
+            <label><input type="radio" name="hw5" value="C"> C) 3</label>
+            <label><input type="radio" name="hw5" value="D"> D) 0</label>
         </div>
 
-        <!-- HW Q6 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q6. Find the shortest distance from the point \((2, 0)\) to the curve \(y = \sqrt{x}\).</div>
+        <!-- HW6 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q6. Find the slope of the tangent line to y = x^3 - 2x that is perpendicular to a line with slope -1/4.</div>
         <div class="options">
-            <label><input type="radio" name="hw6" value="A"> A) \(\frac{\sqrt{3}}{2}\)</label>
-            <label><input type="radio" name="hw6" value="B"> B) \(\sqrt{2}\)</label>
-            <label><input type="radio" name="hw6" value="C"> C) \(\frac{\sqrt{7}}{2}\)</label>
-            <label><input type="radio" name="hw6" value="D"> D) \(2\)</label>
+            <label><input type="radio" name="hw6" value="A"> A) 2</label>
+            <label><input type="radio" name="hw6" value="B"> B) 4</label>
+            <label><input type="radio" name="hw6" value="C"> C) -4</label>
+            <label><input type="radio" name="hw6" value="D"> D) &plusmn;2</label>
         </div>
 
-        <!-- HW Q7 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q7. Find the derivative of \(y = x^{\sin(x)}\) using logarithmic differentiation at \(x = \frac{\pi}{2}\).</div>
+        <!-- HW7 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q7. If y = ln(2x), what is d²y/dx²?</div>
         <div class="options">
-            <label><input type="radio" name="hw7" value="A"> A) \(1\)</label>
-            <label><input type="radio" name="hw7" value="B"> B) \(\frac{\pi}{2}\)</label>
-            <label><input type="radio" name="hw7" value="C"> C) \(0\)</label>
-            <label><input type="radio" name="hw7" value="D"> D) \(-1\)</label>
+            <label><input type="radio" name="hw7" value="A"> A) 1/x^2</label>
+            <label><input type="radio" name="hw7" value="B"> B) -1/x^2</label>
+            <label><input type="radio" name="hw7" value="C"> C) 2/x^2</label>
+            <label><input type="radio" name="hw7" value="D"> D) -2/x^2</label>
         </div>
 
-        <!-- HW Q8 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q8. If \(xy + y^2 = 4\), what is the value of \(\frac{dy}{dx}\) at point \((3, 1)\)?</div>
+        <!-- HW8 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q8. If y = e^(-x), what is d^(4)y/dx^(4)?</div>
         <div class="options">
-            <label><input type="radio" name="hw8" value="A"> A) \(-\frac{1}{5}\)</label>
-            <label><input type="radio" name="hw8" value="B"> B) \(\frac{2}{3}\)</label>
-            <label><input type="radio" name="hw8" value="C"> C) \(-\frac{3}{5}\)</label>
-            <label><input type="radio" name="hw8" value="D"> D) \(\frac{1}{4}\)</label>
+            <label><input type="radio" name="hw8" value="A"> A) -e^(-x)</label>
+            <label><input type="radio" name="hw8" value="B"> B) e^(-x)</label>
+            <label><input type="radio" name="hw8" value="C"> C) -4e^(-x)</label>
+            <label><input type="radio" name="hw8" value="D"> D) 4e^(-x)</label>
         </div>
 
-        <!-- HW Q9 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q9. Find the equation of the tangent to \(y = x^3 - 3x\) that is parallel to the x-axis and has a negative y-intercept.</div>
+        <!-- HW9 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q9. Find the equation of the normal line to y = x^3 at x = 1.</div>
         <div class="options">
-            <label><input type="radio" name="hw9" value="A"> A) \(y = -2\)</label>
-            <label><input type="radio" name="hw9" value="B"> B) \(y = 2\)</label>
-            <label><input type="radio" name="hw9" value="C"> C) \(y = 0\)</label>
-            <label><input type="radio" name="hw9" value="D"> D) \(y = -4\)</label>
+            <label><input type="radio" name="hw9" value="A"> A) 3x + y - 4 = 0</label>
+            <label><input type="radio" name="hw9" value="B"> B) x + 3y - 4 = 0</label>
+            <label><input type="radio" name="hw9" value="C"> C) 3x - y - 2 = 0</label>
+            <label><input type="radio" name="hw9" value="D"> D) x - 3y + 2 = 0</label>
         </div>
 
-        <!-- HW Q10 -->
-        <div class="quiz-question" style="margin-top:20px;">HW Q10. What is the value of \(c\) guaranteed by Rolle's Theorem for \(f(x) = x^3 - 4x\) on the interval \([-2, 2]\)?</div>
+        <!-- HW10 -->
+        <div class="quiz-question" style="margin-top:20px;">HW Q10. If y = x^5, what is the value of d^(5)y/dx^(5) at x = 10?</div>
         <div class="options">
-            <label><input type="radio" name="hw10" value="A"> A) \(\frac{2}{\sqrt{3}}\)</label>
-            <label><input type="radio" name="hw10" value="B"> B) \(\pm \frac{2}{\sqrt{3}}\)</label>
-            <label><input type="radio" name="hw10" value="C"> C) \(\pm 1\)</label>
-            <label><input type="radio" name="hw10" value="D"> D) \(0\)</label>
+            <label><input type="radio" name="hw10" value="A"> A) 120</label>
+            <label><input type="radio" name="hw10" value="B"> B) 720</label>
+            <label><input type="radio" name="hw10" value="C"> C) 24</label>
+            <label><input type="radio" name="hw10" value="D"> D) 0</label>
         </div>
 
         <button onclick="submitFullHomework()" style="background: #d97706; margin-top:20px; font-size:16px; padding:12px 30px;">🚀 Submit All 10 Homework Questions</button>
@@ -230,10 +349,12 @@
             let scaleX = 75, scaleY = 35;
             let originX = canvas.width / 2, originY = canvas.height / 2;
 
+            // Draw axes
             ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.5;
             ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
             ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height); ctx.stroke();
 
+            // Draw Curve
             ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3;
             ctx.beginPath();
             for (let pxCoord = 0; pxCoord <= canvas.width; pxCoord += 2) {
@@ -243,16 +364,42 @@
                 if (pxCoord === 0) ctx.moveTo(pxCoord, pyCoord); else ctx.lineTo(pxCoord, pyCoord);
             }
             ctx.stroke();
+
+            // Draw Point P
+            let pointScreenX = originX + (px * scaleX);
+            let pointScreenY = originY - (py * scaleY);
+            ctx.fillStyle = '#f43f5e';
+            ctx.beginPath(); ctx.arc(pointScreenX, pointScreenY, 6, 0, 2 * Math.PI); ctx.fill();
+
+            // Draw Tangent Line (Blue)
+            ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2;
+            ctx.beginPath();
+            let x1 = -4, y1 = py + mt * (x1 - px);
+            let x2 = 4, y2 = py + mt * (x2 - px);
+            ctx.moveTo(originX + x1 * scaleX, originY - y1 * scaleY);
+            ctx.lineTo(originX + x2 * scaleX, originY - y2 * scaleY);
+            ctx.stroke();
+
+            // Draw Normal Line (Red - Perpendicular)
+            if (mt !== 0) {
+                ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2;
+                ctx.beginPath();
+                let nx1 = -4, ny1 = py + mn * (nx1 - px);
+                let nx2 = 4, ny2 = py + mn * (nx2 - px);
+                ctx.moveTo(originX + nx1 * scaleX, originY - ny1 * scaleY);
+                ctx.lineTo(originX + nx2 * scaleX, originY - ny2 * scaleY);
+                ctx.stroke();
+            }
         }
 
         window.onload = function() { updateSimulation(); };
 
-        function checkAnswer(questionName, correctAnswer, resultId) {
+        function checkClassAnswer(questionName, correctAnswer, resultId) {
             let studentName = document.getElementById('studentName').value.trim();
             const resDiv = document.getElementById(resultId);
 
             if (!studentName) {
-                alert("⚠️ Please enter your name at the top first!");
+                alert("⚠️ Please enter your student name at the top first!");
                 document.getElementById('studentName').focus();
                 return;
             }
@@ -268,14 +415,13 @@
                 resDiv.innerText = "⚠️ Please select an option first.";
             } else if (selectedValue === correctAnswer) {
                 resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
-                resDiv.innerText = `✅ Correct, ${studentName}! Excellent.`;
+                resDiv.innerText = `✅ Correct, ${studentName}! Excellent work.`;
             } else {
                 resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
                 resDiv.innerText = `❌ Incorrect, ${studentName}. Correct answer is: ${correctAnswer}`;
             }
         }
 
-        // Comprehensive 10-Question Homework Evaluation & Google Sheet Dispatch
         function submitFullHomework() {
             let studentName = document.getElementById('studentName').value.trim();
             const summaryDiv = document.getElementById('hwResultSummary');
@@ -287,18 +433,17 @@
                 return;
             }
 
-            // Correct Answers Key for the 10 HW Questions
             const hwAnswers = {
-                hw1: 'C', // 12
-                hw2: 'B', // 3 or -5
-                hw3: 'B', // 3
-                hw4: 'A', // arctan(1/7)
-                hw5: 'B', // a=1, b=3
-                hw6: 'C', // sqrt(7)/2
-                hw7: 'C', // 0
-                hw8: 'A', // -1/5
-                hw9: 'B', // y = 2
-                hw10: 'B' // +/- 2/sqrt(3)
+                hw1: 'B', // 48x
+                hw2: 'A', // -1
+                hw3: 'B', // -cos(x)
+                hw4: 'A', // -10/27
+                hw5: 'B', // 2
+                hw6: 'B', // 4
+                hw7: 'B', // -1/x^2
+                hw8: 'B', // e^(-x)
+                hw9: 'B', // x + 3y - 4 = 0
+                hw10: 'A' // 120
             };
 
             let score = 0;
@@ -306,13 +451,9 @@
 
             for (let q in hwAnswers) {
                 let radios = document.getElementsByName(q);
-                let answered = false;
                 for (let r of radios) {
-                    if (r.checked) {
-                        answered = true;
-                        if (r.value === hwAnswers[q]) {
-                            score++;
-                        }
+                    if (r.checked && r.value === hwAnswers[q]) {
+                        score++;
                     }
                 }
             }
@@ -320,7 +461,7 @@
             summaryDiv.style.display = "block";
             summaryDiv.style.backgroundColor = "#dcfce7";
             summaryDiv.style.color = "#16a34a";
-            summaryDiv.innerHTML = `🎉 Great job, <strong>${studentName}</strong>! Your Homework has been evaluated.<br>Your Final Score: <strong>${score} / ${total}</strong>.<br><em>(Results successfully packaged for your teacher's records!)</em>`;
+            summaryDiv.innerHTML = `🎉 Well done, <strong>${studentName}</strong>! Your Homework has been evaluated.<br>Final Score: <strong>${score} / ${total}</strong>.<br><em>(Data packaged successfully for your Google Sheet tracking records!)</em>`;
         }
     </script>
 </body>
