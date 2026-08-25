@@ -23,11 +23,11 @@
         .student-box input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; flex: 1; }
         .student-box label { font-weight: bold; color: #1e3a8a; }
 
-        .sim-container { background: #0f172a; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-top: 15px; }
-        canvas { background: #1e293b; border-radius: 8px; display: block; margin: 15px auto; border: 1px solid #334155; }
+        .sim-container { background: #f8fafc; border: 1px solid #cbd5e1; color: #1e293b; padding: 20px; border-radius: 10px; text-align: center; margin-top: 15px; }
+        canvas { background: #ffffff; border-radius: 8px; display: block; margin: 15px auto; border: 1px solid #94a3b8; }
         .slider-box { margin: 15px 0; }
-        .slider-box input[type=range] { width: 80%; cursor: pointer; accent-color: #38bdf8; }
-        .sim-info { display: flex; justify-content: space-around; background: #1e293b; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 15px; margin-top: 10px; }
+        .slider-box input[type=range] { width: 80%; cursor: pointer; accent-color: #2563eb; }
+        .sim-info { display: flex; justify-content: space-around; background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 15px; margin-top: 10px; }
     </style>
 </head>
 <body>
@@ -44,10 +44,10 @@
         <input type="text" id="studentName" placeholder="Enter your full name to unlock the class activity..." required>
     </div>
 
-    <!-- SECTION 1: LIVE INTERACTIVE LAB (Distinct Colors for Tangent & Normal) -->
+    <!-- SECTION 1: LIVE INTERACTIVE LAB -->
     <div class="card">
         <h2>1. Live Interactive Lab: Curve, Tangent & Normal</h2>
-        <p>Explore the curve, its <strong>Tangent Line (Blue)</strong>, and its <strong>Perpendicular Normal Line (Red)</strong> dynamically.</p>
+        <p>Explore the curve (Blue), <strong>Tangent Line (Green)</strong>, and <strong>Normal Line (Red)</strong> on a clear white background.</p>
         
         <div class="sim-container">
             <div class="slider-box">
@@ -59,54 +59,54 @@
             
             <div class="sim-info">
                 <div>Point P: <span id="pCoord">(2.00, -2.00)</span></div>
-                <div style="color: #3b82f6;">Tangent (m_t): <span id="mtVal">1.00</span></div>
-                <div style="color: #ef4444;">Normal (m_n): <span id="mnVal">-1.00</span></div>
+                <div style="color: #16a34a; font-weight: bold;">Tangent (m_t): <span id="mtVal">1.00</span></div>
+                <div style="color: #dc2626; font-weight: bold;">Normal (m_n): <span id="mnVal">-1.00</span></div>
             </div>
         </div>
     </div>
 
-    <!-- SECTION 2: FIVE SOLVED EXAMPLES -->
+    <!-- SECTION 2: STEM EXAM-STYLE SOLVED EXAMPLES (Deep Thinking) -->
     <div class="card">
-        <h2>2. Five Step-by-Step Solved Examples</h2>
+        <h2>2. STEM Exam-Style Solved Examples (Critical Thinking & Concept Integration)</h2>
         
         <div class="example-box">
-            <strong>Example 1:</strong> Find the slope of the tangent to $y = x^3 - 3x$ at $x = 2$.<br>
-            <em>Solution:</em> $\frac{dy}{dx} = 3x^2 - 3$. At $x = 2$, slope $m_t = 3(2)^2 - 3 = 9$.
+            <strong>Example 1 (Implicit Differentiation & Perpendicularity):</strong> Find the equation of the normal line to the circle $x^2 + y^2 = 25$ at the point $(3, 4)$.<br>
+            <em>Concept:</em> Use implicit differentiation to find the slope of the tangent, then find the negative reciprocal for the normal line passing through the given point.
         </div>
 
         <div class="example-box">
-            <strong>Example 2:</strong> Find the slope of the normal line to $y = x^2 - 4x$ at $x = 3$.<br>
-            <em>Solution:</i> $\frac{dy}{dx} = 2x - 4$. At $x = 3$, $m_t = 2(3) - 4 = 2$. Normal slope $m_n = -\frac{1}{m_t} = -\frac{1}{2}$.
+            <strong>Example 2 (Parameter Solving):</strong> Find the value of $k$ if the tangent line to $y = kx^3 - 4x$ at $x = 1$ is perpendicular to the line $2x + 6y = 11$.<br>
+            <em>Concept:</em> Relate the derivative at the given point to the negative reciprocal of the given reference line's slope.
         </div>
 
         <div class="example-box">
-            <strong>Example 3:</strong> Find the equation of the tangent line to $y = x^2$ at point $(1, 1)$.<br>
-            <em>Solution:</i> $m_t = 2(1) = 2$. Equation: $y - 1 = 2(x - 1) \Rightarrow 2x - y - 1 = 0$.
+            <strong>Example 3 (Higher Order & Tangency):</strong> Find the points on the curve $y = x^3 - 3x^2$ where the tangent line is horizontal ($m_t = 0$).<br>
+            <em>Concept:</em> Set the first derivative equal to zero and solve for $x$ coordinates of local extrema.
         </div>
 
         <div class="example-box">
-            <strong>Example 4:</strong> Find the equation of the normal line to $y = x^2$ at point $(1, 1)$.<br>
-            <em>Solution:</i> $m_t = 2$, so $m_n = -\frac{1}{2}$. Equation: $y - 1 = -\frac{1}{2}(x - 1) \Rightarrow x + 2y - 3 = 0$.
+            <strong>Example 4 (Common Tangent Concept):</strong> Find the equation of the tangent to $y = x^3 - 3x$ that is parallel to the line $9x - y = 5$.<br>
+            <em>Concept:</em> Equalize the derivative to the slope of the parallel line ($m = 9$) to find the point of tangency first.
         </div>
 
         <div class="example-box">
-            <strong>Example 5:</strong> Find the value of $k$ if the tangent to $y = kx^3 - 4x$ at $x = 1$ is perpendicular to $2x + 6y = 11$.<br>
-            <em>Solution:</i> Given line slope is $-\frac{1}{3}$, so perpendicular slope is $3$. $\frac{dy}{dx}\big|_{x=1} = 3k - 4 = 3 \Rightarrow 3k = 7 \Rightarrow k = \frac{7}{3}$.
+            <strong>Example 5 (Product Rule & Normal):</strong> Find the slope of the normal line to $y = x e^x$ at $x = 0$.<br>
+            <em>Concept:</em> Apply the product rule for differentiation before evaluating the slope at the specified point.
         </div>
     </div>
 
-    <!-- SECTION 3: SINGLE FOCUSED CLASS ACTIVITY QUESTION -->
+    <!-- SECTION 3: REAL STEM CLASS ACTIVITY QUESTION -->
     <div class="card">
-        <h2>3. Single Class Activity Question</h2>
+        <h2>3. STEM Class Activity Question (Exam Level)</h2>
         
-        <div class="quiz-question">Find the slope of the normal line to the curve $y = 2x^3 - 5x$ at $x = 1$.</div>
+        <div class="quiz-question">If the normal line to the curve $y = kx^2 - 3x$ at $x = 2$ has a slope of $\frac{1}{5}$, what is the value of $k$?</div>
         <div class="options">
             <label><input type="radio" name="cq1" value="A"> A) $1$</label>
-            <label><input type="radio" name="cq1" value="B"> B) $-1$</label>
-            <label><input type="radio" name="cq1" value="C"> C) $\frac{1}{2}$</label>
-            <label><input type="radio" name="cq1" value="D"> D) $-\frac{1}{2}$</label>
+            <label><input type="radio" name="cq1" value="B"> B) $2$</label>
+            <label><input type="radio" name="cq1" value="C"> C) $-1$</label>
+            <label><input type="radio" name="cq1" value="D"> D) $\frac{1}{2}$</label>
         </div>
-        <button onclick="checkClassAnswer('cq1', 'B', 'cres1')">Submit Answer</button>
+        <button onclick="checkClassAnswer('cq1', 'A', 'cres1')">Submit Answer</button>
         <div id="cres1" class="result"></div>
     </div>
 </div>
@@ -135,13 +135,22 @@
         let scaleX = 75, scaleY = 35;
         let originX = canvas.width / 2, originY = canvas.height / 2;
 
-        // Draw axes
-        ctx.strokeStyle = '#475569'; ctx.lineWidth = 1.5;
+        // Draw Grid Lines (Light Gray)
+        ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1;
+        for (let i = -4; i <= 4; i++) {
+            let gx = originX + i * scaleX;
+            ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, canvas.height); ctx.stroke();
+            let gy = originY + i * scaleY;
+            ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(canvas.width, gy); ctx.stroke();
+        }
+
+        // Draw Axes (Black)
+        ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
         ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height); ctx.stroke();
 
-        // Draw Curve
-        ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 3;
+        // Draw Curve (Blue)
+        ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3;
         ctx.beginPath();
         for (let pxCoord = 0; pxCoord <= canvas.width; pxCoord += 2) {
             let x = (pxCoord - originX) / scaleX;
@@ -151,14 +160,14 @@
         }
         ctx.stroke();
 
-        // Draw Point P
+        // Draw Point P (Dark Red Dot)
         let pointScreenX = originX + (px * scaleX);
         let pointScreenY = originY - (py * scaleY);
-        ctx.fillStyle = '#f43f5e';
+        ctx.fillStyle = '#b91c1c';
         ctx.beginPath(); ctx.arc(pointScreenX, pointScreenY, 6, 0, 2 * Math.PI); ctx.fill();
 
-        // Draw Tangent Line (Distinct Blue Color)
-        ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 2.5;
+        // Draw Tangent Line (Green - Distinct Color)
+        ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 2.5;
         ctx.beginPath();
         let x1 = -4, y1 = py + mt * (x1 - px);
         let x2 = 4, y2 = py + mt * (x2 - px);
@@ -166,9 +175,9 @@
         ctx.lineTo(originX + x2 * scaleX, originY - y2 * scaleY);
         ctx.stroke();
 
-        // Draw Normal Line (Distinct Red Color - Perpendicular)
+        // Draw Normal Line (Red - Perpendicular)
         if (mt !== 0) {
-            ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2.5;
+            ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2.5;
             ctx.beginPath();
             let nx1 = -4, ny1 = py + mn * (nx1 - px);
             let nx2 = 4, ny2 = py + mn * (nx2 - px);
@@ -201,7 +210,7 @@
             resDiv.innerText = "⚠️ Please select an option first.";
         } else if (selectedValue === correctAnswer) {
             resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
-            resDiv.innerText = `✅ Correct, ${studentName}! Excellent work.`;
+            resDiv.innerText = `✅ Correct, ${studentName}! Excellent critical thinking.`;
         } else {
             resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
             resDiv.innerText = `❌ Incorrect, ${studentName}. Correct answer is: ${correctAnswer}`;
