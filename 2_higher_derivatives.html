@@ -11,6 +11,7 @@
         .header p { margin: 0; font-size: 16px; opacity: 0.9; }
         .card { background: white; padding: 25px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.06); border-left: 6px solid #2563eb; }
         h2 { color: #1e3a8a; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 21px; }
+        .rule-box { background: #eff6ff; border: 1px solid #bfdbfe; padding: 18px; border-radius: 8px; margin-bottom: 15px; font-family: monospace; font-size: 16px; color: #1e3a8a; }
         .example-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px; border-radius: 8px; margin-bottom: 15px; }
         .quiz-question { font-weight: bold; margin-bottom: 12px; color: #0f172a; font-size: 17px; }
         .options label { display: block; margin: 10px 0; cursor: pointer; padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; transition: all 0.2s; }
@@ -28,6 +29,7 @@
         .slider-box { margin: 15px 0; }
         .slider-box input[type=range] { width: 80%; cursor: pointer; accent-color: #2563eb; }
         .sim-info { display: flex; justify-content: space-around; background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 15px; margin-top: 10px; }
+        .homework-section { display: none; }
     </style>
 </head>
 <body>
@@ -41,13 +43,24 @@
     <!-- STUDENT REGISTRATION BAR -->
     <div class="student-box">
         <label>👤 Student Name (Required):</label>
-        <input type="text" id="studentName" placeholder="Enter your full name to unlock the class activity..." required>
+        <input type="text" id="studentName" placeholder="Enter your full name to unlock the 10 class exercises..." oninput="checkStudentName()">
+    </div>
+
+    <!-- SECTION 0: DERIVATIVES & RULES FIRST -->
+    <div class="card">
+        <h2>0. Core Rules & Mathematical Formulas</h2>
+        <div class="rule-box">
+            • Tangent Slope: m_t = dy/dx = f'(x)<br>
+            • Slope of Perpendicular Normal: m_n = -1 / m_t<br>
+            • Tangent Line Equation: y - y_0 = m_t(x - x_0)<br>
+            • Normal Line Equation: y - y_0 = m_n(x - x_0)
+        </div>
     </div>
 
     <!-- SECTION 1: LIVE INTERACTIVE LAB -->
     <div class="card">
         <h2>1. Live Interactive Lab: Curve, Tangent & Normal</h2>
-        <p>Explore the curve (Blue), <strong>Tangent Line (Green)</strong>, and <strong>Normal Line (Red)</strong> on a clear white background.</p>
+        <p>Explore the curve (Blue), <strong>Tangent Line (Green)</strong>, and <strong>Normal Line (Red - Perfectly Perpendicular)</strong> on a clear white background.</p>
         
         <div class="sim-container">
             <div class="slider-box">
@@ -65,49 +78,177 @@
         </div>
     </div>
 
-    <!-- SECTION 2: STEM EXAM-STYLE SOLVED EXAMPLES (Deep Thinking) -->
+    <!-- SECTION 2: FIVE EXAM-STYLE SOLVED EXAMPLES WITH FULL STEPS -->
     <div class="card">
-        <h2>2. STEM Exam-Style Solved Examples (Critical Thinking & Concept Integration)</h2>
+        <h2>2. Five Exam-Style Solved Examples (Step-by-Step)</h2>
         
         <div class="example-box">
-            <strong>Example 1 (Implicit Differentiation & Perpendicularity):</strong> Find the equation of the normal line to the circle $x^2 + y^2 = 25$ at the point $(3, 4)$.<br>
-            <em>Concept:</em> Use implicit differentiation to find the slope of the tangent, then find the negative reciprocal for the normal line passing through the given point.
+            <strong>Example 1:</strong> Find the equation of the normal line to $x^2 + y^2 = 25$ at $(3, 4)$.<br>
+            <em>Step 1:</em> Implicit differentiation: $2x + 2y \frac{dy}{dx} = 0 \Rightarrow \frac{dy}{dx} = -\frac{x}{y}$. At $(3,4)$, $m_t = -\frac{3}{4}$.<br>
+            <em>Step 2:</em> Normal slope $m_n = -\frac{1}{m_t} = \frac{4}{3}$. Equation: $y - 4 = \frac{4}{3}(x - 3)$.
         </div>
 
         <div class="example-box">
-            <strong>Example 2 (Parameter Solving):</strong> Find the value of $k$ if the tangent line to $y = kx^3 - 4x$ at $x = 1$ is perpendicular to the line $2x + 6y = 11$.<br>
-            <em>Concept:</em> Relate the derivative at the given point to the negative reciprocal of the given reference line's slope.
+            <strong>Example 2:</strong> Find $k$ if the tangent to $y = kx^3 - 4x$ at $x = 1$ is perpendicular to $2x + 6y = 11$.<br>
+            <em>Step 1:</em> Reference line slope is $-\frac{2}{6} = -\frac{1}{3}$, so required tangent slope $m_t = 3$.<br>
+            <em>Step 2:</em> $\frac{dy}{dx} = 3kx^2 - 4$. Substitute $x = 1$: $3k(1)^2 - 4 = 3 \Rightarrow 3k = 7 \Rightarrow k = \frac{7}{3}$.
         </div>
 
         <div class="example-box">
-            <strong>Example 3 (Higher Order & Tangency):</strong> Find the points on the curve $y = x^3 - 3x^2$ where the tangent line is horizontal ($m_t = 0$).<br>
-            <em>Concept:</em> Set the first derivative equal to zero and solve for $x$ coordinates of local extrema.
+            <strong>Example 3:</strong> Find points on $y = x^3 - 3x^2$ where the tangent line is horizontal.<br>
+            <em>Step 1:</em> Set $m_t = 0 \Rightarrow \frac{dy}{dx} = 3x^2 - 6x = 0$.<br>
+            <em>Step 2:</em> Solve for $x$: $3x(x - 2) = 0 \Rightarrow x = 0$ or $x = 2$. Corresponding points are $(0,0)$ and $(2,-4)$.
         </div>
 
         <div class="example-box">
-            <strong>Example 4 (Common Tangent Concept):</strong> Find the equation of the tangent to $y = x^3 - 3x$ that is parallel to the line $9x - y = 5$.<br>
-            <em>Concept:</em> Equalize the derivative to the slope of the parallel line ($m = 9$) to find the point of tangency first.
+            <strong>Example 4:</strong> Find the tangent to $y = x^3 - 3x$ parallel to $9x - y = 5$.<br>
+            <em>Step 1:</em> Parallel line slope is $9$, so $m_t = 9$. Set $3x^2 - 3 = 9 \Rightarrow x^2 = 4 \Rightarrow x = \pm 2$.<br>
+            <em>Step 2:</em> Formulate tangent equations at points $(2, 2)$ and $(-2, -2)$ using $m = 9$.
         </div>
 
         <div class="example-box">
-            <strong>Example 5 (Product Rule & Normal):</strong> Find the slope of the normal line to $y = x e^x$ at $x = 0$.<br>
-            <em>Concept:</em> Apply the product rule for differentiation before evaluating the slope at the specified point.
+            <strong>Example 5:</strong> Find the slope of the normal line to $y = x e^x$ at $x = 0$.<br>
+            <em>Step 1:</em> Product rule: $\frac{dy}{dx} = e^x + x e^x$. At $x = 0$, $m_t = e^0 + 0 = 1$.<br>
+            <em>Step 2:</em> Normal slope $m_n = -\frac{1}{1} = -1$.
         </div>
     </div>
 
-    <!-- SECTION 3: REAL STEM CLASS ACTIVITY QUESTION -->
+    <!-- SECTION 3: 10 CLASS EXERCISES (MCQ, LOCKED UNTIL NAME IS ENTERED) -->
     <div class="card">
-        <h2>3. STEM Class Activity Question (Exam Level)</h2>
+        <h2>3. STEM Class Exercises (10 Comprehensive MCQs)</h2>
+        <p id="lockMsg" style="color: #dc2626; font-weight: bold;">🔒 Please enter your full name in the box above to unlock the 10 class exercises.</p>
         
-        <div class="quiz-question">If the normal line to the curve $y = kx^2 - 3x$ at $x = 2$ has a slope of $\frac{1}{5}$, what is the value of $k$?</div>
-        <div class="options">
-            <label><input type="radio" name="cq1" value="A"> A) $1$</label>
-            <label><input type="radio" name="cq1" value="B"> B) $2$</label>
-            <label><input type="radio" name="cq1" value="C"> C) $-1$</label>
-            <label><input type="radio" name="cq1" value="D"> D) $\frac{1}{2}$</label>
+        <div id="homeworkContainer" class="homework-section">
+            <!-- Q1 -->
+            <div class="example-box">
+                <div class="quiz-question">1. Find the slope of the tangent line to $y = 3x^2 - 5x + 2$ at $x = 2$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw1" value="A"> A) $7$</label>
+                    <label><input type="radio" name="hw1" value="B"> B) $5$</label>
+                    <label><input type="radio" name="hw1" value="C"> C) $11$</label>
+                    <label><input type="radio" name="hw1" value="D"> D) $3$</label>
+                </div>
+                <button onclick="checkAnswer('hw1', 'A', 'res1')">Submit Answer</button>
+                <div id="res1" class="result"></div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="example-box">
+                <div class="quiz-question">2. Find the slope of the normal line to $y = x^3 - 2x$ at $x = 1$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw2" value="A"> A) $1$</label>
+                    <label><input type="radio" name="hw2" value="B"> B) $-1$</label>
+                    <label><input type="radio" name="hw2" value="C"> C) $\frac{1}{2}$</label>
+                    <label><input type="radio" name="hw2" value="D"> D) $-\frac{1}{2}$</label>
+                </div>
+                <button onclick="checkAnswer('hw2', 'B', 'res2')">Submit Answer</button>
+                <div id="res2" class="result"></div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="example-box">
+                <div class="quiz-question">3. What is the equation of the horizontal tangent to $y = x^2 - 4x + 5$?</div>
+                <div class="options">
+                    <label><input type="radio" name="hw3" value="A"> A) $y = 1$</label>
+                    <label><input type="radio" name="hw3" value="B"> B) $y = -1$</label>
+                    <label><input type="radio" name="hw3" value="C"> C) $x = 2$</label>
+                    <label><input type="radio" name="hw3" value="D"> D) $y = 4$</label>
+                </div>
+                <button onclick="checkAnswer('hw3', 'A', 'res3')">Submit Answer</button>
+                <div id="res3" class="result"></div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="example-box">
+                <div class="quiz-question">4. If the tangent line to $y = kx^2$ at $x = 2$ has a slope of $8$, find $k$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw4" value="A"> A) $1$</label>
+                    <label><input type="radio" name="hw4" value="B"> B) $2$</label>
+                    <label><input type="radio" name="hw4" value="C"> C) $4$</label>
+                    <label><input type="radio" name="hw4" value="D"> D) $8$</label>
+                </div>
+                <button onclick="checkAnswer('hw4', 'B', 'res4')">Submit Answer</button>
+                <div id="res4" class="result"></div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="example-box">
+                <div class="quiz-question">5. Find the slope of the normal line to $y = \sqrt{x}$ at $x = 4$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw5" value="A"> A) $-4$</label>
+                    <label><input type="radio" name="hw5" value="B"> B) $4$</label>
+                    <label><input type="radio" name="hw5" value="C"> C) $-\frac{1}{4}$</label>
+                    <label><input type="radio" name="hw5" value="D"> D) $\frac{1}{4}$</label>
+                </div>
+                <button onclick="checkAnswer('hw5', 'A', 'res5')">Submit Answer</button>
+                <div id="res5" class="result"></div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="example-box">
+                <div class="quiz-question">6. At what point on $y = x^2$ is the tangent line parallel to the line $4x - y = 1$?</div>
+                <div class="options">
+                    <label><input type="radio" name="hw6" value="A"> A) $(1, 1)$</label>
+                    <label><input type="radio" name="hw6" value="B"> B) $(2, 4)$</label>
+                    <label><input type="radio" name="hw6" value="C"> C) $(4, 16)$</label>
+                    <label><input type="radio" name="hw6" value="D"> D) $(0, 0)$</label>
+                </div>
+                <button onclick="checkAnswer('hw6', 'B', 'res6')">Submit Answer</button>
+                <div id="res6" class="result"></div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="example-box">
+                <div class="quiz-question">7. Find the slope of the tangent line to $y = \sin(x)$ at $x = \frac{\pi}{2}$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw7" value="A"> A) $1$</label>
+                    <label><input type="radio" name="hw7" value="B"> B) $0$</label>
+                    <label><input type="radio" name="hw7" value="C"> C) $-1$</label>
+                    <label><input type="radio" name="hw7" value="D"> D) undefined</label>
+                </div>
+                <button onclick="checkAnswer('hw7', 'B', 'res7')">Submit Answer</button>
+                <div id="res7" class="result"></div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="example-box">
+                <div class="quiz-question">8. Find the slope of the normal line to $y = x^4 - 2x^2$ at $x = 1$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw8" value="A"> A) $0$</label>
+                    <label><input type="radio" name="hw8" value="B"> B) undefined (vertical tangent)</label>
+                    <label><input type="radio" name="hw8" value="C"> C) $1$</label>
+                    <label><input type="radio" name="hw8" value="D"> D) $-1$</label>
+                </div>
+                <button onclick="checkAnswer('hw8', 'B', 'res8')">Submit Answer</button>
+                <div id="res8" class="result"></div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="example-box">
+                <div class="quiz-question">9. If two perpendicular lines have slopes $m_1$ and $m_2$, what is $m_1 \cdot m_2$?</div>
+                <div class="options">
+                    <label><input type="radio" name="hw9" value="A"> A) $1$</label>
+                    <label><input type="radio" name="hw9" value="B"> B) $0$</label>
+                    <label><input type="radio" name="hw9" value="C"> C) $-1$</label>
+                    <label><input type="radio" name="hw9" value="D"> D) undefined</label>
+                </div>
+                <button onclick="checkAnswer('hw9', 'C', 'res9')">Submit Answer</button>
+                <div id="res9" class="result"></div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="example-box">
+                <div class="quiz-question">10. Find the equation of the tangent line to $y = x^3$ at the origin $(0, 0)$.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw10" value="A"> A) $y = x$</label>
+                    <label><input type="radio" name="hw10" value="B"> B) $y = 0$</label>
+                    <label><input type="radio" name="hw10" value="C"> C) $x = 0$</label>
+                    <label><input type="radio" name="hw10" value="D"> D) $y = 3x$</label>
+                </div>
+                <button onclick="checkAnswer('hw10', 'B', 'res10')">Submit Answer</button>
+                <div id="res10" class="result"></div>
+            </div>
         </div>
-        <button onclick="checkClassAnswer('cq1', 'A', 'cres1')">Submit Answer</button>
-        <div id="cres1" class="result"></div>
     </div>
 </div>
 
@@ -175,12 +316,14 @@
         ctx.lineTo(originX + x2 * scaleX, originY - y2 * scaleY);
         ctx.stroke();
 
-        // Draw Normal Line (Red - Perpendicular)
+        // Draw Normal Line (Red - Perfectly Perpendicular based on canvas scale mapping)
         if (mt !== 0) {
             ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2.5;
             ctx.beginPath();
-            let nx1 = -4, ny1 = py + mn * (nx1 - px);
-            let nx2 = 4, ny2 = py + mn * (nx2 - px);
+            let aspectCorrection = (scaleX / scaleY) * (scaleX / scaleY);
+            let trueMn = -aspectCorrection / mt;
+            let nx1 = -4, ny1 = py + trueMn * (nx1 - px);
+            let nx2 = 4, ny2 = py + trueMn * (nx2 - px);
             ctx.moveTo(originX + nx1 * scaleX, originY - ny1 * scaleY);
             ctx.lineTo(originX + nx2 * scaleX, originY - ny2 * scaleY);
             ctx.stroke();
@@ -189,7 +332,20 @@
 
     window.onload = function() { updateSimulation(); };
 
-    function checkClassAnswer(questionName, correctAnswer, resultId) {
+    function checkStudentName() {
+        let name = document.getElementById('studentName').value.trim();
+        let hwContainer = document.getElementById('homeworkContainer');
+        let lockMsg = document.getElementById('lockMsg');
+        if (name.length > 0) {
+            hwContainer.style.display = 'block';
+            lockMsg.style.display = 'none';
+        } else {
+            hwContainer.style.display = 'none';
+            lockMsg.style.display = 'block';
+        }
+    }
+
+    function checkAnswer(questionName, correctAnswer, resultId) {
         let studentName = document.getElementById('studentName').value.trim();
         const resDiv = document.getElementById(resultId);
 
@@ -210,7 +366,7 @@
             resDiv.innerText = "⚠️ Please select an option first.";
         } else if (selectedValue === correctAnswer) {
             resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
-            resDiv.innerText = `✅ Correct, ${studentName}! Excellent critical thinking.`;
+            resDiv.innerText = `✅ Correct, ${studentName}! Excellent work.`;
         } else {
             resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
             resDiv.innerText = `❌ Incorrect, ${studentName}. Correct answer is: ${correctAnswer}`;
