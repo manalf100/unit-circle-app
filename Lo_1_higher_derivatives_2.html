@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>STEM Grade 12 - Tangent and Normal Lines</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f1f5f9; color: #1e293b; line-height: 1.7; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .header h1 { margin: 0 0 8px 0; font-size: 26px; }
+        .header p { margin: 0; font-size: 16px; opacity: 0.9; }
+        .card { background: white; padding: 25px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.06); border-left: 6px solid #2563eb; }
+        h2 { color: #1e3a8a; margin-top: 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 21px; }
+        .rule-box { background: #eff6ff; border: 1px solid #bfdbfe; padding: 18px; border-radius: 8px; margin-bottom: 15px; font-size: 16px; color: #1e3a8a; line-height: 1.8; }
+        .rule-item { background: #ffffff; padding: 10px 15px; margin: 8px 0; border-radius: 6px; border-left: 4px solid #3b82f6; font-family: monospace; font-size: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .example-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px; border-radius: 8px; margin-bottom: 15px; }
+        .quiz-question { font-weight: bold; margin-bottom: 12px; color: #0f172a; font-size: 17px; }
+        .options label { display: block; margin: 10px 0; cursor: pointer; padding: 12px; border-radius: 6px; border: 1px solid #cbd5e1; background: #ffffff; transition: all 0.2s; }
+        .options label:hover { background: #f1f5f9; border-color: #2563eb; }
+        button { background: #2563eb; color: white; border: none; padding: 11px 24px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 12px; font-size: 15px; transition: background 0.2s; }
+        button:hover { background: #1d4ed8; }
+        .result { margin-top: 12px; font-weight: bold; padding: 12px; border-radius: 6px; }
+        
+        .student-box { background: #eff6ff; border: 2px solid #3b82f6; padding: 18px; border-radius: 8px; margin-bottom: 25px; display: flex; gap: 15px; align-items: center; box-shadow: 0 2px 5px rgba(59,130,246,0.1); }
+        .student-box input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; flex: 1; }
+        .student-box label { font-weight: bold; color: #1e3a8a; }
+
+        .sim-container { background: #f8fafc; border: 1px solid #cbd5e1; color: #1e293b; padding: 20px; border-radius: 10px; text-align: center; margin-top: 15px; }
+        canvas { background: #ffffff; border-radius: 8px; display: block; margin: 15px auto; border: 1px solid #94a3b8; }
+        .slider-box { margin: 15px 0; }
+        .slider-box input[type=range] { width: 80%; cursor: pointer; accent-color: #2563eb; }
+        .sim-info { display: flex; justify-content: space-around; background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 15px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>📐 STEM Mathematics: Tangent and Normal Lines</h1>
+        <p>Prepared by: <strong>Mr. Tarek Shawky</strong> | Grade 12 STEM Interactive Module</p>
+    </div>
+
+    <!-- SECTION 0: CORE RULES & FORMULAS -->
+    <div class="card">
+        <h2>0. Core Rules & Mathematical Formulas</h2>
+        <div class="rule-box">
+            <div class="rule-item"><strong>Tangent Slope (m<sub>t</sub>):</strong> m<sub>t</sub> = dy/dx = f'(x)</div>
+            <div class="rule-item"><strong>Slope of Perpendicular Normal (m<sub>n</sub>):</strong> m<sub>n</sub> = -1 / m<sub>t</sub></div>
+            <div class="rule-item"><strong>Tangent Line Equation:</strong> y - y<sub>0</sub> = m<sub>t</sub>(x - x<sub>0</sub>)</div>
+            <div class="rule-item"><strong>Normal Line Equation:</strong> y - y<sub>0</sub> = m<sub>n</sub>(x - x<sub>0</sub>)</div>
+        </div>
+    </div>
+
+    <!-- SECTION 1: LIVE INTERACTIVE LAB -->
+    <div class="card">
+        <h2>1. Live Interactive Lab: Curve, Tangent & Normal</h2>
+        <p>Explore the curve (Blue), <strong>Tangent Line (Green)</strong>, and <strong>Normal Line (Red - Perfectly Perpendicular)</strong> on a clear white background.</p>
+        
+        <div class="sim-container">
+            <div class="slider-box">
+                <label>Move Point x-position: <span id="xValDisplay">2.0</span></label><br>
+                <input type="range" id="xSlider" min="-3" max="3" step="0.1" value="2" oninput="updateSimulation()">
+            </div>
+            
+            <canvas id="calcCanvas" width="600" height="350"></canvas>
+            
+            <div class="sim-info">
+                <div>Point P: <span id="pCoord">(2.00, -2.00)</span></div>
+                <div style="color: #16a34a; font-weight: bold;">Tangent (m_t): <span id="mtVal">1.00</span></div>
+                <div style="color: #dc2626; font-weight: bold;">Normal (m_n): <span id="mnVal">-1.00</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: FIVE STEM EXAM-STYLE SOLVED EXAMPLES -->
+    <div class="card">
+        <h2>2. Five Advanced STEM Exam-Style Solved Examples</h2>
+        
+        <div class="example-box">
+            <strong>Example 1 (High-Level Implicit & Normal):</strong> Find the equation of the normal line to the curve x² + y² - 4x - 6y - 12 = 0 at the point (7, 5).<br>
+            <em>Step 1:</em> Implicit differentiation: 2x + 2y(dy/dx) - 4 - 6(dy/dx) = 0. At point (7,5), substituting gives dy/dx = m<sub>t</sub> = -3/4.<br>
+            <em>Step 2:</em> Normal slope m<sub>n</sub> = -1 / m<sub>t</sub> = 4/3. Equation: y - 5 = (4/3)(x - 7) ⇒ 4x - 3y - 13 = 0.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 2 (Parameter Optimization in Cubics):</strong> Find the value of k if the tangent line to y = kx³ - 3x² + 4x at x = 1 is perpendicular to the line x + 2y = 5.<br>
+            <em>Step 1:</em> Reference line slope is -1/2, so the required perpendicular tangent slope is m<sub>t</sub> = 2.<br>
+            <em>Step 2:</em> Find derivative: dy/dx = 3kx² - 6x + 4. At x = 1: 3k(1)² - 6(1) + 4 = 2 ⇒ 3k - 2 = 2 ⇒ 3k = 4 ⇒ k = 4/3.
+        </div>
+
+        <div class="example-box">
+            <strong>Example 3 (Points with Horizontal/Vertical Tangents):</strong> Find all points on the curve y = 2x³ - 9x² + 12x where the tangent line is horizontal.<br>
+            <em>Step 1:</em> Set slope m<sub>t</sub> = dy/dx = 6x² - 18x + 12 = 0.<br>
+            <em>Step 2:</em> Simplify to x² - 3x + 2 = 0 ⇒ (x - 1)(x - 2) = 0 ⇒ x = 1 or x = 2. Corresponding points are (1, 5) and (2, 4).
+        </div>
+
+        <div class="example-box">
+            <strong>Example 4 (Parallel Tangents to External Lines):</strong> Find the equations of the tangents to the curve y = x³ - 3x that are parallel to the line 9x - y = 5.<br>
+            <em>Step 1:</em> Parallel slope means m<sub>t</sub> = 9. Set dy/dx = 3x² - 3 = 9 ⇒ 3x² = 12 ⇒ x² = 4 ⇒ x = ±2.<br>
+            <em>Step 2:</em> At x = 2, point is (2, 2) and equation is y - 2 = 9(x - 2). At x = -2, point is (-2, -2) and equation is y + 2 = 9(x + 2).
+        </div>
+
+        <div class="example-box">
+            <strong>Example 5 (Exponential & Chain Rule Challenge):</strong> Find the equation of the normal line to y = x · e^(x-1) at x = 1.<br>
+            <em>Step 1:</em> Product rule: dy/dx = e^(x-1) + x · e^(x-1). At x = 1, m<sub>t</sub> = e^0 + 1(e^0) = 1 + 1 = 2.<br>
+            <em>Step 2:</em> Normal slope m<sub>n</sub> = -1/2. Point is (1, 1). Equation: y - 1 = -1/2(x - 1) ⇒ x + 2y - 3 = 0.
+        </div>
+    </div>
+
+    <!-- SECTION 3: STEM CLASS EXERCISES -->
+    <div class="card">
+        <h2>3. STEM Class Exercises (10 Comprehensive MCQs)</h2>
+        <p style="color: #2563eb; font-weight: bold;">📝 Answer the following 10 exam-level questions for class assessment:</p>
+        
+        <div>
+            <!-- Q1 -->
+            <div class="example-box">
+                <div class="quiz-question">1. Find the slope of the tangent line to y = 3x² - 5x + 2 at x = 2.</div>
+                <div class="options">
+                    <label><input type="radio" name="class1" value="A"> A) 7</label>
+                    <label><input type="radio" name="class1" value="B"> B) 5</label>
+                    <label><input type="radio" name="class1" value="C"> C) 11</label>
+                    <label><input type="radio" name="class1" value="D"> D) 3</label>
+                </div>
+                <button onclick="checkAnswer('class1', 'A', 'res_class1')">Submit Answer</button>
+                <div id="res_class1" class="result"></div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="example-box">
+                <div class="quiz-question">2. Find the slope of the normal line to y = x³ - 2x at x = 1.</div>
+                <div class="options">
+                    <label><input type="radio" name="class2" value="A"> A) 1</label>
+                    <label><input type="radio" name="class2" value="B"> B) -1</label>
+                    <label><input type="radio" name="class2" value="C"> C) 1/2</label>
+                    <label><input type="radio" name="class2" value="D"> D) -1/2</label>
+                </div>
+                <button onclick="checkAnswer('class2', 'B', 'res_class2')">Submit Answer</button>
+                <div id="res_class2" class="result"></div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="example-box">
+                <div class="quiz-question">3. What is the x-coordinate of the point where the tangent to y = x² - 4x + 5 is horizontal?</div>
+                <div class="options">
+                    <label><input type="radio" name="class3" value="A"> A) x = 2</label>
+                    <label><input type="radio" name="class3" value="B"> B) x = -2</label>
+                    <label><input type="radio" name="class3" value="C"> C) x = 0</label>
+                    <label><input type="radio" name="class3" value="D"> D) x = 4</label>
+                </div>
+                <button onclick="checkAnswer('class3', 'A', 'res_class3')">Submit Answer</button>
+                <div id="res_class3" class="result"></div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="example-box">
+                <div class="quiz-question">4. If the tangent line to y = kx² at x = 2 has a slope of 8, find k.</div>
+                <div class="options">
+                    <label><input type="radio" name="class4" value="A"> A) 1</label>
+                    <label><input type="radio" name="class4" value="B"> B) 2</label>
+                    <label><input type="radio" name="class4" value="C"> C) 4</label>
+                    <label><input type="radio" name="class4" value="D"> D) 8</label>
+                </div>
+                <button onclick="checkAnswer('class4', 'B', 'res_class4')">Submit Answer</button>
+                <div id="res_class4" class="result"></div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="example-box">
+                <div class="quiz-question">5. Find the slope of the normal line to y = √x at x = 4.</div>
+                <div class="options">
+                    <label><input type="radio" name="class5" value="A"> A) -4</label>
+                    <label><input type="radio" name="class5" value="B"> B) 4</label>
+                    <label><input type="radio" name="class5" value="C"> C) -1/4</label>
+                    <label><input type="radio" name="class5" value="D"> D) 1/4</label>
+                </div>
+                <button onclick="checkAnswer('class5', 'A', 'res_class5')">Submit Answer</button>
+                <div id="res_class5" class="result"></div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="example-box">
+                <div class="quiz-question">6. At what point on y = x² is the tangent line parallel to the line 4x - y = 1?</div>
+                <div class="options">
+                    <label><input type="radio" name="class6" value="A"> A) (1, 1)</label>
+                    <label><input type="radio" name="class6" value="B"> B) (2, 4)</label>
+                    <label><input type="radio" name="class6" value="C"> C) (4, 16)</label>
+                    <label><input type="radio" name="class6" value="D"> D) (0, 0)</label>
+                </div>
+                <button onclick="checkAnswer('class6', 'B', 'res_class6')">Submit Answer</button>
+                <div id="res_class6" class="result"></div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="example-box">
+                <div class="quiz-question">7. Find the slope of the tangent line to y = sin(x) at x = π/2.</div>
+                <div class="options">
+                    <label><input type="radio" name="class7" value="A"> A) 1</label>
+                    <label><input type="radio" name="class7" value="B"> B) 0</label>
+                    <label><input type="radio" name="class7" value="C"> C) -1</label>
+                    <label><input type="radio" name="class7" value="D"> D) undefined</label>
+                </div>
+                <button onclick="checkAnswer('class7', 'B', 'res_class7')">Submit Answer</button>
+                <div id="res_class7" class="result"></div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="example-box">
+                <div class="quiz-question">8. Find the slope of the normal line to y = x⁴ - 2x² at x = 1.</div>
+                <div class="options">
+                    <label><input type="radio" name="class8" value="A"> A) 0</label>
+                    <label><input type="radio" name="class8" value="B"> B) undefined (vertical tangent)</label>
+                    <label><input type="radio" name="class8" value="C"> C) 1</label>
+                    <label><input type="radio" name="class8" value="D"> D) -1</label>
+                </div>
+                <button onclick="checkAnswer('class8', 'B', 'res_class8')">Submit Answer</button>
+                <div id="res_class8" class="result"></div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="example-box">
+                <div class="quiz-question">9. If two perpendicular lines have slopes m₁ and m₂, what is m₁ · m₂?</div>
+                <div class="options">
+                    <label><input type="radio" name="class9" value="A"> A) 1</label>
+                    <label><input type="radio" name="class9" value="B"> B) 0</label>
+                    <label><input type="radio" name="class9" value="C"> C) -1</label>
+                    <label><input type="radio" name="class9" value="D"> D) undefined</label>
+                </div>
+                <button onclick="checkAnswer('class9', 'C', 'res_class9')">Submit Answer</button>
+                <div id="res_class9" class="result"></div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="example-box">
+                <div class="quiz-question">10. Find the equation of the tangent line to y = x³ at the origin (0, 0).</div>
+                <div class="options">
+                    <label><input type="radio" name="class10" value="A"> A) y = x</label>
+                    <label><input type="radio" name="class10" value="B"> B) y = 0</label>
+                    <label><input type="radio" name="class10" value="C"> C) x = 0</label>
+                    <label><input type="radio" name="class10" value="D"> D) y = 3x</label>
+                </div>
+                <button onclick="checkAnswer('class10', 'B', 'res_class10')">Submit Answer</button>
+                <div id="res_class10" class="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: HOMEWORK EXERCISES -->
+    <div class="card">
+        <h2>4. STEM Homework Exercises (10 Comprehensive MCQs)</h2>
+        <div class="student-box">
+            <label for="studentName">Enter Your Full Name:</label>
+            <input type="text" id="studentName" placeholder="e.g., Tarek Shawky">
+        </div>
+        <p style="color: #2563eb; font-weight: bold;">📝 Complete the following homework assignment:</p>
+        
+        <div>
+            <!-- HW1 -->
+            <div class="example-box">
+                <div class="quiz-question">1. Find the slope of the tangent line to y = 4x³ - 2x + 1 at x = 1.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw1" value="A"> A) 10</label>
+                    <label><input type="radio" name="hw1" value="B"> B) 12</label>
+                    <label><input type="radio" name="hw1" value="C"> C) 8</label>
+                    <label><input type="radio" name="hw1" value="D"> D) 6</label>
+                </div>
+                <button onclick="checkHomework('hw1', 'A', 'res_hw1')">Submit Homework Q1</button>
+                <div id="res_hw1" class="result"></div>
+            </div>
+
+            <!-- HW2 -->
+            <div class="example-box">
+                <div class="quiz-question">2. Find the slope of the normal line to y = 2x² - 3x at x = 2.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw2" value="A"> A) 5</label>
+                    <label><input type="radio" name="hw2" value="B"> B) -5</label>
+                    <label><input type="radio" name="hw2" value="C"> C) -1/5</label>
+                    <label><input type="radio" name="hw2" value="D"> D) 1/5</label>
+                </div>
+                <button onclick="checkHomework('hw2', 'C', 'res_hw2')">Submit Homework Q2</button>
+                <div id="res_hw2" class="result"></div>
+            </div>
+
+            <!-- HW3 -->
+            <div class="example-box">
+                <div class="quiz-question">3. What is the equation of the tangent line to y = x² at point (2, 4)?</div>
+                <div class="options">
+                    <label><input type="radio" name="hw3" value="A"> A) y = 4x - 4</label>
+                    <label><input type="radio" name="hw3" value="B"> B) y = 2x</label>
+                    <label><input type="radio" name="hw3" value="C"> C) y = 4x + 4</label>
+                    <label><input type="radio" name="hw3" value="D"> D) y = x + 2</label>
+                </div>
+                <button onclick="checkHomework('hw3', 'A', 'res_hw3')">Submit Homework Q3</button>
+                <div id="res_hw3" class="result"></div>
+            </div>
+
+            <!-- HW4 -->
+            <div class="example-box">
+                <div class="quiz-question">4. Find k if the tangent to y = x³ - kx at x = 1 has slope 1.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw4" value="A"> A) 1</label>
+                    <label><input type="radio" name="hw4" value="B"> B) 2</label>
+                    <label><input type="radio" name="hw4" value="C"> C) 0</label>
+                    <label><input type="radio" name="hw4" value="D"> D) -1</label>
+                </div>
+                <button onclick="checkHomework('hw4', 'B', 'res_hw4')">Submit Homework Q4</button>
+                <div id="res_hw4" class="result"></div>
+            </div>
+
+            <!-- HW5 -->
+            <div class="example-box">
+                <div class="quiz-question">5. Find the slope of the normal line to y = 1/x at x = 1.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw5" value="A"> A) -1</label>
+                    <label><input type="radio" name="hw5" value="B"> B) 1</label>
+                    <label><input type="radio" name="hw5" value="C"> C) 0</label>
+                    <label><input type="radio" name="hw5" value="D"> D) undefined</label>
+                </div>
+                <button onclick="checkHomework('hw5', 'B', 'res_hw5')">Submit Homework Q5</button>
+                <div id="res_hw5" class="result"></div>
+            </div>
+
+            <!-- HW6 -->
+            <div class="example-box">
+                <div class="quiz-question">6. At what point on y = x³ - 3x is the tangent line horizontal?</div>
+                <div class="options">
+                    <label><input type="radio" name="hw6" value="A"> A) x = 0</label>
+                    <label><input type="radio" name="hw6" value="B"> B) x = ±1</label>
+                    <label><input type="radio" name="hw6" value="C"> C) x = 2</label>
+                    <label><input type="radio" name="hw6" value="D"> D) x = ±2</label>
+                </div>
+                <button onclick="checkHomework('hw6', 'B', 'res_hw6')">Submit Homework Q6</button>
+                <div id="res_hw6" class="result"></div>
+            </div>
+
+            <!-- HW7 -->
+            <div class="example-box">
+                <div class="quiz-question">7. Find the slope of the tangent line to y = e^(2x) at x = 0.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw7" value="A"> A) 1</label>
+                    <label><input type="radio" name="hw7" value="B"> B) 2</label>
+                    <label><input type="radio" name="hw7" value="C"> C) e</label>
+                    <label><input type="radio" name="hw7" value="D"> D) 0</label>
+                </div>
+                <button onclick="checkHomework('hw7', 'B', 'res_hw7')">Submit Homework Q7</button>
+                <div id="res_hw7" class="result"></div>
+            </div>
+
+            <!-- HW8 -->
+            <div class="example-box">
+                <div class="quiz-question">8. Find the slope of the normal line to y = ln(x) at x = 1.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw8" value="A"> A) 1</label>
+                    <label><input type="radio" name="hw8" value="B"> B) -1</label>
+                    <label><input type="radio" name="hw8" value="C"> C) 0</label>
+                    <label><input type="radio" name="hw8" value="D"> D) undefined</label>
+                </div>
+                <button onclick="checkHomework('hw8', 'B', 'res_hw8')">Submit Homework Q8</button>
+                <div id="res_hw8" class="result"></div>
+            </div>
+
+            <!-- HW9 -->
+            <div class="example-box">
+                <div class="quiz-question">9. If a line is parallel to the x-axis, what is its slope?</div>
+                <div class="options">
+                    <label><input type="radio" name="hw9" value="A"> A) 0</label>
+                    <label><input type="radio" name="hw9" value="B"> B) 1</label>
+                    <label><input type="radio" name="hw9" value="C"> C) undefined</label>
+                    <label><input type="radio" name="hw9" value="D"> D) -1</label>
+                </div>
+                <button onclick="checkHomework('hw9', 'A', 'res_hw9')">Submit Homework Q9</button>
+                <div id="res_hw9" class="result"></div>
+            </div>
+
+            <!-- HW10 -->
+            <div class="example-box">
+                <div class="quiz-question">10. Find the equation of the normal line to y = 3x - 5 at any point.</div>
+                <div class="options">
+                    <label><input type="radio" name="hw10" value="A"> A) m_n = -1/3</label>
+                    <label><input type="radio" name="hw10" value="B"> B) m_n = 3</label>
+                    <label><input type="radio" name="hw10" value="C"> C) m_n = 1/3</label>
+                    <label><input type="radio" name="hw10" value="D"> D) m_n = -3</label>
+                </div>
+                <button onclick="checkHomework('hw10', 'A', 'res_hw10')">Submit Homework Q10</button>
+                <div id="res_hw10" class="result"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('calcCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function f(x) { return 0.25 * Math.pow(x, 3) - 2 * x; }
+    function df(x) { return 0.75 * Math.pow(x, 2) - 2; }
+
+    function updateSimulation() {
+        let xVal = parseFloat(document.getElementById('xSlider').value);
+        document.getElementById('xValDisplay').innerText = xVal.toFixed(1);
+        let yVal = f(xVal);
+        let mt = df(xVal);
+        let mn = mt !== 0 ? -1 / mt : 0;
+        document.getElementById('pCoord').innerText = `(${xVal.toFixed(2)}, ${yVal.toFixed(2)})`;
+        document.getElementById('mtVal').innerText = mt.toFixed(2);
+        document.getElementById('mnVal').innerText = mn.toFixed(2);
+        drawGraph(xVal, yVal, mt, mn);
+    }
+
+    function drawGraph(px, py, mt, mn) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let scaleX = 75, scaleY = 35;
+        let originX = canvas.width / 2, originY = canvas.height / 2;
+
+        ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1;
+        for (let i = -4; i <= 4; i++) {
+            let gx = originX + i * scaleX;
+            ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, canvas.height); ctx.stroke();
+            let gy = originY + i * scaleY;
+            ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(canvas.width, gy); ctx.stroke();
+        }
+
+        ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(0, originY); ctx.lineTo(canvas.width, originY);
+        ctx.moveTo(originX, 0); ctx.lineTo(originX, canvas.height); ctx.stroke();
+
+        ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3;
+        ctx.beginPath();
+        for (let pxCoord = 0; pxCoord <= canvas.width; pxCoord += 2) {
+            let x = (pxCoord - originX) / scaleX;
+            let y = f(x);
+            let pyCoord = originY - (y * scaleY);
+            if (pxCoord === 0) ctx.moveTo(pxCoord, pyCoord); else ctx.lineTo(pxCoord, pyCoord);
+        }
+        ctx.stroke();
+
+        let pointScreenX = originX + (px * scaleX);
+        let pointScreenY = originY - (py * scaleY);
+        ctx.fillStyle = '#b91c1c';
+        ctx.beginPath(); ctx.arc(pointScreenX, pointScreenY, 6, 0, 2 * Math.PI); ctx.fill();
+
+        ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        let x1 = -4, y1 = py + mt * (x1 - px);
+        let x2 = 4, y2 = py + mt * (x2 - px);
+        ctx.moveTo(originX + x1 * scaleX, originY - y1 * scaleY);
+        ctx.lineTo(originX + x2 * scaleX, originY - y2 * scaleY);
+        ctx.stroke();
+
+        if (mt !== 0) {
+            ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            let aspectCorrection = (scaleX / scaleY) * (scaleX / scaleY);
+            let trueMn = -aspectCorrection / mt;
+            let nx1 = -4, ny1 = py + trueMn * (nx1 - px);
+            let nx2 = 4, ny2 = py + trueMn * (nx2 - px);
+            ctx.moveTo(originX + nx1 * scaleX, originY - ny1 * scaleY);
+            ctx.lineTo(originX + nx2 * scaleX, originY - ny2 * scaleY);
+            ctx.stroke();
+        }
+    }
+
+    window.onload = function() { updateSimulation(); };
+
+    function checkAnswer(questionName, correctAnswer, resultId) {
+        const resDiv = document.getElementById(resultId);
+        const radios = document.getElementsByName(questionName);
+        let selectedValue = null;
+        for (const radio of radios) {
+            if (radio.checked) { selectedValue = radio.value; break; }
+        }
+
+        if (!selectedValue) {
+            resDiv.style.backgroundColor = "#fef3c7"; resDiv.style.color = "#d97706";
+            resDiv.innerText = "⚠️ Please select an option first.";
+        } else if (selectedValue === correctAnswer) {
+            resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
+            resDiv.innerText = "✅ Correct! Excellent work.";
+        } else {
+            resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
+            resDiv.innerText = `❌ Incorrect. Correct answer is: ${correctAnswer}`;
+        }
+    }
+
+    function checkHomework(questionName, correctAnswer, resultId) {
+        const studentName = document.getElementById('studentName').value.trim();
+        const resDiv = document.getElementById(resultId);
+
+        if (!studentName) {
+            alert("⚠️ Please enter your full name in the box above before submitting your homework!");
+            document.getElementById('studentName').focus();
+            return;
+        }
+
+        const radios = document.getElementsByName(questionName);
+        let selectedValue = null;
+        for (const radio of radios) {
+            if (radio.checked) { selectedValue = radio.value; break; }
+        }
+
+        if (!selectedValue) {
+            resDiv.style.backgroundColor = "#fef3c7"; resDiv.style.color = "#d97706";
+            resDiv.innerText = "⚠️ Please select an option first.";
+        } else if (selectedValue === correctAnswer) {
+            resDiv.style.backgroundColor = "#dcfce7"; resDiv.style.color = "#16a34a";
+            resDiv.innerText = `✅ Great job, ${studentName}! Correct answer.`;
+        } else {
+            resDiv.style.backgroundColor = "#fee2e2"; resDiv.style.color = "#dc2626";
+            resDiv.innerText = `❌ Incorrect, ${studentName}. Correct answer is: ${correctAnswer}`;
+        }
+    }
+</script>
+</body>
+</html>
