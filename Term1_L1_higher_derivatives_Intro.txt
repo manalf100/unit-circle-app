@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM Calculus Lesson - Complete Interactive Module</title>
+    <!-- مكتبة لعرض الرياضات بدقة -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; color: #222; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1, h2 { color: #1a73e8; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        .box { background: #e8f0fe; border-left: 5px solid #1a73e8; padding: 20px; margin-bottom: 25px; border-radius: 4px; }
+        .interactive-box { background: #f1f3f4; border: 2px dashed #1a73e8; padding: 20px; text-align: center; margin-bottom: 25px; border-radius: 6px; }
+        .example-box { background: #fef7e0; border-left: 5px solid #f9ab00; padding: 15px; margin-bottom: 15px; border-radius: 4px; }
+        .exercise-box { background: #f1f3f4; border-left: 5px solid #34a853; padding: 15px; margin-bottom: 15px; border-radius: 4px; }
+        .options label { display: block; margin: 8px 0; padding: 8px; background: #fff; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; }
+        .options label:hover { background: #e9ecef; }
+        .btn { background-color: #1a73e8; color: white; border: none; padding: 10px 20px; font-size: 1em; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        .btn:hover { background-color: #1557b0; }
+        .feedback { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Calculus Lesson: Derivatives, Tangents & Applications</h1>
+    
+    <!-- 1. Rules & Concepts -->
+    <div class="box">
+        <h2>1. Key Rules & Concepts</h2>
+        <p><strong>First Derivative (\( f'(x) \)):</strong> Represents the instantaneous rate of change and the slope of the tangent line to the curve at any point.</p>
+        <p><strong>Second Derivative (\( f''(x) \)):</strong> Represents the rate of change of the slope, used to determine concavity.</p>
+        <p><strong>Power Rule:</strong> If \( f(x) = x^n \), then \( f'(x) = n x^{n-1} \).</p>
+    </div>
+
+    <!-- 2. Interactive Section (Tangent & Curve simulation) -->
+    <div class="interactive-box">
+        <h2>2. Interactive Curve & Tangent Simulator</h2>
+        <p>Drag the slider to observe how the tangent line moves along the curve dynamically:</p>
+        <input type="range" id="tangentSlider" min="-5" max="5" step="0.1" value="0" style="width: 80%; cursor: pointer;" oninput="updateSimulator(this.value)">
+        <p id="sliderValueText" style="margin-top: 10px; font-weight: bold; color: #1a73e8;">At x = 0.0 | Slope (Tangent) = 0.0</p>
+    </div>
+
+    <!-- 3. Five Step-by-Step Examples -->
+    <h2>3. Step-by-Step Examples</h2>
+    
+    <div class="example-box">
+        <strong>Example 1:</strong> Find the derivative of \( f(x) = 4x^3 - 2x + 5 \).<br>
+        <em>Step-by-step:</em> Apply power rule to each term. \( f'(x) = 4(3x^2) - 2(1) + 0 = 12x^2 - 2 \).
+    </div>
+    <div class="example-box">
+        <strong>Example 2:</strong> Find the second derivative of \( f(x) = 5x^4 - 3x^2 \).<br>
+        <em>Step-by-step:</em> First derivative = \( 20x^3 - 6x \). Second derivative = \( 60x^2 - 6 \).
+    </div>
+    <div class="example-box">
+        <strong>Example 3:</strong> Find the slope of the tangent line to \( f(x) = x^2 \) at \( x = 3 \).<br>
+        <em>Step-by-step:</em> Derivative is \( f'(x) = 2x \). Substitute \( x = 3 \): Slope = \( 2(3) = 6 \).
+    </div>
+    <div class="example-box">
+        <strong>Example 4:</strong> Find the critical points of \( f(x) = x^3 - 3x \).<br>
+        <em>Step-by-step:</em> Set \( f'(x) = 3x^2 - 3 = 0 \). Solving gives \( x = 1 \) and \( x = -1 \).
+    </div>
+    <div class="example-box">
+        <strong>Example 5:</strong> Evaluate the rate of change for \( f(t) = t^3 - 6t^2 + 9t \) at \( t = 2 \).<br>
+        <em>Step-by-step:</em> \( f'(t) = 3t^2 - 12t + 9 \). At \( t = 2 \): \( 3(4) - 12(2) + 9 = 12 - 24 + 9 = -3 \).
+    </div>
+
+    <!-- 4. Ten Class Exercises (MCQ) -->
+    <h2>4. Class Exercises (MCQ)</h2>
+
+    <!-- Exercise 1 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q1:</strong> If \( f(x) = 3x^4 - 5x^2 + 7 \), find \( f''(x) \).</div>
+        <div class="options" id="q1-opts">
+            <label><input type="radio" name="q1" value="a"> A) \( 12x^3 - 10x \)</label>
+            <label><input type="radio" name="q1" value="b"> B) \( 36x^2 - 10 \)</label>
+            <label><input type="radio" name="q1" value="c"> C) \( 36x^2 - 10x \)</label>
+            <label><input type="radio" name="q1" value="d"> D) \( 72x - 10 \)</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(1, 'b')">Submit Answer</button>
+        <div class="feedback" id="q1-fb"></div>
+    </div>
+
+    <!-- Exercise 2 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q2:</strong> What is the derivative of \( f(x) = 6x^3 - 9 \)?</div>
+        <div class="options" id="q2-opts">
+            <label><input type="radio" name="q2" value="a"> A) \( 18x^2 \)</label>
+            <label><input type="radio" name="q2" value="b"> B) \( 18x^2 - 9 \)</label>
+            <label><input type="radio" name="q2" value="c"> C) \( 6x^2 - 9 \)</label>
+            <label><input type="radio" name="q2" value="d"> D) \( 36x \)</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(2, 'a')">Submit Answer</button>
+        <div class="feedback" id="q2-fb"></div>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q3:</strong> Find the slope of \( f(x) = x^2 - 4x + 3 \) at \( x = 1 \).</div>
+        <div class="options" id="q3-opts">
+            <label><input type="radio" name="q3" value="a"> A) 2</label>
+            <label><input type="radio" name="q3" value="b"> B) -2</label>
+            <label><input type="radio" name="q3" value="c"> C) 0</label>
+            <label><input type="radio" name="q3" value="d"> D) 4</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(3, 'b')">Submit Answer</button>
+        <div class="feedback" id="q3-fb"></div>
+    </div>
+
+    <!-- Exercise 4 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q4:</strong> If \( f(x) = 2x^5 \), what is \( f'(x) \)?</div>
+        <div class="options" id="q4-opts">
+            <label><input type="radio" name="q4" value="a"> A) \( 5x^4 \)</label>
+            <label><input type="radio" name="q4" value="b"> B) \( 10x^4 \)</label>
+            <label><input type="radio" name="q4" value="c"> C) \( 2x^4 \)</label>
+            <label><input type="radio" name="q4" value="d"> D) \( 10x^5 \)</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(4, 'b')">Submit Answer</button>
+        <div class="feedback" id="q4-fb"></div>
+    </div>
+
+    <!-- Exercise 5 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q5:</strong> Second derivative of \( f(x) = 4x^3 \) is:</div>
+        <div class="options" id="q5-opts">
+            <label><input type="radio" name="q5" value="a"> A) \( 12x^2 \)</label>
+            <label><input type="radio" name="q5" value="b"> B) \( 24x \)</label>
+            <label><input type="radio" name="q5" value="c"> C) \( 24x^2 \)</label>
+            <label><input type="radio" name="q5" value="d"> D) \( 12x \)</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(5, 'b')">Submit Answer</button>
+        <div class="feedback" id="q5-fb"></div>
+    </div>
+
+    <!-- Exercise 6 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q6:</strong> Find the derivative of a constant function \( f(x) = 15 \).</div>
+        <div class="options" id="q6-opts">
+            <label><input type="radio" name="q6" value="a"> A) 15</label>
+            <label><input type="radio" name="q6" value="b"> B) 1</label>
+            <label><input type="radio" name="q6" value="c"> C) 0</label>
+            <label><input type="radio" name="q6" value="d"> D) 15x</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(6, 'c')">Submit Answer</button>
+        <div class="feedback" id="q6-fb"></div>
+    </div>
+
+    <!-- Exercise 7 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q7:</strong> If \( f(x) = x^3 - 3x^2 \), find critical points where \( f'(x) = 0 \).</div>
+        <div class="options" id="q7-opts">
+            <label><input type="radio" name="q7" value="a"> A) x = 0, x = 2</label>
+            <label><input type="radio" name="q7" value="b"> B) x = 1, x = 3</label>
+            <label><input type="radio" name="q7" value="c"> C) x = 0, x = 3</label>
+            <label><input type="radio" name="q7" value="d"> D) x = -1, x = 2</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(7, 'a')">Submit Answer</button>
+        <div class="feedback" id="q7-fb"></div>
+    </div>
+
+    <!-- Exercise 8 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q8:</strong> What is the derivative of \( f(x) = 7x - 4 \)?</div>
+        <div class="options" id="q8-opts">
+            <label><input type="radio" name="q8" value="a"> A) 7</label>
+            <label><input type="radio" name="q8" value="b"> B) 7x</label>
+            <label><input type="radio" name="q8" value="c"> C) -4</label>
+            <label><input type="radio" name="q8" value="d"> D) 3</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(8, 'a')">Submit Answer</button>
+        <div class="feedback" id="q8-fb"></div>
+    </div>
+
+    <!-- Exercise 9 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q9:</strong> If position is \( s(t) = t^2 + 3t \), what is velocity at \( t = 4 \)?</div>
+        <div class="options" id="q9-opts">
+            <label><input type="radio" name="q9" value="a"> A) 8</label>
+            <label><input type="radio" name="q9" value="b"> B) 11</label>
+            <label><input type="radio" name="q9" value="c"> C) 7</label>
+            <label><input type="radio" name="q9" value="d"> D) 14</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(9, 'b')">Submit Answer</button>
+        <div class="feedback" id="q9-fb"></div>
+    </div>
+
+    <!-- Exercise 10 -->
+    <div class="exercise-box">
+        <div class="question"><strong>Q10:</strong> Third derivative of \( f(x) = x^3 \) is:</div>
+        <div class="options" id="q10-opts">
+            <label><input type="radio" name="q10" value="a"> A) 0</label>
+            <label><input type="radio" name="q10" value="b"> B) 3</label>
+            <label><input type="radio" name="q10" value="c"> C) 6</label>
+            <label><input type="radio" name="q10" value="d"> D) 6x</label>
+        </div>
+        <button class="btn" onclick="checkMCQ(10, 'c')">Submit Answer</button>
+        <div class="feedback" id="q10-fb"></div>
+    </div>
+
+    <!-- 5. Homework Section -->
+    <div class="box" style="background: #e6f4ea; border-left-color: #34a853;">
+        <h2>5. Homework Assignment</h2>
+        <p><strong>HW Problem:</strong> Find the first and second derivatives of the function \( f(x) = 2x^4 - 5x^3 + 8x - 1 \), and determine the slope of the tangent at \( x = 1 \).</p>
+    </div>
+
+</div>
+
+<script>
+    function updateSimulator(val) {
+        let slope = (2 * parseFloat(val)).toFixed(1);
+        document.getElementById('sliderValueText').innerText = "At x = " + val + " | Slope (Tangent) = " + slope;
+    }
+
+    function checkMCQ(qNum, correctAns) {
+        let radios = document.getElementsByName('q' + qNum);
+        let selected = null;
+        for (let r of radios) {
+            if (r.checked) { selected = r.value; break; }
+        }
+        let fb = document.getElementById('q' + qNum + '-fb');
+        if (!selected) {
+            fb.style.color = "orange";
+            fb.innerText = "⚠️ Please select an option!";
+            return;
+        }
+        if (selected === correctAns) {
+            fb.style.color = "green";
+            fb.innerText = "✅ Correct!";
+        } else {
+            fb.style.color = "red";
+            fb.innerText = "❌ Incorrect. Try again!";
+        }
+    }
+</script>
+
+</body>
+</html>
